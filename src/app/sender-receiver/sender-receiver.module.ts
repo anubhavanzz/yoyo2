@@ -1,5 +1,5 @@
+import { CommonModule } from './../common/common.module';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { PopularGiftsComponent } from './popular-gifts/popular-gifts.component';
 import { NewGiftsComponent } from './new-gifts/new-gifts.component';
 import { GiftDetailsComponent } from './gift-details/gift-details.component';
@@ -9,7 +9,8 @@ import { GiftHistoryComponent } from './gift-history/gift-history.component';
 import { GiftReviewComponent } from './gift-review/gift-review.component';
 
 @NgModule({
-  declarations: [PopularGiftsComponent, NewGiftsComponent, GiftDetailsComponent, GiveAGiftComponent, ProfilePageComponent, GiftHistoryComponent, GiftReviewComponent],
+  declarations: [PopularGiftsComponent,
+    NewGiftsComponent, GiftDetailsComponent, GiveAGiftComponent, ProfilePageComponent, GiftHistoryComponent, GiftReviewComponent],
   imports: [
     CommonModule
   ]
