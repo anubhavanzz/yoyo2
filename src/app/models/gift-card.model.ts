@@ -1,11 +1,12 @@
 export class GiftAddModel {
     $giftCardId: string;
-    image: string;
+    giftImageUrl: string;
     points: string;
-    description: string;
-    price: number;
+    giftDescription: string;
+    giftPrice: number;
     createdDate: string;
     $categoryId: string;
     numberOfTimesBought: number;
-    brand: string;
+    giftBrand: string;
+    giftName: string;
 }

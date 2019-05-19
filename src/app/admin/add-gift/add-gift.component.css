@@ -10,3 +10,28 @@
     width: 100%;
   }
   
+  .align-left {
+    /* float: left; */
+    left: 0;
+    /* background-color:lightblue; */
+  }
+
+  .align-right {
+    /* float: right; */
+    right: 0;
+    /* background-color: lightgreen; */
+  }
+
+  .split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+
+  .float-right {
+    float: right;
+  }
