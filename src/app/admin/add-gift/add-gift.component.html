@@ -1,3 +1,46 @@
-<p>
-  add-gift works!
-</p>
+<div class="split align-left">
+    <h2 class="example-form">
+        Add a New Gift
+      </h2>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Gift Name" [(ngModel)]="newGiftDetails.giftName" [ngModelOptions]="{standalone: true}">
+      <mat-error> Required field </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Gift Description" [(ngModel)]="newGiftDetails.giftDescription" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Price" [(ngModel)]="newGiftDetails.giftPrice" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Brand" [(ngModel)]="newGiftDetails.giftBrand" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Image URL" [(ngModel)]="newGiftDetails.giftImageUrl" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+
+    <!-- <img src="https://www.kennsingtongolf.com/wp-content/uploads/sites/6602/2017/11/gift_card-1.jpg" alt="cart" height="400px" width="400px"> -->
+    <!-- <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Leave a comment"></textarea>
+  </mat-form-field> -->
+  <button class="float-right" mat-raised-button color="primary">Submit</button>
+  </form>
+</div>
+
+<div class="split align-right">
+  <mat-card class="example-card split align-right">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Gift Name: {{newGiftDetails.giftName}}</mat-card-title>
+      <mat-card-subtitle>Price: {{newGiftDetails.giftPrice}}</mat-card-subtitle>
+      <mat-card-subtitle>Brand: {{newGiftDetails.giftBrand}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{newGiftDetails.giftImageUrl}}" alt="Photo of your New Gift" height="100px" width="100px">
+    <mat-card-content>
+      <p>
+          Gift Description: {{newGiftDetails.giftDescription}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>
