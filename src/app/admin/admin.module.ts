@@ -7,11 +7,12 @@ import { FormsModule } from '@angular/forms';
 import { AllGiftsComponent } from './all-gifts/all-gifts.component';
 // import { CommonModule } from '../common/common.module';
 
+import { AdminRoutingModule } from './admin-routes.module';
 
 @NgModule({
   declarations: [EditGiftComponent, AddGiftComponent, AllGiftsComponent ],
   imports: [
-    CommonModule, MaterialModule, FormsModule
+    CommonModule, MaterialModule, FormsModule, AdminRoutingModule
   ],
   exports: [EditGiftComponent, AddGiftComponent, AllGiftsComponent],
   // schemas: [CUSTOM_ELEMENTS_SCHEMA],

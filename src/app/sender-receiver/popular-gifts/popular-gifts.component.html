@@ -1,3 +1,27 @@
-<p>
-  popular-gifts works!
-</p>
+<mat-card class="example-card">
+            
+  <img mat-card-image src="{{ImageUrl.value}}" alt="Image">
+  <mat-card-header>
+      
+      <mat-card-title>Name : {{Name.value}}</mat-card-title>
+      <mat-card-subtitle>Brand : {{Brand.value}}</mat-card-subtitle>
+    </mat-card-header>
+  
+  <mat-card-content>
+    <p>
+     {{Description.value}}
+    </p>
+    <table>
+      <tr>
+        <td><mat-card-subtitle> Points : {{Points.value}}</mat-card-subtitle></td>
+        <td><mat-card-subtitle>Price : {{Price.value}}</mat-card-subtitle></td>
+      </tr>
+      <tr>
+          <mat-card-subtitle> Category : {{Category.value}}</mat-card-subtitle>
+      </tr>
+    </table>
+  </mat-card-content>
+  <!-- <mat-card-actions>
+      <button mat-raised-button color="primary">Add Book</button>
+  </mat-card-actions> -->
+</mat-card>

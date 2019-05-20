@@ -5,7 +5,7 @@ body {
     margin: 0;
     /* background: #222; */
     font-family: "Open Sans", Verdana, Geneva, Tahoma, sans-serif;
-    color: #fff;
+    /* color: #fblack; */
 }
 body * {
     transition: all 0.400s ease-in-out;

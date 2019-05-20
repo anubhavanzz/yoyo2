@@ -18,31 +18,32 @@ export class AddGiftComponent implements OnInit {
     Description: ['', Validators.required],
     Price: ['', Validators.required],
     CreatedDate: [''],
-    CategoryId: ['', Validators.required],
+    categoryName: ['', Validators.required],
     NumberOfTimesBought: [''],
     Brand: ['', Validators.required],
     Name: ['', Validators.required]
   });
   name = '';
   constructor(private fb: FormBuilder,
-              private giftCardService: GiftCardService,
-              private tostr: ToastrService
-              ) { }
+    private giftCardService: GiftCardService,
+    private tostr: ToastrService
+  ) { }
 
   public ngOnInit() {
-
   }
-  onAdd(giftForm) {
+
+  onSave(giftForm) {
     const newGift = new GiftCard();
     newGift.createdDate = new Date().toString();
     newGift.numberOfTimesBought = 0;
     newGift.brand = giftForm.value.Brand;
     newGift.name = giftForm.value.Name;
-    newGift.categoryId = giftForm.value.CategoryId;
+    newGift.categoryName = giftForm.value.categoryName;
     newGift.description = giftForm.value.Description;
     newGift.imageUrl = giftForm.value.ImageUrl;
     newGift.points = giftForm.value.Points;
     newGift.price = giftForm.value.Price;
+
     console.log(giftForm);
     console.log(newGift);
     this.giftCardService.addGiftCardToFirebase(newGift);

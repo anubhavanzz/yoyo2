@@ -15,7 +15,7 @@ export class GiftCardService {
   }
   getAllGiftCardsFromFirebase() {
     this.giftCardsList = this.db.list('GiftCard');
-    return this.giftCardsList.snapshotChanges;
+    return this.giftCardsList.snapshotChanges();
   }
 
   updateGiftCardInFirebase(giftCard: GiftCard) {
@@ -25,11 +25,15 @@ export class GiftCardService {
       description: giftCard.description,
       price: giftCard.price,
       createdDate: giftCard.createdDate,
-      categoryId: giftCard.categoryId,
+      categoryName: giftCard.categoryName,
       numberOfTimesBought: giftCard.numberOfTimesBought,
       brand: giftCard.brand,
       name: giftCard.name
     });
+  }
+
+  deleteGiftCardFromFirebase($key) {
+    this.giftCardsList.remove($key);
   }
 
 }

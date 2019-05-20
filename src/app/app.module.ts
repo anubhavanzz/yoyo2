@@ -11,7 +11,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { MatButtonModule } from '@angular/material/button';
-import { AdminModule } from 'src/app/admin/admin.module';
+// import { AdminModule } from 'src/app/admin/admin.module';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material';
@@ -36,7 +36,7 @@ import { MatFormFieldModule } from '@angular/material';
     MatListModule,
     MatToolbarModule,
     RouterModule,
-    AdminModule,
+    // AdminModule,
     MatInputModule,
     FormsModule,
     MatFormFieldModule,
