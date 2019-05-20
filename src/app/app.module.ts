@@ -26,6 +26,8 @@ import { MatFormFieldModule } from '@angular/material';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatButtonModule,
+    CommonModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule ,

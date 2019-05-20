@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { GiftAddModel } from 'src/app/models/gift-card.model';
+import { FormBuilder, FormGroup, Validators, FormsModule, NgForm } from '@angular/forms';
+import { GiftCard } from 'src/app/models/gift-card.model';
+import { GiftCardService } from 'src/app/common/services/gift-card.service';
 
 @Component({
   selector: 'app-add-gift',
@@ -8,26 +10,36 @@ import { GiftAddModel } from 'src/app/models/gift-card.model';
 })
 export class AddGiftComponent implements OnInit {
 
-  constructor() { }
-  public newGiftDetails: GiftAddModel;
 
-  public ngOnInit(): void {
-    this.initializeNewGiftModel();
+  giftForm = this.fb.group({
+    ImageUrl: ['', Validators.required],
+    Points: ['', Validators.required],
+    Description: ['', Validators.required],
+    Price: ['', Validators.required],
+    CreatedDate: [''],
+    CategoryId: ['', Validators.required],
+    NumberOfTimesBought: [''],
+    Brand: ['', Validators.required],
+    Name: ['', Validators.required]
+  });
+  name = '';
+  constructor(private fb: FormBuilder, private giftCardService: GiftCardService) { }
+
+  public ngOnInit() {
+
   }
-
-  public initializeNewGiftModel(): void {
-    this.newGiftDetails = {
-      $giftCardId: '',
-      giftImageUrl: 'https://emeraldgreensgolf.com/wp-content/uploads/2015/12/generic-gift-card.jpg',
-      points: '',
-      giftDescription: '',
-      giftPrice: undefined,
-      createdDate: '',
-      $categoryId: '',
-      numberOfTimesBought: undefined,
-      giftBrand: '',
-      giftName: ''
-    };
+  onAdd(giftForm) {
+    const newGift  = new GiftCard();
+    // newGift.createdDate = new Date().toString();
+    // newGift.numberOfTimesBought = 0;
+    // newGift.Brand= giftForm.value.Brand;
+    // newGift.Name= giftForm.value.Name;
+    // newGift.categoryId=giftForm.value.CategoryId;
+    // newGift.description=giftForm.value.Description;
+    // newGift.imageUrl=giftForm.value.ImageUrl;
+    // newGift.points=giftForm.value.points;
+    // newGift.p
+    console.log(giftForm);
+    console.log(newGift);
   }
-
 }

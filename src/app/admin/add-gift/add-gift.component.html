@@ -1,46 +1,129 @@
-<div class="split align-left">
-    <h2 class="example-form">
-        Add a New Gift
-      </h2>
-  <form class="example-form">
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Gift Name" [(ngModel)]="newGiftDetails.giftName" [ngModelOptions]="{standalone: true}">
-      <mat-error> Required field </mat-error>
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Gift Description" [(ngModel)]="newGiftDetails.giftDescription" [ngModelOptions]="{standalone: true}">
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Price" [(ngModel)]="newGiftDetails.giftPrice" [ngModelOptions]="{standalone: true}">
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Brand" [(ngModel)]="newGiftDetails.giftBrand" [ngModelOptions]="{standalone: true}">
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Image URL" [(ngModel)]="newGiftDetails.giftImageUrl" [ngModelOptions]="{standalone: true}">
-    </mat-form-field>
+<div class="container-fluid">
+  <div class="row">
+    <!-- Form to add Gift card -->
+    <div class="col-6 border">
+      <div>
+        <mat-toolbar>
+          <h3>Add Gift Card</h3>
+        </mat-toolbar>
+      </div>
+      <div>
+        <form [formGroup]="giftForm" (ngSubmit)="onAdd(giftForm)" class="example-form">
+          <table>
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Gift Name" formControlName="Name" #Name>
+                </mat-form-field>
+                <mat-error>
+                  <span *ngIf="!giftForm.get('Name').valid && giftForm.get('Name').touched">Add Name </span>
+                </mat-error>
+              </td>
+              <td>
+                <mat-form-field>
+                  <input matInput placeholder="Brand Name" formControlName="Brand" #Brand> 
+                </mat-form-field>
+                <mat-error>
+                  <span *ngIf="!giftForm.get('Brand').valid && giftForm.get('Brand').touched">Add Brand </span>
+                </mat-error>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field>
+                  <input matInput placeholder="Points" formControlName="Points" #Points>
+                </mat-form-field>
+                <mat-error>
+                  <span *ngIf="!giftForm.get('Points').valid && giftForm.get('Points').touched">Add Brand </span>
+                </mat-error>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-select formControlName="CategoryId" placeholder="Select Category" #Category>
+                    <mat-option>-- Select Any --</mat-option>
+                    <mat-option value="ECommerce">ECommerece</mat-option>
+                    <mat-option value="Home">Home</mat-option>
+                    <mat-option value="Holiday">Holiday</mat-option>
+                  </mat-select>
+                  <mat-error>
+                    <span *ngIf="!giftForm.get('CategoryId').valid && giftForm.get('CategoryId').touched">Please select
+                      any Category !!!</span>
+                  </mat-error>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field>
+                  <input matInput placeholder="Price" formControlName="Price" #Price>
+                </mat-form-field>
+                <mat-error>
+                  <span *ngIf="!giftForm.get('Price').valid && giftForm.get('Price').touched">Add Price </span>
+                </mat-error>
+              </td>
+              <td>
+                <mat-form-field>
+                  <textarea matInput placeholder="Leave a comment" formControlName="Description" #Description></textarea>
+                </mat-form-field>
+                <mat-error>
+                  <span *ngIf="!giftForm.get('Description').valid && giftForm.get('Description').touched">Add
+                    Description </span>
+                </mat-error>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field>
+                  <input matInput placeholder="Image URL" formControlName="ImageUrl" #ImageUrl>
+                </mat-form-field>
+                <mat-error>
+                  <span *ngIf="!giftForm.get('ImageUrl').valid && giftForm.get('ImageUrl').touched">Add
+                    ImageUrl </span>
+                </mat-error>
+              </td>
+            </tr>
+            <tr>
+              <div class="row ml-4">
 
-    <!-- <img src="https://www.kennsingtongolf.com/wp-content/uploads/sites/6602/2017/11/gift_card-1.jpg" alt="cart" height="400px" width="400px"> -->
-    <!-- <mat-form-field class="example-full-width">
-    <textarea matInput placeholder="Leave a comment"></textarea>
-  </mat-form-field> -->
-  <button class="float-right" mat-raised-button color="primary">Submit</button>
-  </form>
-</div>
+                <button mat-raised-button color="primary" [disabled]="!giftForm.valid">Add Gift</button>
+              </div>
+            </tr>
+          </table>
+        </form>
 
-<div class="split align-right">
-  <mat-card class="example-card split align-right">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Gift Name: {{newGiftDetails.giftName}}</mat-card-title>
-      <mat-card-subtitle>Price: {{newGiftDetails.giftPrice}}</mat-card-subtitle>
-      <mat-card-subtitle>Brand: {{newGiftDetails.giftBrand}}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="{{newGiftDetails.giftImageUrl}}" alt="Photo of your New Gift" height="100px" width="100px">
-    <mat-card-content>
-      <p>
-          Gift Description: {{newGiftDetails.giftDescription}}
-      </p>
-    </mat-card-content>
-  </mat-card>
+      </div>
+
+    </div>
+    <!-- Showing the preview of the Gift Card -->
+    <div class="col-6 ">
+    
+        <mat-card class="example-card">
+            
+            <img mat-card-image src="{{ImageUrl.value}}" alt="Image">
+            <mat-card-header>
+                
+                <mat-card-title>Name : {{Name.value}}</mat-card-title>
+                <mat-card-subtitle>Brand : {{Brand.value}}</mat-card-subtitle>
+              </mat-card-header>
+            
+            <mat-card-content>
+              <p>
+               {{Description.value}}
+              </p>
+              <table>
+                <tr>
+                  <td><mat-card-subtitle> Points : {{Points.value}}</mat-card-subtitle></td>
+                  <td><mat-card-subtitle>Price : {{Price.value}}</mat-card-subtitle></td>
+                </tr>
+                <tr>
+                    <mat-card-subtitle> Category : {{Category.value}}</mat-card-subtitle>
+                </tr>
+              </table>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary">Add Book</button>
+            </mat-card-actions>
+          </mat-card>
+    </div>
+  </div>
 </div>
