@@ -4,9 +4,10 @@ import { LoginComponent } from './common/login/login.component';
 import { AppCustomPreloader } from './customPreLoader';
 import { ModuleWithProviders } from '@angular/compiler/src/core';
 import { AppComponent } from './app.component';
+import { SenderReceiverModule } from './sender-receiver/sender-receiver.module';
 
 const routes: Routes = [
-  // { path: 'add-gift', component: AddGiftComponent },
+  // { path: 'add-gift', component: SenderReceiverModule },
   // { path: 'login', component: LoginComponent },
    {
     path: '',
@@ -18,7 +19,7 @@ const routes: Routes = [
   },
   {
     path: 'sender-receiver',
-    loadChildren: './sender-reciever/sender-receiver.module#SenderReceiverModule'
+    loadChildren: './sender-receiver/sender-receiver.module#SenderReceiverModule'
   },
   // {
   //   path: 'login',

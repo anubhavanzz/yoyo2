@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
-
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'app-introduction-content',
+  templateUrl: './introductionContent.component.html',
+  styleUrls: ['./introductionContent.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class IntroductionContentComponent implements OnInit {
   user: firebase.User;
   constructor(private afAuth: AngularFireAuth) {
     this.afAuth.authState.subscribe(user => this.user = user) ;
