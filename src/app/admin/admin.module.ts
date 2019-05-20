@@ -5,14 +5,14 @@ import { AddGiftComponent } from './add-gift/add-gift.component';
 import { MaterialModule } from 'src/app/common/material.module';
 import { FormsModule } from '@angular/forms';
 import { AllGiftsComponent } from './all-gifts/all-gifts.component';
-// import { CommonModule } from '../common/common.module';
+import { CommonFunctionalityModule } from '../common/common.module';
 
 import { AdminRoutingModule } from './admin-routes.module';
 
 @NgModule({
   declarations: [EditGiftComponent, AddGiftComponent, AllGiftsComponent ],
   imports: [
-    CommonModule, MaterialModule, FormsModule, AdminRoutingModule
+    CommonFunctionalityModule, MaterialModule, FormsModule, AdminRoutingModule
   ],
   exports: [EditGiftComponent, AddGiftComponent, AllGiftsComponent],
   // schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -15,7 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material';
- import { CommonModule } from './common/common.module';
+ import { CommonFunctionalityModule } from './common/common.module';
  import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -27,7 +27,7 @@ import { MatFormFieldModule } from '@angular/material';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    CommonModule,
+    CommonFunctionalityModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule ,
@@ -40,7 +40,7 @@ import { MatFormFieldModule } from '@angular/material';
     MatInputModule,
     FormsModule,
     MatFormFieldModule,
-     CommonModule
+     CommonFunctionalityModule
   ],
   exports: [
     BrowserAnimationsModule,

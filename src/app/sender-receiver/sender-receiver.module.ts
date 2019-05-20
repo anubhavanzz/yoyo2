@@ -1,4 +1,4 @@
-import { CommonModule } from './../common/common.module';
+import { CommonFunctionalityModule } from './../common/common.module';
 import { NgModule } from '@angular/core';
 import { PopularGiftsComponent } from './popular-gifts/popular-gifts.component';
 import { NewGiftsComponent } from './new-gifts/new-gifts.component';
@@ -12,7 +12,7 @@ import { GiftReviewComponent } from './gift-review/gift-review.component';
   declarations: [PopularGiftsComponent,
     NewGiftsComponent, GiftDetailsComponent, GiveAGiftComponent, ProfilePageComponent, GiftHistoryComponent, GiftReviewComponent],
   imports: [
-    CommonModule
+    CommonFunctionalityModule
   ]
 })
 export class SenderReceiverModule { }

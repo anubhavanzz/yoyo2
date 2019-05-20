@@ -25,4 +25,4 @@ import { MaterialModule } from './material.module';
   ],
 })
 
-export class CommonModule { }
+export class CommonFunctionalityModule { }

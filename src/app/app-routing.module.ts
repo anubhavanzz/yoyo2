@@ -22,7 +22,7 @@ const routes: Routes = [
   },
   // {
   //   path: 'login',
-  //   loadChildren: './common/common.module#CommonModule'
+  //   loadChildren: './common/common.module#CommonFunctionalityModule'
   // }
 ];
 export const APP_ROUTING: ModuleWithProviders = RouterModule.forRoot(routes, { preloadingStrategy: AppCustomPreloader });
