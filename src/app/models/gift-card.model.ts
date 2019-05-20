@@ -5,7 +5,7 @@ export class GiftCard {
     description: string;
     price: number;
     createdDate: string;
-    categoryId: string;
+    categoryName: string;
     numberOfTimesBought: number;
     brand: string;
     name: string;
