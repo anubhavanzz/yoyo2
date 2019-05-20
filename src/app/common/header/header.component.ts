@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-header',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  user: firebase.User;
+  constructor(private afAuth: AngularFireAuth) {
+    this.afAuth.authState.subscribe(x => console.log(x));
+  }
 
   ngOnInit() {
   }
