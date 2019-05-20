@@ -10,13 +10,13 @@ import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-
 import { MatButtonModule } from '@angular/material/button';
 import { AdminModule } from 'src/app/admin/admin.module';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material';
  import { CommonModule } from './common/common.module';
+ import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -31,6 +31,7 @@ import { MatFormFieldModule } from '@angular/material';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule ,
+    ToastrModule.forRoot(),
     MatButtonModule,
     MatListModule,
     MatToolbarModule,
