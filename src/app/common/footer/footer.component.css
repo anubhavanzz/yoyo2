@@ -1,0 +1,24 @@
+footer {
+    background: #eee;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;        
+    justify-items: center;
+    align-items: top;
+    margin-top: 40px;
+}
+footer ul {
+    padding: 10px;
+width: 40%;
+list-style-type:none;
+}
+footer ul li {
+    margin: 10px;
+}
+footer ul li a {
+    color: #111;
+    text-decoration: none;
+}
+footer ul li:first-of-type {
+    font-weight: bold;
+    color: #ddd;
+}
