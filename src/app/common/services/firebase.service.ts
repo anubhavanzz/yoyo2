@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { GiftCard } from 'src/app/models/gift-card.model';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { Category } from 'src/app/models/category.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GiftCardService {
+export class FirebaseService {
 
+  // Gift Card releated CRUD operations
   giftCardsList: AngularFireList<any>;
+  categoryList: AngularFireList<any>;
+
   constructor(private db: AngularFireDatabase) { }
 
   addGiftCardToFirebase(giftCard: GiftCard) {
@@ -36,5 +40,22 @@ export class GiftCardService {
     this.giftCardsList.remove($key);
   }
 
-}
+  //  Category releated CRUD operations
+  addCategoryToFirebase(category: Category) {
+    this.db.list('/Category').push(category);
+  }
+  getAllCategoryFromFirebase() {
+    this.categoryList = this.db.list('Category');
+    return this.categoryList.snapshotChanges();
+  }
 
+  updateCategoryInFirebase(category: Category) {
+    this.categoryList.update(category.$key, {
+      name: category.name
+    });
+  }
+
+  deleteCategoryFromFirebase($key) {
+    this.categoryList.remove($key);
+  }
+}

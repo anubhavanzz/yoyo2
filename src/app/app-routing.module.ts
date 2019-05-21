@@ -4,13 +4,12 @@ import { LoginComponent } from './common/login/login.component';
 import { AppCustomPreloader } from './customPreLoader';
 import { ModuleWithProviders } from '@angular/compiler/src/core';
 import { AppComponent } from './app.component';
-
 const routes: Routes = [
   // { path: 'add-gift', component: AddGiftComponent },
   // { path: 'login', component: LoginComponent },
    {
     path: '',
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
     path: 'admin',
@@ -18,14 +17,14 @@ const routes: Routes = [
   },
   {
     path: 'sender-receiver',
-    loadChildren: './sender-reciever/sender-receiver.module#SenderReceiverModule'
+    loadChildren: './sender-receiver/sender-receiver.module#SenderReceiverModule'
   },
   // {
   //   path: 'login',
   //   loadChildren: './common/common.module#CommonFunctionalityModule'
   // }
 ];
-export const APP_ROUTING: ModuleWithProviders = RouterModule.forRoot(routes, { preloadingStrategy: AppCustomPreloader });
+//export const APP_ROUTING: ModuleWithProviders = RouterModule.forRoot(routes, { preloadingStrategy: AppCustomPreloader });
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -9,6 +9,7 @@ import { NavComponent } from './login/nav/nav.component';
 import { FooterComponent } from './login/footer/footer.component';
 import { GiftCardComponent } from './gift-card/gift-card.component';
 import { MaterialModule } from './material.module';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { MaterialModule } from './material.module';
 
   ],
   imports: [
-    MaterialModule,
+    MaterialModule, CommonModule
   ],
 })
 

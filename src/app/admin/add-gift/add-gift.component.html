@@ -13,7 +13,7 @@
             <tr>
               <td>
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Gift Name" formControlName="Name" #Name>
+                  <input matInput placeholder="Gift Name" formControlName="Name" [(ngModel)]="giftCard.name">
                 </mat-form-field>
                 <mat-error>
                   <p *ngIf="!giftForm.get('Name').valid && giftForm.get('Name').touched">Add Name </p>
@@ -21,7 +21,7 @@
               </td>
               <td>
                 <mat-form-field>
-                  <input matInput placeholder="Brand Name" formControlName="Brand" #Brand> 
+                  <input matInput placeholder="Brand Name" formControlName="Brand" [(ngModel)]="giftCard.brand"> 
                 </mat-form-field>
                 <mat-error>
                   <span *ngIf="!giftForm.get('Brand').valid && giftForm.get('Brand').touched">Add Brand </span>
@@ -31,7 +31,7 @@
             <tr>
               <td>
                 <mat-form-field>
-                  <input matInput placeholder="Points" formControlName="Points" #Points>
+                  <input matInput placeholder="Points" formControlName="Points" [(ngModel)]="giftCard.points">
                 </mat-form-field>
                 <mat-error>
                   <span *ngIf="!giftForm.get('Points').valid && giftForm.get('Points').touched">Add Brand </span>
@@ -39,7 +39,7 @@
               </td>
               <td>
                 <mat-form-field>
-                  <mat-select formControlName="categoryName" placeholder="Select Category" #Category>
+                  <mat-select formControlName="categoryName" placeholder="Select Category" [(ngModel)]="giftCard.categoryName">
                     <mat-option>-- Select Any --</mat-option>
                     <mat-option value="ECommerce">ECommerece</mat-option>
                     <mat-option value="Home">Home</mat-option>
@@ -55,7 +55,7 @@
             <tr>
               <td>
                 <mat-form-field>
-                  <input matInput placeholder="Price" formControlName="Price" #Price>
+                  <input matInput placeholder="Price" formControlName="Price" [(ngModel)]="giftCard.price">
                 </mat-form-field>
                 <mat-error>
                   <span *ngIf="!giftForm.get('Price').valid && giftForm.get('Price').touched">Add Price </span>
@@ -63,7 +63,7 @@
               </td>
               <td>
                 <mat-form-field>
-                  <textarea matInput placeholder="Leave a comment" formControlName="Description" #Description></textarea>
+                  <textarea matInput placeholder="Leave a comment" formControlName="Description" [(ngModel)]="giftCard.description"></textarea>
                 </mat-form-field>
                 <mat-error>
                   <span *ngIf="!giftForm.get('Description').valid && giftForm.get('Description').touched">Add
@@ -74,7 +74,7 @@
             <tr>
               <td>
                 <mat-form-field>
-                  <input matInput placeholder="Image URL" formControlName="ImageUrl" #ImageUrl>
+                  <input matInput placeholder="Image URL" formControlName="ImageUrl" [(ngModel)]="giftCard.imageUrl">
                 </mat-form-field>
                 <mat-error>
                   <span *ngIf="!giftForm.get('ImageUrl').valid && giftForm.get('ImageUrl').touched">Add
@@ -96,9 +96,8 @@
     </div>
     <!-- Showing the preview of the Gift Card -->
     <div class="col-6 ">
-    
-        <!-- <app-gift-card></app-gift-card> -->
-       
+        <app-gift-card [giftCard]="giftCard"></app-gift-card>  
+      
     </div>
   </div>
 </div>
