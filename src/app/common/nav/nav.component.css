@@ -23,6 +23,7 @@ nav {
     max-width: 100%;
     z-index: 99;
     align-items: center;
+    background-color: #B00020
 }
 
 
@@ -60,7 +61,7 @@ nav ul li a{
 
 }
 nav ul:last-of-type li:last-of-type a {
-    background: deeppink;
+    /* background: #6200EE; */
     padding: 10px;
     color: #fff;
     border-radius: 5px;
