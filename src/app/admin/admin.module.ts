@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { EditGiftComponent } from './edit-gift/edit-gift.component';
 import { AddGiftComponent } from './add-gift/add-gift.component';
@@ -12,7 +13,7 @@ import { AddCategoryComponent } from './add-category/add-category.component';
 @NgModule({
   declarations: [EditGiftComponent, AddGiftComponent, AllGiftsComponent, AddCategoryComponent],
   imports: [
-    CommonFunctionalityModule, MaterialModule, FormsModule, AdminRoutingModule,
+    CommonFunctionalityModule, MaterialModule, FormsModule, AdminRoutingModule, CommonModule
   ],
   exports: [EditGiftComponent, AddGiftComponent, AllGiftsComponent, AddCategoryComponent],
   // schemas: [CUSTOM_ELEMENTS_SCHEMA],
