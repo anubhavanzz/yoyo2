@@ -30,10 +30,18 @@ h1, h2, h3, h4 {
     
 }
 .contact {
-background: deeppink;
+border-radius: 12px;
 text-decoration:none;
 color: #eee;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
 }
+  .contact:hover {
+    background: #B00020;
+    text-decoration: none;
+    color: white;
+  }
+
 .learn-more {
    color:#fff;
 } 

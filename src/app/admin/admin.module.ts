@@ -1,5 +1,4 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { EditGiftComponent } from './edit-gift/edit-gift.component';
 import { AddGiftComponent } from './add-gift/add-gift.component';
 import { MaterialModule } from 'src/app/common/material.module';
@@ -14,7 +13,6 @@ import { AddCategoryComponent } from './add-category/add-category.component';
   declarations: [EditGiftComponent, AddGiftComponent, AllGiftsComponent, AddCategoryComponent],
   imports: [
     CommonFunctionalityModule, MaterialModule, FormsModule, AdminRoutingModule,
-    CommonModule
   ],
   exports: [EditGiftComponent, AddGiftComponent, AllGiftsComponent, AddCategoryComponent],
   // schemas: [CUSTOM_ELEMENTS_SCHEMA],
