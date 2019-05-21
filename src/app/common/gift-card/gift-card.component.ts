@@ -15,8 +15,7 @@ export class GiftCardComponent implements OnInit {
   }
 
   ngOnInit() {
-console.log('Here');
-     console.log('In gift card', this.giftCard);
+
 
   }
 }

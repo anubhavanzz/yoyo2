@@ -22,6 +22,10 @@ export class FirebaseService {
     return this.giftCardsList.snapshotChanges();
   }
 
+  getGiftCard(key) {
+    return this.db.object(/GiftCard/ + key);
+  }
+
   updateGiftCardInFirebase(giftCard: GiftCard) {
     this.giftCardsList.update(giftCard.$key, {
       imageUrl: giftCard.imageUrl,

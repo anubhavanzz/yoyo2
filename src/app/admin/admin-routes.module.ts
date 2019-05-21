@@ -7,12 +7,12 @@ import { AddCategoryComponent } from './add-category/add-category.component';
 
 export const routes: Routes = [
   {
-    path: 'add',
+    path: 'gifts/new',
     component: AddGiftComponent
   },
   {
-    path: 'editGift',
-    component: EditGiftComponent
+    path: 'gifts/:id',
+    component: AddGiftComponent
   },
   {
     path: 'gifts',

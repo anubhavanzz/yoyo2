@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormsModule, NgForm } from '@angula
 import { GiftCard } from 'src/app/models/gift-card.model';
 import { ToastrService } from 'ngx-toastr';
 import { FirebaseService } from 'src/app/common/services/firebase.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-gift',
@@ -12,6 +13,8 @@ import { FirebaseService } from 'src/app/common/services/firebase.service';
 export class AddGiftComponent implements OnInit {
 
   giftCard: GiftCard = new GiftCard();
+  giftCardObj;
+
   giftForm = this.fb.group({
     ImageUrl: ['', Validators.required],
     Points: ['', Validators.required],
@@ -26,10 +29,20 @@ export class AddGiftComponent implements OnInit {
   name = '';
   constructor(private fb: FormBuilder,
     private fbService: FirebaseService,
-    private tostr: ToastrService
-  ) { }
+    private tostr: ToastrService,
+    private route: ActivatedRoute
+  ) {
+
+  }
 
   public ngOnInit() {
+    console.log('Yogesh');
+    const id = this.route.snapshot.params.id;
+    if (id) {
+      console.log(id);
+      let obj = this.fbService.getGiftCard(id);
+      console.log(obj);
+    }
   }
 
   onSave(giftForm) {
