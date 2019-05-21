@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
-import { environment } from 'src/environments/environment';
+// import { environment } from 'src/environments/environment';
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
@@ -17,6 +17,8 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material';
  import { CommonFunctionalityModule } from './common/common.module';
  import { ToastrModule } from 'ngx-toastr';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { MatFormFieldModule } from '@angular/material';
     MatInputModule,
     FormsModule,
     MatFormFieldModule,
-     CommonFunctionalityModule
+     CommonFunctionalityModule,
+     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   exports: [
     BrowserAnimationsModule,
