@@ -20,7 +20,7 @@ import { GiftListComponent } from './gift-list/gift-list.component';
     GiftListComponent
   ],
   exports: [SearchBarComponent, CategoriesComponent, LayoutComponent, LoginComponent, IntroductionContentComponent,
-    GiftCardComponent
+    GiftCardComponent, NavComponent, FooterComponent
 
   ],
   imports: [
