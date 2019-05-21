@@ -18,7 +18,7 @@ import { CommonModule } from '@angular/common';
     GiftCardComponent
   ],
   exports: [SearchBarComponent, CategoriesComponent, LayoutComponent, LoginComponent, IntroductionContentComponent,
-    GiftCardComponent
+    GiftCardComponent, NavComponent, FooterComponent
 
   ],
   imports: [
