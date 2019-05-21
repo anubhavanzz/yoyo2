@@ -9,9 +9,10 @@ import { GiftCard } from 'src/app/models/gift-card.model';
 export class GiftCardComponent implements OnInit {
 
   // tslint:disable-next-line:no-input-rename
-   @Input() public giftCard: GiftCard;
+   @Input() public giftCard: GiftCard = new GiftCard();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
 console.log('Here');

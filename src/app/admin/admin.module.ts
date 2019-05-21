@@ -8,13 +8,15 @@ import { AllGiftsComponent } from './all-gifts/all-gifts.component';
 import { CommonFunctionalityModule } from '../common/common.module';
 
 import { AdminRoutingModule } from './admin-routes.module';
+import { AddCategoryComponent } from './add-category/add-category.component';
 
 @NgModule({
-  declarations: [EditGiftComponent, AddGiftComponent, AllGiftsComponent ],
+  declarations: [EditGiftComponent, AddGiftComponent, AllGiftsComponent, AddCategoryComponent],
   imports: [
-    CommonFunctionalityModule, MaterialModule, FormsModule, AdminRoutingModule
+    CommonFunctionalityModule, MaterialModule, FormsModule, AdminRoutingModule,
+    CommonModule
   ],
-  exports: [EditGiftComponent, AddGiftComponent, AllGiftsComponent],
+  exports: [EditGiftComponent, AddGiftComponent, AllGiftsComponent, AddCategoryComponent],
   // schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AdminModule { }

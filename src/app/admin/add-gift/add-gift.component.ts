@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormsModule, NgForm } from '@angular/forms';
 import { GiftCard } from 'src/app/models/gift-card.model';
-import { GiftCardService } from 'src/app/common/services/gift-card.service';
 import { ToastrService } from 'ngx-toastr';
+import { FirebaseService } from 'src/app/common/services/firebase.service';
 
 @Component({
   selector: 'app-add-gift',
@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AddGiftComponent implements OnInit {
 
-
+  giftCard: GiftCard = new GiftCard();
   giftForm = this.fb.group({
     ImageUrl: ['', Validators.required],
     Points: ['', Validators.required],
@@ -25,7 +25,7 @@ export class AddGiftComponent implements OnInit {
   });
   name = '';
   constructor(private fb: FormBuilder,
-    private giftCardService: GiftCardService,
+    private fbService: FirebaseService,
     private tostr: ToastrService
   ) { }
 
@@ -46,7 +46,7 @@ export class AddGiftComponent implements OnInit {
 
     console.log(giftForm);
     console.log(newGift);
-    this.giftCardService.addGiftCardToFirebase(newGift);
+    this.fbService.addGiftCardToFirebase(newGift);
     this.tostr.success('Gift added Succcessfully');
 
   }
