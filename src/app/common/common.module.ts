@@ -10,12 +10,14 @@ import { FooterComponent } from './footer/footer.component';
 import { GiftCardComponent } from './gift-card/gift-card.component';
 import { MaterialModule } from './material.module';
 import { CommonModule } from '@angular/common';
+import { GiftListComponent } from './gift-list/gift-list.component';
 
 
 @NgModule({
   declarations: [SearchBarComponent, CategoriesComponent,
     LayoutComponent, LoginComponent, IntroductionContentComponent, MainComponent, NavComponent, FooterComponent,
-    GiftCardComponent
+    GiftCardComponent,
+    GiftListComponent
   ],
   exports: [SearchBarComponent, CategoriesComponent, LayoutComponent, LoginComponent, IntroductionContentComponent,
     GiftCardComponent, NavComponent, FooterComponent
@@ -24,6 +26,7 @@ import { CommonModule } from '@angular/common';
   imports: [
     MaterialModule, CommonModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 
 export class CommonFunctionalityModule { }

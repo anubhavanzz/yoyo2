@@ -1,4 +1,4 @@
-<mat-card class="example-card" *ngIf="giftCard.name">
+<mat-card class="example-card" *ngIf="giftCard && giftCard.name">
 
   <img mat-card-image src="{{giftCard.imageUrl}}" alt="Image" *ngIf="giftCard.imageUrl">
   <mat-card-header>

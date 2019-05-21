@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatSort } from '@angular/material';
+import { MatTableDataSource, MatSort,MatPaginator } from '@angular/material';
 import { GiftCard } from 'src/app/models/gift-card.model';
 import { FormControl } from '@angular/forms';
 import { FirebaseService } from 'src/app/common/services/firebase.service';
@@ -14,8 +14,6 @@ export interface PeriodicElement {
   numberOfTimesBought: string;
   categoryName: string;
 }
-
-
 
 @Component({
   selector: 'app-all-gifts',
@@ -35,6 +33,7 @@ export class AllGiftsComponent implements OnInit {
   };
 
   @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   brandFilter = new FormControl();
   globalFilter = new FormControl();
@@ -54,6 +53,7 @@ export class AllGiftsComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.giftCardsArray);
       this.dataSource.sort = this.sort;
       this.dataSource.filterPredicate = this.customFilterPredicate();
+      this.dataSource.paginator = this.paginator;
     });
 
 

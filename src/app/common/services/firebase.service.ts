@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { GiftCard } from 'src/app/models/gift-card.model';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Category } from 'src/app/models/category.model';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -22,9 +23,11 @@ export class FirebaseService {
     return this.giftCardsList.snapshotChanges();
   }
 
-  getGiftCard(key) {
-    return this.db.object(/GiftCard/ + key);
-  }
+  // getGiftCard(key) {
+  //   return this.db.object('/GiftCard/' + key).snapshotChanges().map(res => {
+  //     return res.payload.val();
+  //   });
+  // }
 
   updateGiftCardInFirebase(giftCard: GiftCard) {
     this.giftCardsList.update(giftCard.$key, {

@@ -6,7 +6,8 @@ import {
     MatNativeDateModule,
     MatSelectModule,
     MatToolbarModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -14,6 +15,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import {MatSortModule} from '@angular/material/sort';
 import {MatExpansionModule} from '@angular/material/expansion';
+
 @NgModule({
     declarations: [],
     imports: [
@@ -30,7 +32,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
         MatToolbarModule,
         MatTableModule,
         MatSortModule,
-        MatExpansionModule
+        MatPaginatorModule
     ],
     exports: [
         MatFormFieldModule,
@@ -46,6 +48,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
         MatToolbarModule,
         MatTableModule,
         MatSortModule,
+        MatPaginatorModule,
         MatExpansionModule
     ]
 })
