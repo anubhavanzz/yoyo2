@@ -11,22 +11,23 @@ import { GiftCardComponent } from './gift-card/gift-card.component';
 import { MaterialModule } from './material.module';
 import { CommonModule } from '@angular/common';
 import { GiftListComponent } from './gift-list/gift-list.component';
+import { MaterialTableComponent } from './material-table/material-table.component';
 
 
 @NgModule({
   declarations: [SearchBarComponent, CategoriesComponent,
     LayoutComponent, LoginComponent, IntroductionContentComponent, MainComponent, NavComponent, FooterComponent,
     GiftCardComponent,
-    GiftListComponent
+    GiftListComponent, MaterialTableComponent
   ],
   exports: [SearchBarComponent, CategoriesComponent, LayoutComponent, LoginComponent, IntroductionContentComponent,
-    GiftCardComponent, NavComponent, FooterComponent
+    GiftCardComponent, NavComponent, FooterComponent, MaterialTableComponent
 
   ],
   imports: [
     MaterialModule, CommonModule
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 
 export class CommonFunctionalityModule { }

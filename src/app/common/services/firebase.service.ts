@@ -3,6 +3,8 @@ import { GiftCard } from 'src/app/models/gift-card.model';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Category } from 'src/app/models/category.model';
 import { map } from 'rxjs/operators';
+import { AuthService } from './auth.service';
+import { User } from 'src/app/models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +14,8 @@ export class FirebaseService {
   // Gift Card releated CRUD operations
   giftCardsList: AngularFireList<any>;
   categoryList: AngularFireList<any>;
+  userList: AngularFireList<any>;
+
 
   constructor(private db: AngularFireDatabase) { }
 
@@ -64,5 +68,16 @@ export class FirebaseService {
 
   deleteCategoryFromFirebase($key) {
     this.categoryList.remove($key);
+  }
+
+  // Save user to firebase
+
+  saveUser(user) {
+    this.db.list('/User').push(user);
+  }
+
+  getAllUsersFromFirebase() {
+    this.userList = this.db.list('User');
+    return this.userList.snapshotChanges();
   }
 }

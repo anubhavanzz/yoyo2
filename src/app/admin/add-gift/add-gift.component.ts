@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormsModule, NgForm } from '@angular/forms';
 import { GiftCard } from 'src/app/models/gift-card.model';
 import { ToastrService } from 'ngx-toastr';
@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './add-gift.component.html',
   styleUrls: ['./add-gift.component.css']
 })
-export class AddGiftComponent implements OnInit {
+export class AddGiftComponent implements OnInit, OnDestroy {
 
   giftCard: GiftCard = new GiftCard();
   giftCardsArray: GiftCard[];
@@ -26,6 +26,9 @@ export class AddGiftComponent implements OnInit {
     Brand: ['', Validators.required],
     Name: ['', Validators.required],
   });
+
+  @ViewChild('giftForm') public addGiftForm: FormGroup;
+
   name = '';
   constructor(private fb: FormBuilder,
     private fbService: FirebaseService,
@@ -74,5 +77,9 @@ export class AddGiftComponent implements OnInit {
     }
     this.router.navigateByUrl('/admin/gifts');
 
+  }
+
+  ngOnDestroy() {
+    localStorage.setItem('giftFormDirty', 'true');
   }
 }

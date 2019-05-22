@@ -2,6 +2,6 @@ export class User {
     $key: string;
     name: string;
     email: string;
-    role: string;
+    isUser: boolean;
     provider: string;
 }
