@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GiftCard } from 'src/app/models/gift-card.model';
+import { GIFT_DETAILS_DEFAULT } from 'src/app/common/store/gift-details-store/gift-details.defaults';
 
 @Component({
   selector: 'app-gift-details',
@@ -7,7 +8,7 @@ import { GiftCard } from 'src/app/models/gift-card.model';
   styleUrls: ['./gift-details.component.css']
 })
 export class GiftDetailsComponent implements OnInit {
-  giftCard: GiftCard = new GiftCard();
+  giftCard: GiftCard = GIFT_DETAILS_DEFAULT;
   constructor() { }
 
   ngOnInit() {

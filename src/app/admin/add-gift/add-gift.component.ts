@@ -4,6 +4,7 @@ import { GiftCard } from 'src/app/models/gift-card.model';
 import { ToastrService } from 'ngx-toastr';
 import { FirebaseService } from 'src/app/common/services/firebase.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { GIFT_DETAILS_DEFAULT } from 'src/app/common/store/gift-details-store/gift-details.defaults';
 
 @Component({
   selector: 'app-add-gift',
@@ -12,7 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AddGiftComponent implements OnInit, OnDestroy {
 
-  giftCard: GiftCard = new GiftCard();
+  giftCard: GiftCard = GIFT_DETAILS_DEFAULT;
   giftCardsArray: GiftCard[];
 
   giftForm = this.fb.group({
@@ -55,7 +56,7 @@ export class AddGiftComponent implements OnInit, OnDestroy {
 
   onSave(giftForm) {
 
-    const newGift = new GiftCard();
+    const newGift = GIFT_DETAILS_DEFAULT;
     newGift.brand = giftForm.value.Brand;
     newGift.name = giftForm.value.Name;
     newGift.categoryName = giftForm.value.categoryName;

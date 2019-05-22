@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GiftCard } from 'src/app/models/gift-card.model';
 import { Router } from '@angular/router';
+import { GIFT_DETAILS_DEFAULT } from '../store/gift-details-store/gift-details.defaults';
 @Component({
   selector: 'app-gift-card',
   templateUrl: './gift-card.component.html',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 export class GiftCardComponent implements OnInit {
 
   // tslint:disable-next-line:no-input-rename
-   @Input() public giftCard: GiftCard = new GiftCard();
+   @Input() public giftCard: GiftCard = GIFT_DETAILS_DEFAULT;
 
   constructor(private router: Router) {
   }
