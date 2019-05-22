@@ -10,6 +10,7 @@ export class MainComponent implements OnInit {
 
   constructor() { }
   public giftCard: GiftCard;
+  public categoryType: string;
 
   public ngOnInit(): void {
     this.giftCard = {
@@ -24,6 +25,10 @@ export class MainComponent implements OnInit {
       brand: '',
       name: 'flipkart gift card'
     };
+  }
+
+  public changeCategoryType(categoryType: string): void {
+    this.categoryType = categoryType;
   }
 
 }

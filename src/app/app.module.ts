@@ -20,7 +20,12 @@ import { ToastrModule } from 'ngx-toastr';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AuthGuardService } from './common/services/auth-guard.service';
+
 // import { AddGiftCanDeactivateGuardService } from './common/services/add-gift-can-deactivate-guard.service';
+import { AddGiftCanDeactivateGuardService } from './common/services/add-gift-can-deactivate-guard.service';
+import { StoreModule } from '@ngrx/store';
+import { yoyoReducer } from './common/store/gift-details-store/gift-details.reducer';
+
 
 @NgModule({
   declarations: [
@@ -45,7 +50,10 @@ import { AuthGuardService } from './common/services/auth-guard.service';
     FormsModule,
     MatFormFieldModule,
     CommonFunctionalityModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    StoreModule.forRoot({
+      giftDetailState: yoyoReducer
+    })
   ],
   exports: [
     BrowserAnimationsModule,

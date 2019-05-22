@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GiftCard } from 'src/app/models/gift-card.model';
+import { GIFT_DETAILS_DEFAULT } from 'src/app/common/store/gift-details-store/gift-details.defaults';
+import { GiftDetailState } from 'src/app/common/store/gift-details-store/git-details.state';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-gift-details',
@@ -7,10 +10,13 @@ import { GiftCard } from 'src/app/models/gift-card.model';
   styleUrls: ['./gift-details.component.css']
 })
 export class GiftDetailsComponent implements OnInit {
-  giftCard: GiftCard = new GiftCard();
-  constructor() { }
+  giftCard: GiftCard = GIFT_DETAILS_DEFAULT;
+  constructor(public gdStore: Store<GiftDetailState>) { }
 
   ngOnInit() {
+    this.gdStore.select((item: any) => item.giftDetailState).subscribe((val: any) => {
+      console.log(val);
+    });
     this.giftCard = {
       $key: '1',
       imageUrl: './../../../assets/logo.png',
@@ -24,5 +30,4 @@ export class GiftDetailsComponent implements OnInit {
       name: 'Wrist watch'
     };
   }
-
 }

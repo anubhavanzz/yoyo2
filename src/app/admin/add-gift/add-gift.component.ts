@@ -5,6 +5,8 @@ import { ToastrService } from 'ngx-toastr';
 import { FirebaseService } from 'src/app/common/services/firebase.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/app/models/category.model';
+import { GIFT_DETAILS_DEFAULT } from 'src/app/common/store/gift-details-store/gift-details.defaults';
+
 
 @Component({
   selector: 'app-add-gift',
@@ -13,7 +15,7 @@ import { Category } from 'src/app/models/category.model';
 })
 export class AddGiftComponent implements OnInit, OnDestroy {
 
-  giftCard: GiftCard = new GiftCard();
+  giftCard: GiftCard = GIFT_DETAILS_DEFAULT;
   giftCardsArray: GiftCard[];
   categories: Category[] = [];
 
@@ -67,7 +69,7 @@ export class AddGiftComponent implements OnInit, OnDestroy {
 
   onSave(giftForm) {
 
-    const newGift = new GiftCard();
+    const newGift = GIFT_DETAILS_DEFAULT;
     newGift.brand = giftForm.value.Brand;
     newGift.name = giftForm.value.Name;
     newGift.categoryName = giftForm.value.categoryName;
