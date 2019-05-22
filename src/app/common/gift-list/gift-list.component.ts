@@ -18,7 +18,7 @@ export class GiftListComponent implements OnInit {
   public giftCard: GiftCard;
   constructor(private fbService: FirebaseService) { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.giftCard = {
       $key: '',
       imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_Ye9g_Iw1YhVuXIniKGjdm6Yd8bAuUu46cEhPDpo1fJ2OgUId5Q',
@@ -45,8 +45,8 @@ export class GiftListComponent implements OnInit {
         this.giftCardsArray = this.giftCardsArray.slice(0, this.giftCardCount);
       }
       this.giftCardsArray.forEach(element => {
-        console.log('element = ' + element.numberOfTimesBought);
-        console.log('date = ' + element.createdDate);
+        // console.log('element = ' + element.numberOfTimesBought);
+        // console.log('date = ' + element.createdDate);
       });
     });
   }

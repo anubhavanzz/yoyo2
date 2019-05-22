@@ -13,8 +13,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import {MatSortModule} from '@angular/material/sort';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatSortModule } from '@angular/material/sort';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
     declarations: [],
@@ -32,7 +33,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
         MatToolbarModule,
         MatTableModule,
         MatSortModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        MatListModule
     ],
     exports: [
         MatFormFieldModule,
@@ -49,7 +51,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
         MatTableModule,
         MatSortModule,
         MatPaginatorModule,
-        MatExpansionModule
+        MatExpansionModule,
+        MatListModule
     ]
 })
 export class MaterialModule { }
