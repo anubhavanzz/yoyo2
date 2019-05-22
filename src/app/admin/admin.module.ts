@@ -9,11 +9,13 @@ import { CommonFunctionalityModule } from '../common/common.module';
 
 import { AdminRoutingModule } from './admin-routes.module';
 import { AddCategoryComponent } from './add-category/add-category.component';
+import { ManageUsersComponent } from './manage-users/manage-users.component';
 
 @NgModule({
-  declarations: [EditGiftComponent, AddGiftComponent, AllGiftsComponent, AddCategoryComponent],
+  declarations: [EditGiftComponent, AddGiftComponent, AllGiftsComponent, AddCategoryComponent,
+  ManageUsersComponent],
   imports: [
-    CommonFunctionalityModule, MaterialModule, FormsModule, AdminRoutingModule, CommonModule
+    CommonFunctionalityModule, MaterialModule, FormsModule, AdminRoutingModule, CommonModule,
   ],
   exports: [EditGiftComponent, AddGiftComponent, AllGiftsComponent, AddCategoryComponent],
   // schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -1,9 +1,4 @@
 <mat-card>
-  <!-- <span class="fa fa-star checked"></span>
-  <span class="fa fa-star checked"></span>
-  <span class="fa fa-star checked"></span>
-  <span class="fa fa-star checked"></span>
-  <span class="fa fa-star"></span> -->
   <span *ngFor="let stars of starCount">
       <span class="fa fa-star" [ngClass]="stars ? stars: ''"></span>
   </span>

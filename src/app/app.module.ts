@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 // import { environment } from 'src/environments/environment';
-import {MatListModule} from '@angular/material/list';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { MatButtonModule } from '@angular/material/button';
@@ -15,10 +15,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material';
- import { CommonFunctionalityModule } from './common/common.module';
- import { ToastrModule } from 'ngx-toastr';
+import { CommonFunctionalityModule } from './common/common.module';
+import { ToastrModule } from 'ngx-toastr';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AuthGuardService } from './common/services/auth-guard.service';
+import { AddGiftCanDeactivateGuardService } from './common/services/add-gift-can-deactivate-guard.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,7 @@ import { environment } from '../environments/environment';
     CommonFunctionalityModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule ,
+    AngularFireAuthModule,
     ToastrModule.forRoot(),
     MatButtonModule,
     MatListModule,
@@ -42,8 +44,8 @@ import { environment } from '../environments/environment';
     MatInputModule,
     FormsModule,
     MatFormFieldModule,
-     CommonFunctionalityModule,
-     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    CommonFunctionalityModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   exports: [
     BrowserAnimationsModule,
@@ -52,7 +54,7 @@ import { environment } from '../environments/environment';
     FormsModule,
     MatFormFieldModule
   ],
-  providers: [],
+  providers: [AuthGuardService, AddGiftCanDeactivateGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

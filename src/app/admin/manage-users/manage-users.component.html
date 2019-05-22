@@ -1,0 +1,7 @@
+<p>
+  manage-users works!
+</p>
+<div *ngIf="usersArray">
+  <app-material-table [tableDataSource]="usersArray" [columns]="matTableColumns" [displayedColumns]="displayedColumns">
+  </app-material-table>
+</div>
