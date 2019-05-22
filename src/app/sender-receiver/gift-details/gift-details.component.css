@@ -10,3 +10,23 @@
   .zoom:hover {
     transform: scale(2.0); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
   }
+  body {
+    width: 100%;
+
+}
+mat-card {
+    width: 100%;
+      display: flex;
+  }
+  mat-card-title {
+    margin-left : 25%;
+  }
+
+  .row {
+      margin : 5%;
+  }
+  button {
+    color : #B00020;
+    background-color: #ffffff;
+    padding: 25px 0 25px 0;
+  }

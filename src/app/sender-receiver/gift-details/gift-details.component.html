@@ -1,32 +1,23 @@
-<!-- <div>
-  <app-gift-card [giftCard]="giftCard"></app-gift-card>
-</div> -->
-
-<mat-card class="example-card" *ngIf="giftCard.name">
-
-    <img class="zoom" mat-card-image src="{{giftCard.imageUrl}}" alt="Image" *ngIf="giftCard.imageUrl">
-    <mat-card-header>
-  
-      <mat-card-title>Name : {{giftCard.name}}</mat-card-title>
-      <mat-card-subtitle>Brand : {{giftCard.brand}}</mat-card-subtitle>
-    </mat-card-header>
-  
-    <mat-card-content>
-      <p>
-        {{Description}}
-      </p>
-      <table>
-        <tr>
-          <td>
-            <mat-card-subtitle> Points : {{giftCard.points}}</mat-card-subtitle>
-          </td>
-          <td>
-            <mat-card-subtitle>Price : {{giftCard.price}}</mat-card-subtitle>
-          </td>
-        </tr>
-        <tr>
-          <mat-card-subtitle> Category : {{giftCard.categoryName}}</mat-card-subtitle>
-        </tr>
-      </table>
-    </mat-card-content>
-  </mat-card>
+<div class="container-fluid">
+    <div class="row">
+    <mat-card class="example-card row" *ngIf="giftCard.name">
+      <div class="col-lg-6" >
+        <img class="zoom" mat-card-image src="{{giftCard.imageUrl}}" alt="Image" *ngIf="giftCard.imageUrl">
+        <mat-card-title>{{giftCard.name}}</mat-card-title>
+      </div>
+      <div class="col-lg-6" >
+          <div class="row">
+              <button class="fa fa-shopping-bag col-lg-6 contact"> BUY NOW </button>
+              <button class="fa fa-shopping-basket col-lg-6 contact"> ADD TO CART </button>
+          </div>
+      <mat-card-header>
+        <mat-card-subtitle>Brand : {{giftCard.brand}}</mat-card-subtitle>
+        <mat-card-subtitle>Price : {{giftCard.price}} Rs</mat-card-subtitle>
+        <mat-card-subtitle> Category : {{giftCard.categoryName}}</mat-card-subtitle>
+        <mat-card-subtitle> {{giftCard.description}} </mat-card-subtitle>
+      </mat-card-header>
+      <app-gift-review [rating]='giftCard.points'></app-gift-review>
+      </div>
+    </mat-card>
+    </div>
+</div>

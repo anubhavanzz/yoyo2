@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { EditGiftComponent } from './edit-gift/edit-gift.component';
 import { AddGiftComponent } from './add-gift/add-gift.component';
@@ -8,7 +9,6 @@ import { CommonFunctionalityModule } from '../common/common.module';
 
 import { AdminRoutingModule } from './admin-routes.module';
 import { AddCategoryComponent } from './add-category/add-category.component';
-import { CommonModule } from '@angular/common';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
 
 @NgModule({

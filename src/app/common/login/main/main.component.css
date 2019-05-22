@@ -1,6 +1,11 @@
 .contact {
-    color : black;
+    color : #B00020;
 }
 .contact:hover {
     color : white
+}
+.list {
+    margin-bottom: 5%;
+    width: 100%;
+
 }

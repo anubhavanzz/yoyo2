@@ -14,6 +14,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import {MatSortModule} from '@angular/material/sort';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
     declarations: [],
@@ -47,7 +48,8 @@ import {MatSortModule} from '@angular/material/sort';
         MatToolbarModule,
         MatTableModule,
         MatSortModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        MatExpansionModule
     ]
 })
 export class MaterialModule { }
