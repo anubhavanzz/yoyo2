@@ -6,14 +6,14 @@ import { MaterialModule } from 'src/app/common/material.module';
 import { FormsModule } from '@angular/forms';
 import { AllGiftsComponent } from './all-gifts/all-gifts.component';
 import { CommonFunctionalityModule } from '../common/common.module';
-
 import { AdminRoutingModule } from './admin-routes.module';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
   declarations: [EditGiftComponent, AddGiftComponent, AllGiftsComponent, AddCategoryComponent,
-  ManageUsersComponent],
+    ManageUsersComponent, OrdersComponent],
   imports: [
     CommonFunctionalityModule, MaterialModule, FormsModule, AdminRoutingModule, CommonModule,
   ],

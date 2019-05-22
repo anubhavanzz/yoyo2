@@ -6,17 +6,18 @@
         <mat-toolbar>
           <h3>Add Gift Card</h3>
         </mat-toolbar>
+        <button mat-raised-button color="primary"(click)="AddCategory()">Add Category</button>
       </div>
       <div>
-        <form [formGroup]="giftForm" (ngSubmit)="onSave(giftForm)" class="example-form">
+        <form [formGroup]="giftForm"  (ngSubmit)="onSave(giftForm)" class="example-form">
           <table>
             <tr>
               <td>
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Gift Name" formControlName="Name" [(ngModel)]="giftCard.name">
+                  <input matInput placeholder="Gift Name" formControlName="Name"  [(ngModel)]="giftCard.name">
                 </mat-form-field>
                 <mat-error>
-                  <p *ngIf="!giftForm.get('Name').valid && giftForm.get('Name').touched">Add Name </p>
+                  <span *ngIf="!giftForm.get('Name').valid && giftForm.get('Name').touched">Add Name </span>
                 </mat-error>
               </td>
               <td>
@@ -32,18 +33,20 @@
               <td>
                 <mat-form-field>
                   <input matInput placeholder="Points" formControlName="Points" [(ngModel)]="giftCard.points">
+                  <mat-hint>Points should be greater than 0</mat-hint>  
                 </mat-form-field>
                 <mat-error>
-                  <span *ngIf="!giftForm.get('Points').valid && giftForm.get('Points').touched">Add Brand </span>
+                  <span *ngIf="!giftForm.get('Points').valid && giftForm.get('Points').touched">Add Points </span>
                 </mat-error>
               </td>
               <td>
                 <mat-form-field>
                   <mat-select formControlName="categoryName" placeholder="Select Category" [(ngModel)]="giftCard.categoryName">
-                    <mat-option>-- Select Any --</mat-option>
-                    <mat-option value="ECommerce">ECommerece</mat-option>
-                    <mat-option value="Home">Home</mat-option>
-                    <mat-option value="Holiday">Holiday</mat-option>
+                    <mat-option *ngFor="let category of categories" [value]=category.name>
+                        {{category.name}}
+                    </mat-option>
+                   
+                    
                   </mat-select>
                   <mat-error>
                     <span *ngIf="!giftForm.get('categoryName').valid && giftForm.get('categoryName').touched">Please select
@@ -64,6 +67,7 @@
               <td>
                 <mat-form-field>
                   <textarea matInput placeholder="Leave a comment" formControlName="Description" [(ngModel)]="giftCard.description"></textarea>
+                  <mat-hint>min length should be 5 char. </mat-hint> 
                 </mat-form-field>
                 <mat-error>
                   <span *ngIf="!giftForm.get('Description').valid && giftForm.get('Description').touched">Add

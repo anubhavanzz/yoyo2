@@ -22,7 +22,6 @@ export class NavComponent implements OnInit {
 
   onLogin() {
     this.authService.Login();
-    
   }
 
 

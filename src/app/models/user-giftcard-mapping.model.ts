@@ -5,5 +5,6 @@ export class UserGiftCardMapping {
     sender: string;
     receiver: string;
     giftCard: GiftCard;
-    status: string;
+    isRedeem: string;
+    points: string;
 }
