@@ -11,13 +11,15 @@ import { GiftCardComponent } from './gift-card/gift-card.component';
 import { MaterialModule } from './material.module';
 import { CommonModule } from '@angular/common';
 import { GiftListComponent } from './gift-list/gift-list.component';
+import { CategoryListComponent } from './category-list/category-list.component';
 
 
 @NgModule({
   declarations: [SearchBarComponent, CategoriesComponent,
     LayoutComponent, LoginComponent, IntroductionContentComponent, MainComponent, NavComponent, FooterComponent,
     GiftCardComponent,
-    GiftListComponent
+    GiftListComponent,
+    CategoryListComponent
   ],
   exports: [SearchBarComponent, CategoriesComponent, LayoutComponent, LoginComponent, IntroductionContentComponent,
     GiftCardComponent, NavComponent, FooterComponent
