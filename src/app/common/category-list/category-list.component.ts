@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from 'src/app/common/services/firebase.service';
 import { Category } from 'src/app/models/category.model';
+import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-category-list',
@@ -9,6 +10,7 @@ import { Category } from 'src/app/models/category.model';
 })
 export class CategoryListComponent implements OnInit {
   public categories: Category[] = [];
+  @Output() public categoryType: any = new EventEmitter();
   constructor(private fbService: FirebaseService) { }
 
   public ngOnInit(): void {
@@ -21,6 +23,12 @@ export class CategoryListComponent implements OnInit {
       });
       console.log(this.categories);
     });
+  }
+
+  public updateCategoryList(categoryType: string) {
+    console.log(categoryType);
+    // if(categoryType === '')
+    this.categoryType.emit(categoryType);
   }
 
 }
