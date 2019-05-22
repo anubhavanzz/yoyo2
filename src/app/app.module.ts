@@ -20,7 +20,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AuthGuardService } from './common/services/auth-guard.service';
-import { AddGiftCanDeactivateGuardService } from './common/services/add-gift-can-deactivate-guard.service';
+// import { AddGiftCanDeactivateGuardService } from './common/services/add-gift-can-deactivate-guard.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +54,9 @@ import { AddGiftCanDeactivateGuardService } from './common/services/add-gift-can
     FormsModule,
     MatFormFieldModule
   ],
-  providers: [AuthGuardService, AddGiftCanDeactivateGuardService],
+  providers: [AuthGuardService,
+    //AddGiftCanDeactivateGuardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
