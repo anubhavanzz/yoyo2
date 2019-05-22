@@ -6,7 +6,7 @@ import { GiftDetailState } from './git-details.state';
 
 export class GiftDetailDispatcher {
   constructor(private giftDetailStore: Store<GiftDetailState>) {  }
-  public globalDispatch(type: any, payload: any): any {
+  public giftDetailDispatch(type: any, payload: any): any {
     this.giftDetailStore.dispatch({
       type: type,
       payload: payload

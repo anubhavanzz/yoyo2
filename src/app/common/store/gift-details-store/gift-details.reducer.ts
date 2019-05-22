@@ -6,9 +6,11 @@ export let defaultGlobalState: GiftDetailState = new GiftDetailState(GIFT_DETAIL
 /**
  * Define Reducer
  */
-export function globalReducer(state: GiftDetailState = defaultGlobalState, action: GiftDetailsAction): any {
+export function yoyoReducer(state: GiftDetailState = defaultGlobalState, action: GiftDetailsAction): any {
     switch (action.type) {
       case giftActionTypes.GET_GIFT_DETAILS:
         return { ...state, giftDetailState: action.payload };
+        default:
+            return state;
     }
 }
