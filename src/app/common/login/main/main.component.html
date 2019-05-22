@@ -5,10 +5,12 @@
          Welcome to our Site, where we provide you an exciting collection of gifts for your loved ones. Redeem your earned points and select from the amazing wide  pool we have. Besides the gifts, we also provide coupons or passes for movies, spa, trips, etc that can also be gifted.
       </p>
   </div>
+  <mat-card class="multi-section list">
 
+  <app-gift-list [filterType]="'category'" [categoryType]="'Home'"></app-gift-list>
+  <app-gift-list [filterType]="'popularity'" [giftCardCount]="3"></app-gift-list>
+  </mat-card>
   <div class="multi-section">
-      <app-gift-list [filterType]="'category'" [categoryType]="'Home'"></app-gift-list>
-      <app-gift-list [filterType]="'popularity'" [giftCardCount]="3"></app-gift-list>
     <img src="/assets/EarnPoints.jpg" />
     <div>
       <h3>Redeem Points.</h3>
