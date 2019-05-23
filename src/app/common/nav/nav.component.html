@@ -1,8 +1,8 @@
 <nav>
   <ul>
     <li>
-      <a id="logo" routerLink="/" class="navbar-brand">
-        <!-- <span><img id="logo" src="../../../assets/logo.png" height="20px" width="20px"></span> -->
+      <a id="logo" (click)='home()' class="navbar-brand">
+        <span><img id="logo" src="../../../assets/logo.png" height="20px" width="20px"></span>
         YOYO</a>
     </li>
   </ul>
@@ -11,11 +11,17 @@
     <li><a href="#">Contact Us</a></li>
   </ul>
   <ul>
-      <li> <a href="http://localhost:4200/admin/gifts" routerLinkActive="active">Manage Users</a></li>
-    <li><a href="javascript:void(0);"   (click)="onLogin()">SignIn</a></li>
-    <li><a href="javascript:void(0);"   (click)="onLogout()">SignOut</a></li>
-    <li> <a href="http://localhost:4200/admin/orders" routerLinkActive="active">Manage Orders</a></li>
-    <li> <a href="http://localhost:4200/admin/users" routerLinkActive="active">Manage Users</a></li>
-    
+    <li><a *ngIf="isLogged === false" href="javascript:void(0);"   (click)="onLogin()">SignIn</a></li>
+    <li><a *ngIf="isLogged === true" href="javascript:void(0);"   (click)="onLogout()">SignOut</a></li>
+    <li *ngIf="isLogged === true"><button mat-button [matMenuTriggerFor]="menu"><b> ADMIN MENU </b></button>
+      <mat-menu #menu="matMenu">
+        <button (click)='manageUsers()' mat-menu-item>MANAGE USERS</button>
+        <button (click)='manageOrders()' mat-menu-item>MANAGE ORDERS</button>
+        <button (click)='manageGifts()' mat-menu-item>MANAGE GIFTS</button>
+        <button (click)='addItem()' mat-menu-item>ADD ITEMS</button>
+        <button (click)='addCategory()' mat-menu-item>ADD CATEGORY</button>
+      </mat-menu></li>
   </ul>
 </nav>
+
+     

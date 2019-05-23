@@ -11,12 +11,13 @@ import { SenderReceiverRoutingModule } from './sender-receiver-routes.module';
 import { MaterialModule } from '../common/material.module';
 import { CommonModule } from '@angular/common';
 import { ReceiverDetailsComponent } from './receiver-details/receiver-details.component';
+import { GetPointsComponent } from './get-points/get-points.component';
 
 @NgModule({
   declarations: [PopularGiftsComponent,
     NewGiftsComponent, GiftDetailsComponent, GiveAGiftComponent,
     ProfilePageComponent, GiftHistoryComponent, GiftReviewComponent,
-    ReceiverDetailsComponent
+    ReceiverDetailsComponent, GetPointsComponent
     ],
   imports: [
     CommonFunctionalityModule, SenderReceiverRoutingModule, MaterialModule, CommonModule
