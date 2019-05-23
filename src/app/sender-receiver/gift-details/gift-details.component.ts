@@ -4,6 +4,8 @@ import { GIFT_DETAILS_DEFAULT } from 'src/app/common/store/gift-details-store/gi
 import { GiftDetailState } from 'src/app/common/store/gift-details-store/git-details.state';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
+import { ReceiverDetailsComponent } from 'src/app/sender-receiver/receiver-details/receiver-details.component';
 
 @Component({
   selector: 'app-gift-details',
@@ -13,10 +15,11 @@ import { Router } from '@angular/router';
 export class GiftDetailsComponent implements OnInit {
   giftCard: GiftCard = GIFT_DETAILS_DEFAULT;
   constructor(public gdStore: Store<GiftDetailState>,
+    public dialog: MatDialog,
     private router: Router
     ) { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.gdStore.select((item: any) => item.giftDetailState).subscribe((val: any) => {
       console.log(val.giftDetailState);
       if (val.giftDetailState) {
@@ -27,6 +30,18 @@ export class GiftDetailsComponent implements OnInit {
     });
   }
   public buyNow() {
-    this.router.navigateByUrl('/user/giveGift');
+    // this.router.navigateByUrl('/user/giveGift');
+  }
+  public openDialog(): void {
+    const dialogRef = this.dialog.open(ReceiverDetailsComponent, {
+      width: '30%',
+      height: '95%',
+      data: {name: 'this.name', animal: 'this.animal'}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // this.animal = result;
+    });
   }
 }
