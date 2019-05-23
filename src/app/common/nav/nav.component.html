@@ -13,7 +13,7 @@
   <ul>
     <li><a *ngIf="isLogged === false" href="javascript:void(0);"   (click)="onLogin()">SignIn</a></li>
     <li><a *ngIf="isLogged === true" href="javascript:void(0);"   (click)="onLogout()">SignOut</a></li>
-    <li *ngIf="isLogged === true"><button mat-button [matMenuTriggerFor]="menu"><b> ADMIN MENU </b></button>
+    <li><button mat-button [matMenuTriggerFor]="menu"><b> ADMIN MENU </b></button>
       <mat-menu #menu="matMenu">
         <button (click)='manageUsers()' mat-menu-item>MANAGE USERS</button>
         <button (click)='manageOrders()' mat-menu-item>MANAGE ORDERS</button>

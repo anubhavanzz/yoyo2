@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'user',
-    loadChildren: './sender-receiver/sender-receiver.module#SenderReceiverModule'
+    loadChildren: './sender-receiver/user.module#SenderReceiverModule'
   },
 ];
 

@@ -20,8 +20,10 @@ public starCount = [];
     public giftDetailDispatcher: GiftDetailDispatcher
     ) {
   }
-
-  ngOnInit() {
+/**
+ * Angular hook to initialize the component with star rating data
+ */
+  public ngOnInit(): void {
     const MAX_STARS = 5;
     for (let i = 0; i < MAX_STARS; i++) {
       if (i < this.rating) {
@@ -31,7 +33,11 @@ public starCount = [];
       }
     }
   }
-  giftCardDetails() {
+
+  /**
+   * Function to set the gift card data to the store and navigate to giftcarddetails
+   */
+  public giftCardDetails(): void {
     console.log(this.giftCard);
     this.giftDetailDispatcher.giftDetailDispatch(giftActionTypes.GET_GIFT_DETAILS, this.giftCard);
      this.router.navigateByUrl('/user/giftsDetails');

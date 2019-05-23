@@ -13,6 +13,9 @@ export class CategoryListComponent implements OnInit {
   @Output() public categoryType: any = new EventEmitter();
   constructor(private fbService: FirebaseService) { }
 
+  /**
+   * Angular hook to initialize the component with the list of gifts
+   */
   public ngOnInit(): void {
     this.fbService.getAllCategoryFromFirebase().subscribe(list => {
       list.map(item => {
@@ -24,7 +27,10 @@ export class CategoryListComponent implements OnInit {
       console.log(this.categories);
     });
   }
-
+/**
+ * Function used to capture the click event in order to change the category list selected by the user
+ * @param categoryType: category type selected by the user
+ */
   public updateCategoryList(categoryType: string) {
     console.log(categoryType);
     // if(categoryType === '')

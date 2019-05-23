@@ -1,3 +1,5 @@
-<mat-list role="list" *ngFor="let category of categories">
-  <mat-list-item role="listitem" (click)="updateCategoryList(category.name)">{{category.name}}</mat-list-item>
-</mat-list>
+<div class="categoryList">
+  <mat-list role="list" *ngFor="let category of categories">
+    <mat-list-item role="listitem" (click)="updateCategoryList(category.name)">{{category.name}}</mat-list-item>
+  </mat-list>
+</div>
