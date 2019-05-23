@@ -11,17 +11,18 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
 
-  user: firebase.User;
-  constructor(private authService: AuthService,private router:Router) { 
+
+  constructor(private authService: AuthService, private router: Router) {
 
   }
 
   ngOnInit() {
-
+    this.authService.getLoggedInUser();
   }
 
   onLogin() {
     this.authService.Login();
+
   }
 
 

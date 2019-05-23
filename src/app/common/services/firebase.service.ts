@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { AuthService } from './auth.service';
 import { User } from 'src/app/models/user.model';
 import { UserGiftCardMapping } from 'src/app/models/user-giftcard-mapping.model';
+import { UserPoints } from 'src/app/models/user-points.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,7 @@ export class FirebaseService {
   categoryList: AngularFireList<any>;
   userList: AngularFireList<any>;
   userGiftCard: AngularFireList<any>;
+  userPointsList: AngularFireList<any>;
 
 
   constructor(private db: AngularFireDatabase) { }
@@ -98,6 +100,18 @@ export class FirebaseService {
       points: userGiftCardMapping.points
     });
   }
+
+  // User points operations
+
+  addUserPointsToFirebase(userPoints: UserPoints) {
+    this.db.list('/UserPoints').push(userPoints);
+  }
+  getUserPointsFromFirebase() {
+    this.userPointsList = this.db.list('UserPoints');
+    return this.userPointsList.snapshotChanges();
+  }
+
+  
 
 
 }

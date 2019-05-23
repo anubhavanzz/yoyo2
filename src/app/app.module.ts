@@ -26,6 +26,7 @@ import { StoreModule } from '@ngrx/store';
 import { yoyoReducer } from './common/store/gift-details-store/gift-details.reducer';
 
 
+
 @NgModule({
   declarations: [
     AppComponent

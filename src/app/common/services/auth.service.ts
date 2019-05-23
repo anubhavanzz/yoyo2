@@ -16,8 +16,10 @@ export class AuthService {
 
   Login() {
     localStorage.setItem('loggedInUser', 'true');
-    this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider);
-    // console.log(this.getLoggedInUser);
+    this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider).then(() => {
+      this.getLoggedInUser();
+      console.log(this.user);
+    });
   }
 
   Logout() {
@@ -32,6 +34,8 @@ export class AuthService {
       this.user.email = this.loggedInUser.email;
       this.user.provider = 'Google.com';
       this.user.isUser = true;
+      console.log(this.user);
+      // if he is already existing not need to save /
       this.fbService.saveUser(this.user);
     });
   }
