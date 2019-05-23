@@ -11,8 +11,14 @@
 </marquee>
   <!-- <app-gift-list [filterType]="'category'" [categoryType]="'Home'"></app-gift-list> -->
   <app-gift-list [filterType]="'popularity'" [giftCardCount]="6"></app-gift-list>
+  <app-gift-list [filterType]="'date'" [giftCardCount]="6"></app-gift-list>
+
+  <app-category-list (categoryType)="changeCategoryType($event); giftlist.getGifts($event);"></app-category-list>
+  <app-gift-list #giftlist [filterType]="'category'" [categoryType]="categoryType"></app-gift-list>
 </mat-card>
-<app-category-list></app-category-list>
+  
+  <!-- <app-gift-list [filterType]="'popularity'" [giftCardCount]="3"></app-gift-list>
+  </mat-card> -->
   <div class="multi-section">
     <img src="/assets/EarnPoints.jpg" />
     <div>

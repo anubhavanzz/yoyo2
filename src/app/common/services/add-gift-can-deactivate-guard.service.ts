@@ -1,22 +1,20 @@
-import { CanDeactivate } from '@angular/router';
-import { AddGiftComponent } from 'src/app/admin/add-gift/add-gift.component';
-import { Injectable } from '@angular/core';
+// import { CanDeactivate } from '@angular/router';
+// import { AddGiftComponent } from 'src/app/admin/add-gift/add-gift.component';
+// import { Injectable } from '@angular/core';
 
-@Injectable({
-    providedIn: 'root'
-})
+// @Injectable({
+//     providedIn: 'root'
+// })
 
-export class AddGiftCanDeactivateGuardService implements CanDeactivate<AddGiftComponent> {
+// export class AddGiftCanDeactivateGuardService implements CanDeactivate<AddGiftComponent> {
 
-    constructor() { }
+//     constructor() { }
 
-    canDeactivate(component: AddGiftComponent): boolean {
-        console.log('in can deactivate guard');
-        console.log(localStorage.getItem('giftFormDirty'));
-        if (component.addGiftForm.dirty) {
-            return confirm('Are you sure you want to discard your changes ?');
-        }
-        return true;
-    }
+//     canDeactivate(component: AddGiftComponent): boolean {
+//         if (component.addGiftForm.dirty) {
+//             return confirm('Are you sure you want to discard your changes ?');
+//         }
+//         return true;
+//     }
 
-}
+// }

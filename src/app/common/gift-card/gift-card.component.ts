@@ -13,7 +13,8 @@ export class GiftCardComponent implements OnInit {
 
   // tslint:disable-next-line:no-input-rename
    @Input() public giftCard: GiftCard;
-
+  public rating = 4;
+public starCount = [];
   constructor(
     private router: Router,
     public giftDetailDispatcher: GiftDetailDispatcher
@@ -21,6 +22,14 @@ export class GiftCardComponent implements OnInit {
   }
 
   ngOnInit() {
+    const MAX_STARS = 5;
+    for (let i = 0; i < MAX_STARS; i++) {
+      if (i < this.rating) {
+        this.starCount[i] = 'checked';
+      } else {
+        this.starCount[i] = '';
+      }
+    }
   }
   giftCardDetails() {
     console.log(this.giftCard);

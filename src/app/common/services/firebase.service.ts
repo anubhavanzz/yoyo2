@@ -5,6 +5,7 @@ import { Category } from 'src/app/models/category.model';
 import { map } from 'rxjs/operators';
 import { AuthService } from './auth.service';
 import { User } from 'src/app/models/user.model';
+import { UserGiftCardMapping } from 'src/app/models/user-giftcard-mapping.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class FirebaseService {
   giftCardsList: AngularFireList<any>;
   categoryList: AngularFireList<any>;
   userList: AngularFireList<any>;
+  userGiftCard: AngularFireList<any>;
 
 
   constructor(private db: AngularFireDatabase) { }
@@ -80,4 +82,22 @@ export class FirebaseService {
     this.userList = this.db.list('User');
     return this.userList.snapshotChanges();
   }
+
+  // User bought gift card operations.
+
+  addUserGiftCardToFirbase(userGiftCardMapping: UserGiftCardMapping) {
+    this.db.list('/UserGiftCardMapping').push(userGiftCardMapping);
+  }
+
+  updateUserGiftCardToFirebase(userGiftCardMapping: UserGiftCardMapping) {
+    this.giftCardsList.update(userGiftCardMapping.$key, {
+      sender: userGiftCardMapping.sender,
+      receiver: userGiftCardMapping.receiver,
+      giftCard: userGiftCardMapping.giftCard,
+      isRedeem: userGiftCardMapping.isRedeem,
+      points: userGiftCardMapping.points
+    });
+  }
+
+
 }

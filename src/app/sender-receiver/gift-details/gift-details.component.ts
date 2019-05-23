@@ -3,6 +3,7 @@ import { GiftCard } from 'src/app/models/gift-card.model';
 import { GIFT_DETAILS_DEFAULT } from 'src/app/common/store/gift-details-store/gift-details.defaults';
 import { GiftDetailState } from 'src/app/common/store/gift-details-store/git-details.state';
 import { Store } from '@ngrx/store';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-gift-details',
@@ -11,23 +12,21 @@ import { Store } from '@ngrx/store';
 })
 export class GiftDetailsComponent implements OnInit {
   giftCard: GiftCard = GIFT_DETAILS_DEFAULT;
-  constructor(public gdStore: Store<GiftDetailState>) { }
+  constructor(public gdStore: Store<GiftDetailState>,
+    private router: Router
+    ) { }
 
   ngOnInit() {
     this.gdStore.select((item: any) => item.giftDetailState).subscribe((val: any) => {
-      console.log(val);
+      console.log(val.giftDetailState);
+      if (val.giftDetailState) {
+        this.giftCard = val.giftDetailState;
+      } else {
+        this.router.navigateByUrl('/');
+      }
     });
-    this.giftCard = {
-      $key: '1',
-      imageUrl: './../../../assets/logo.png',
-      points: 4,
-      description: 'Samplescription',
-      price: 800,
-      createdDate: '12/12/2018',
-      categoryName: 'eCommerce',
-      numberOfTimesBought: 1234,
-      brand: 'Fastrack',
-      name: 'Wrist watch'
-    };
+  }
+  public buyNow() {
+    this.router.navigateByUrl('/user/giveGift');
   }
 }

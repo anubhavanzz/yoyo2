@@ -28,3 +28,23 @@ example-container {
   input {
     color: black;
   }
+  .image {
+    height : 360px;
+    width : 420px;
+  }
+  tr,td{
+    text-align: center;
+    display: block;
+  }
+  .cardContent {
+    text-align: center;
+    width: 100%
+    /* display: block; */
+  }
+  .name, .points, .checked  {
+    color: #B00020;
+  }
+.details {
+  font-family: Georgia ;
+  font-size: 25px;
+}

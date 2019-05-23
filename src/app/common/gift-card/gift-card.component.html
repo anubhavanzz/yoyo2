@@ -1,10 +1,20 @@
 <mat-card class="example-card" *ngIf="giftCard && giftCard.name" (click)="giftCardDetails()">
 
-  <img mat-card-image src="{{giftCard.imageUrl}}" alt="Image" *ngIf="giftCard.imageUrl">
+  <img class='image' mat-card-image src="{{giftCard.imageUrl}}" alt="Image" *ngIf="giftCard.imageUrl">
   <mat-card-header>
 
-    <mat-card-title>Name : {{giftCard.name}}</mat-card-title>
-    <mat-card-subtitle>Brand : {{giftCard.brand}}</mat-card-subtitle>
+    <div class='cardContent'>
+      <span class="name">
+        {{giftCard.name}}
+      </span><br/>
+      <span *ngFor="let stars of starCount">
+          <span class="fa fa-star" [ngClass]="stars ? stars: ''"></span>
+      </span>
+      <br/>
+        <span>Brand : {{giftCard.brand}}</span>
+
+    </div> <br/>
+    
   </mat-card-header>
 
   <mat-card-content>
@@ -14,14 +24,11 @@
     <table>
       <tr>
         <td>
-          <mat-card-subtitle> Points : {{giftCard.points}}</mat-card-subtitle>
+          <mat-card-subtitle class="details"> Points : <span class="points"> {{giftCard.points}}</span></mat-card-subtitle>
         </td>
         <td>
-          <mat-card-subtitle>Price : {{giftCard.price}}</mat-card-subtitle>
+          <mat-card-subtitle class="details"> Category : {{giftCard.categoryName}}</mat-card-subtitle>
         </td>
-      </tr>
-      <tr>
-        <mat-card-subtitle> Category : {{giftCard.categoryName}}</mat-card-subtitle>
       </tr>
     </table>
   </mat-card-content>

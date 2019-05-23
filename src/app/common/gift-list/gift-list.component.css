@@ -3,13 +3,13 @@ ul {
 }
 .card {
     text-align: center;
-    padding-left: 16%;
+    /* padding-left: 16%; */
     border: none;
     /* margin: 1% 0 1% 0 */
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
 
 }
-.card:hover {
+.card-block:hover {
     transform: scale(1.3); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
   }
 
@@ -57,4 +57,9 @@ ul {
     color: white;
     transform: rotateY(180deg);
   }
- 
+
+  .blocks {
+    max-width:100%; 
+  }
+
+

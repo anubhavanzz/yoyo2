@@ -12,7 +12,6 @@
   }
   body {
     width: 100%;
-
 }
 mat-card {
     width: 100%;
@@ -29,4 +28,16 @@ mat-card {
     color : #B00020;
     background-color: #ffffff;
     padding: 25px 0 25px 0;
+    font-size: 25px;
+  }
+  .name {
+    color : #B00020;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .title {
+    font-weight: bold;
+  }
+  span {
+    font-size: 25px;
   }

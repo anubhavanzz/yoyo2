@@ -15,15 +15,20 @@ header .tagline {
     
 }
  
-header .tagline h1 {
-   font-size: 4rem;
+header  h1 {
+   font-size: 5rem;
+   font-weight: bolder;
    line-height: 4rem;
 }
  
-header .tagline p {
-     width: 40%;    
+header p {
+     width: 40%;  
+     /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif   */
+   font-family: 'Brush Script MT';
+     font-size: 35px;
 }
-header .tagline a {
+header  a {
+     font-size: 20px;
      font-weight:bold;
 }
 header img {
