@@ -31,8 +31,6 @@ export class AddGiftComponent implements OnInit, OnDestroy {
     Name: ['', Validators.required],
   });
 
-  // @ViewChild('tgiftForm') public addGiftForm: FormGroup;
-
   name = '';
   constructor(private fb: FormBuilder,
     private fbService: FirebaseService,
@@ -67,8 +65,11 @@ export class AddGiftComponent implements OnInit, OnDestroy {
 
   }
 
-  onSave(giftForm) {
-
+  /**
+   * @param giftForm: the details fetched from the form
+   * Function to add the new gift in case the gift isn't present, it updates if the same type already exists
+   */
+  public onSave(giftForm) {
     const newGift = GIFT_DETAILS_DEFAULT;
     newGift.brand = giftForm.value.Brand;
     newGift.name = giftForm.value.Name;
@@ -94,11 +95,14 @@ export class AddGiftComponent implements OnInit, OnDestroy {
     this.giftForm.reset();
   }
 
-  AddCategory() {
+  /**
+   * Function to navigate to the category form
+   */
+  public addCategory() {
     this.router.navigateByUrl('/admin/addCat');
   }
 
-  ngOnDestroy() {
+  public ngOnDestroy() {
     localStorage.setItem('giftFormDirty', 'true');
   }
 }

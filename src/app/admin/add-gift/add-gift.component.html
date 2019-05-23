@@ -6,7 +6,7 @@
         <mat-toolbar>
           <h3>Add Gift Card</h3>
         </mat-toolbar>
-        <button mat-raised-button color="primary"(click)="AddCategory()">Add Category</button>
+        <button mat-raised-button color="primary"(click)="addCategory()">Add Category</button>
       </div>
       <div>
         <form [formGroup]="giftForm"  (ngSubmit)="onSave(giftForm)" class="example-form">

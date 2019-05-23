@@ -42,7 +42,9 @@ export class AllGiftsComponent implements OnInit {
   constructor(private fbService: FirebaseService,
     private tostr: ToastrService) { }
 
-  ngOnInit() {
+
+    /** Function to fetch all the gift cards from the database on the initialization of the component */
+  public ngOnInit(): void {
     this.fbService.getAllGiftCardsFromFirebase().subscribe(list => {
       this.giftCardsArray = list.map(item => {
         return {
@@ -59,7 +61,11 @@ export class AllGiftsComponent implements OnInit {
 
   }
 
-  applyFilter(filter) {
+  /**
+   * @param filter : Parameter to identify the filter criterion
+   * Function to filter the gifts based on the category passed
+   */
+  applyFilter(filter): void {
 
     console.log(filter);
     this.filteredValues['brand'] = this.brandFilter.value;
@@ -71,13 +77,20 @@ export class AllGiftsComponent implements OnInit {
   onEditGift(element) {
 
   }
-  onDeleteGift(element) {
-    console.log(element);
+  /**
+   * @param element : The particular gift selected
+   * Function to delete the selected element
+   */
+  onDeleteGift(element): void {
     this.fbService.deleteGiftCardFromFirebase(element.$key);
     this.tostr.success('Deleted Successfully');
   }
 
-  customFilterPredicate() {
+
+  /**
+   * Function to custom Filter Predicate
+   */
+  customFilterPredicate(): any {
     const myFilterPredicate = (data: PeriodicElement, filter: string): boolean => {
       const searchString = JSON.parse(filter);
       const datarow = data.name + data.brand + data.points + data.description + data.numberOfTimesBought + data.categoryName;

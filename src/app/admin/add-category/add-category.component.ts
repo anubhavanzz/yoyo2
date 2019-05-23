@@ -16,7 +16,8 @@ export class AddCategoryComponent implements OnInit {
   constructor(private fbService: FirebaseService,
     private tostrService: ToastrService) { }
 
-  ngOnInit() {
+  /**Fetching all the category details from the database on initialization */
+  public ngOnInit() {
     this.fbService.getAllCategoryFromFirebase().subscribe(list => {
       list.map(item => {
         const category = new Category();
@@ -24,11 +25,13 @@ export class AddCategoryComponent implements OnInit {
           category.name = item.payload.val();
         this.categories.push(category);
       });
-      console.log(this.categories);
       this.dataSource = new MatTableDataSource(this.categories);
     });
   }
 
+  /**
+   * @param regiForm: details fetched from the form
+   * Function to add category to the database */
   AddCategory(regiForm) {
     this.fbService.addCategoryToFirebase(regiForm.value.CategoryName);
     console.log(regiForm);
@@ -36,6 +39,10 @@ export class AddCategoryComponent implements OnInit {
     this.categories = [];
   }
 
+  /**
+   * @param element: Selected element
+   * Function to delete the element from the firebase
+   */
   DeleteCategory(element) {
     this.fbService.deleteCategoryFromFirebase(element.$key);
     this.tostrService.success('Deleted Successfully');
