@@ -68,12 +68,12 @@ nav ul:last-of-type li:last-of-type a {
     border-radius: 5px;
     font-weight: bold;
 }
-p, a, mat-panel-title  {
+button, b, li{
     font-size: 20px;
     font-family: Georgia ;
 }
 
-p:hover {
+button:hover {
     color : #B00020;
     cursor: pointer;
 }

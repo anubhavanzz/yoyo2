@@ -13,20 +13,15 @@
   <ul>
     <li><a *ngIf="isLogged === false" href="javascript:void(0);"   (click)="onLogin()">SignIn</a></li>
     <li><a *ngIf="isLogged === true" href="javascript:void(0);"   (click)="onLogout()">SignOut</a></li>
+    <li *ngIf="isLogged === true"><button mat-button [matMenuTriggerFor]="menu"><b> ADMIN MENU </b></button>
+      <mat-menu #menu="matMenu">
+        <button (click)='manageUsers()' mat-menu-item>MANAGE USERS</button>
+        <button (click)='manageOrders()' mat-menu-item>MANAGE ORDERS</button>
+        <button (click)='manageGifts()' mat-menu-item>MANAGE GIFTS</button>
+        <button (click)='addItem()' mat-menu-item>ADD ITEMS</button>
+        <button (click)='addCategory()' mat-menu-item>ADD CATEGORY</button>
+      </mat-menu></li>
   </ul>
 </nav>
 
-    <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-          <b> ADMIN MENU </b>
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-      
-        <p (click)='manageUsers()'>MANAGE USERS</p>
-        <p (click)='manageOrders()'>MANAGE ORDERS</p>
-        <p (click)='manageGifts()'>MANAGE GIFTS</p>
-        <p (click)='addItem()'>ADD ITEMS</p>
-        <p (click)='addCategory()'>ADD CATEGORY</p>
-      </mat-expansion-panel>
      

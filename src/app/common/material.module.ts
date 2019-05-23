@@ -17,6 +17,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatMenuModule} from '@angular/material/menu';
 @NgModule({
     declarations: [],
     imports: [
@@ -35,7 +36,8 @@ import {MatDialogModule} from '@angular/material/dialog';
         MatSortModule,
         MatPaginatorModule,
         MatListModule,
-        MatDialogModule
+        MatDialogModule,
+        MatMenuModule
     ],
     exports: [
         MatFormFieldModule,
@@ -54,7 +56,8 @@ import {MatDialogModule} from '@angular/material/dialog';
         MatPaginatorModule,
         MatExpansionModule,
         MatListModule,
-        MatDialogModule
+        MatDialogModule,
+        MatMenuModule
     ]
 })
 export class MaterialModule { }
