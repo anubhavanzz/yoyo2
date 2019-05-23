@@ -1,8 +1,8 @@
 <nav>
   <ul>
     <li>
-      <a id="logo" routerLink="/" class="navbar-brand">
-        <!-- <span><img id="logo" src="../../../assets/logo.png" height="20px" width="20px"></span> -->
+      <a id="logo" (click)='home()' class="navbar-brand">
+        <span><img id="logo" src="../../../assets/logo.png" height="20px" width="20px"></span>
         YOYO</a>
     </li>
   </ul>
@@ -11,11 +11,22 @@
     <li><a href="#">Contact Us</a></li>
   </ul>
   <ul>
-    <!-- <li> <a href="http://localhost:4200/admin/gifts" routerLinkActive="active">Manage gifts</a></li> -->
-    <li><a href="javascript:void(0);"   (click)="onLogin()">SignIn</a></li>
-    <li><a href="javascript:void(0);"   (click)="onLogout()">SignOut</a></li>
-    <!-- <li> <a href="http://localhost:4200/admin/orders" routerLinkActive="active">Manage Orders</a></li>
-    <li> <a href="http://localhost:4200/admin/users" routerLinkActive="active">Manage Users</a></li>
-     -->
+    <li><a *ngIf="isLogged === false" href="javascript:void(0);"   (click)="onLogin()">SignIn</a></li>
+    <li><a *ngIf="isLogged === true" href="javascript:void(0);"   (click)="onLogout()">SignOut</a></li>
   </ul>
 </nav>
+
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+          <b> ADMIN MENU </b>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+      
+        <p (click)='manageUsers()'>MANAGE USERS</p>
+        <p (click)='manageOrders()'>MANAGE ORDERS</p>
+        <p (click)='manageGifts()'>MANAGE GIFTS</p>
+        <p (click)='addItem()'>ADD ITEMS</p>
+        <p (click)='addCategory()'>ADD CATEGORY</p>
+      </mat-expansion-panel>
+     

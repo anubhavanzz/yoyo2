@@ -10,6 +10,7 @@
     position: relative;
     animation-name: example;
     animation-duration: 4s;
+    font-size: 30px;
 }
 
 nav {
@@ -21,7 +22,7 @@ nav {
     position: relative;
     width: 100%;
     max-width: 100%;
-    z-index: 99;
+    /* z-index: 99; */
     align-items: center;
     background-color: #B00020
 }
@@ -66,4 +67,13 @@ nav ul:last-of-type li:last-of-type a {
     color: #fff;
     border-radius: 5px;
     font-weight: bold;
+}
+p, a, mat-panel-title  {
+    font-size: 20px;
+    font-family: Georgia ;
+}
+
+p:hover {
+    color : #B00020;
+    cursor: pointer;
 }

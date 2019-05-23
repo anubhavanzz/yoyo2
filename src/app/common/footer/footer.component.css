@@ -5,6 +5,7 @@ footer {
     justify-items: center;
     align-items: top;
     margin-top: 40px;
+    font-size: 20px;
 }
 footer ul {
     padding: 10px;

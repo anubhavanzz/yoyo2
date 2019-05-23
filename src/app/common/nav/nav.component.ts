@@ -11,24 +11,46 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
 
-
+public isLogged: boolean;
   constructor(private authService: AuthService, private router: Router) {
-
   }
 
   ngOnInit() {
+    this.isLogged = false;
     this.authService.getLoggedInUser();
   }
 
   onLogin() {
     this.authService.Login();
+    this.isLogged = true;
 
   }
-
-
+  home() {
+    this.router.navigateByUrl('');
+  }
   onLogout() {
     this.authService.Logout();
     this.router.navigateByUrl('');
+  }
+
+  manageUsers() {
+    this.router.navigateByUrl('/admin/users');
+  }
+
+  manageOrders() {
+    this.router.navigateByUrl('/admin/orders');
+  }
+
+  manageGifts() {
+    this.router.navigateByUrl('/admin/gifts');
+  }
+
+  addCategory() {
+    this.router.navigateByUrl('/admin/addCat');
+  }
+
+  addItem() {
+    this.router.navigateByUrl('/admin/gifts/new');
   }
 
 }
