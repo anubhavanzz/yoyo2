@@ -10,13 +10,17 @@ import { GiftReviewComponent } from './gift-review/gift-review.component';
 import { SenderReceiverRoutingModule } from './sender-receiver-routes.module';
 import { MaterialModule } from '../common/material.module';
 import { CommonModule } from '@angular/common';
+import { ReceiverDetailsComponent } from './receiver-details/receiver-details.component';
 
 @NgModule({
   declarations: [PopularGiftsComponent,
-    NewGiftsComponent, GiftDetailsComponent, GiveAGiftComponent, ProfilePageComponent, GiftHistoryComponent, GiftReviewComponent,
+    NewGiftsComponent, GiftDetailsComponent, GiveAGiftComponent,
+    ProfilePageComponent, GiftHistoryComponent, GiftReviewComponent,
+    ReceiverDetailsComponent
     ],
   imports: [
     CommonFunctionalityModule, SenderReceiverRoutingModule, MaterialModule, CommonModule
-  ]
+  ],
+  entryComponents: [ReceiverDetailsComponent]
 })
 export class SenderReceiverModule { }
