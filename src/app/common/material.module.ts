@@ -16,7 +16,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSortModule } from '@angular/material/sort';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatMenuModule} from '@angular/material/menu';
 @NgModule({
     declarations: [],
     imports: [
@@ -35,7 +38,9 @@ import {MatDialogModule} from '@angular/material/dialog';
         MatSortModule,
         MatPaginatorModule,
         MatListModule,
-        MatDialogModule
+        MatDialogModule,
+        MatIconModule,
+        MatMenuModule
     ],
     exports: [
         MatFormFieldModule,
@@ -54,7 +59,11 @@ import {MatDialogModule} from '@angular/material/dialog';
         MatPaginatorModule,
         MatExpansionModule,
         MatListModule,
-        MatDialogModule
-    ]
+        MatDialogModule,
+        MatIconModule,
+        MatMenuModule
+    ],
+    providers: [{provide: MatDialogRef, useValue: {}},
+        { provide: MAT_DIALOG_DATA, useValue: {} }]
 })
 export class MaterialModule { }

@@ -62,8 +62,7 @@ import { yoyoReducer } from './common/store/gift-details-store/gift-details.redu
     FormsModule,
     MatFormFieldModule
   ],
-  providers: [AuthGuardService,
-    //AddGiftCanDeactivateGuardService
+  providers: [AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

@@ -3,6 +3,9 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase';
 import { User } from 'src/app/models/user.model';
 import { FirebaseService } from './firebase.service';
+import { Store } from '@ngrx/store';
+import { GiftDetailState } from '../store/gift-details-store/git-details.state';
+import { CURRENT_USER } from '../store/gift-details-store/gift-details.defaults';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +13,10 @@ import { FirebaseService } from './firebase.service';
 export class AuthService {
 
   loggedInUser: firebase.User;
-  user = new User();
+  user = CURRENT_USER;
   constructor(private afAuth: AngularFireAuth,
-    private fbService: FirebaseService) { }
+    private fbService: FirebaseService ,
+    public gdStore: Store<GiftDetailState>) { }
 
   Login() {
     localStorage.setItem('loggedInUser', 'true');
@@ -35,6 +39,9 @@ export class AuthService {
       this.user.provider = 'Google.com';
       this.user.isUser = true;
       console.log(this.user);
+      this.gdStore.select((item: any) => item.giftDetailState).subscribe((val: any) => {
+        console.log(val);
+      });
       // if he is already existing not need to save /
       this.fbService.saveUser(this.user);
     });

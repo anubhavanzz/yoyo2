@@ -106,12 +106,19 @@ export class FirebaseService {
   addUserPointsToFirebase(userPoints: UserPoints) {
     this.db.list('/UserPoints').push(userPoints);
   }
-  getUserPointsFromFirebase() {
+  getUsersPointsFromFirebase() {
     this.userPointsList = this.db.list('UserPoints');
     return this.userPointsList.snapshotChanges();
   }
 
-  
+  updateUserPointsToFirebase(userPoints: UserPoints) {
+    this.userPointsList.update(userPoints.$key, {
+      userEmail: userPoints.userEmail,
+      points: userPoints.points
+    });
+  }
+
+
 
 
 }

@@ -16,13 +16,13 @@ import { giftActionTypes } from '../store/gift-details-store/gift-details.action
 export class NavComponent implements OnInit {
 
   users: User[];
+  public isLogged: boolean;
 
   constructor(private authService: AuthService, private router: Router,
-    private fbService: FirebaseService ,  public giftDetailDispatcher: GiftDetailDispatcher) {
-
-  }
+    private fbService: FirebaseService ,  public giftDetailDispatcher: GiftDetailDispatcher) {}
 
   ngOnInit() {
+    this.isLogged = false;
     this.authService.getLoggedInUser();
 
     this.fbService.getAllUsersFromFirebase().subscribe(list => {
@@ -39,13 +39,35 @@ export class NavComponent implements OnInit {
 
   onLogin() {
     this.authService.Login();
+    this.isLogged = true;
 
   }
-
-
+  home() {
+    this.router.navigateByUrl('');
+  }
   onLogout() {
     this.authService.Logout();
     this.router.navigateByUrl('');
+  }
+
+  manageUsers() {
+    this.router.navigateByUrl('/admin/users');
+  }
+
+  manageOrders() {
+    this.router.navigateByUrl('/admin/orders');
+  }
+
+  manageGifts() {
+    this.router.navigateByUrl('/admin/gifts');
+  }
+
+  addCategory() {
+    this.router.navigateByUrl('/admin/addCat');
+  }
+
+  addItem() {
+    this.router.navigateByUrl('/admin/gifts/new');
   }
 
 }
