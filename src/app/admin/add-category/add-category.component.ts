@@ -17,11 +17,11 @@ export class AddCategoryComponent implements OnInit {
     private tostrService: ToastrService) { }
 
   /**Fetching all the category details from the database on initialization */
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.fbService.getAllCategoryFromFirebase().subscribe(list => {
       list.map(item => {
         const category = new Category();
-        category.$key = item.key,
+        category.$key = item.payload,
           category.name = item.payload.val();
         this.categories.push(category);
       });
@@ -32,7 +32,7 @@ export class AddCategoryComponent implements OnInit {
   /**
    * @param regiForm: details fetched from the form
    * Function to add category to the database */
-  AddCategory(regiForm) {
+  public addCategory(regiForm): void {
     this.fbService.addCategoryToFirebase(regiForm.value.CategoryName);
     console.log(regiForm);
     this.tostrService.success('Added Successfully');
@@ -43,7 +43,7 @@ export class AddCategoryComponent implements OnInit {
    * @param element: Selected element
    * Function to delete the element from the firebase
    */
-  DeleteCategory(element) {
+  public deleteCategory(element): void {
     this.fbService.deleteCategoryFromFirebase(element.$key);
     this.tostrService.success('Deleted Successfully');
     this.categories = [];

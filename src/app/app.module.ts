@@ -47,7 +47,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatListModule,
     MatToolbarModule,
     RouterModule,
-    // AdminModule,
     MatInputModule,
     FormsModule,
     MatFormFieldModule,
