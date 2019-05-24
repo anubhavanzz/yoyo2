@@ -23,7 +23,10 @@ describe('AddCategoryComponent', () => {
     public giftCardsList: AngularFireList<any>;
     public getAllCategoryFromFirebase(): Observable<any> {
       const returnValue = [];
-      returnValue.push({ payload: {val: function() {return 'All'; }}, type: 'value', prevKey: null, key: '-LfT5eH7dAgRmj5hfZ3C' }, { payload: {val: function() {return 'E-commerce'; }}, type: 'value', prevKey: '-LfT5eH7dAgRmj5hfZ3C', key: '-LfT69rOpwgoemR0sZii' });
+      returnValue.push({ payload: {val: function() {return 'All'; }},
+      type: 'value', prevKey: null, key: '-LfT5eH7dAgRmj5hfZ3C' },
+      { payload: {val: function() {return 'E-commerce'; }},
+      type: 'value', prevKey: '-LfT5eH7dAgRmj5hfZ3C', key: '-LfT69rOpwgoemR0sZii' });
       return observableFrom([returnValue]);
     }
     public success(): void {
