@@ -11,8 +11,9 @@
     <li><a href="#">Contact Us</a></li>
   </ul>
   <ul>
-    <li><a *ngIf="isLogged === false" href="javascript:void(0);"   (click)="onLogin()">SignIn</a></li>
-    <li><a *ngIf="isLogged === true" href="javascript:void(0);"   (click)="onLogout()">SignOut</a></li>
+    <li><a *ngIf="!this.authService.isUserLoggedIn" href="javascript:void(0);"   (click)="onLogin()">SignIn</a></li>
+    <li><a *ngIf="this.authService.isUserLoggedIn" href="javascript:void(0);"   (click)="onLogout()">SignOut</a></li>
+    
     <li><button mat-button [matMenuTriggerFor]="menu"><b> ADMIN MENU </b></button>
       <mat-menu #menu="matMenu">
         <button (click)='manageUsers()' mat-menu-item>MANAGE USERS</button>
@@ -20,9 +21,12 @@
         <button (click)='manageGifts()' mat-menu-item>MANAGE GIFTS</button>
         <button (click)='addItem()' mat-menu-item>ADD ITEMS</button>
         <button (click)='addCategory()' mat-menu-item>ADD CATEGORY</button>
-        <button> <a href="http://localhost:4200/user/points" >Get Points</a></button>
+        <button (click)='getPoints()' mat-menu-item> GET POINTS</button>
+        <!-- <button> <a href="http://localhost:4200/user/points" >Get Points</a></button> -->
+    
       </mat-menu></li>
   </ul>
+
 </nav>
 
-     
+
