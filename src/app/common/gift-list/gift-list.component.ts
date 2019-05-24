@@ -43,23 +43,34 @@ export class GiftListComponent implements OnInit {
   }
 
   public getGifts(): void {
-    this.fbService.getAllGiftCardsFromFirebase().subscribe(list => {
-      this.giftCardsArray = list.map(item => {
-        return {
-          $key: item.key,
-          ...item.payload.val()
-        };
-      });
-      this.giftDetailDispatcher.giftDetailDispatch(giftActionTypes.GET_ALL_GIFT_DETAILS, this.giftCardsArray);
-      // const a = this.giftCardsArray;
-      this.gdStore.select((item: any) => item.giftDetailState).subscribe((val: any) => {
-        console.log(val);
-      });
-      this.giftCardsArray = this.giftListService.sortGiftCardArray(this.giftCardsArray, this.filterType, this.categoryType);
-      if (this.giftCardCount) {
-        this.giftCardsArray = this.giftCardsArray.slice(0, this.giftCardCount);
+    this.gdStore.select((item: any) => item.giftDetailState).subscribe((val: any) => {
+      console.log(val);
+      if (val.giftAllDetailState) {
+        this.giftCardsArray = val.giftAllDetailState;
+        this.modifyGiftsArray();
+      } else {
+        this.fbService.getAllGiftCardsFromFirebase().subscribe(list => {
+          this.giftCardsArray = list.map(item => {
+            return {
+              $key: item.key,
+              ...item.payload.val()
+            };
+          });
+          this.giftDetailDispatcher.giftDetailDispatch(giftActionTypes.GET_ALL_GIFT_DETAILS, this.giftCardsArray);
+          // const a = this.giftCardsArray;
+          // this.gdStore.select((item: any) => item.giftDetailState).subscribe((val: any) => {
+          //   console.log(val);
+          // });
+          this.modifyGiftsArray();
+        });
       }
     });
   }
 
+  public modifyGiftsArray(): void {
+    this.giftCardsArray = this.giftListService.sortGiftCardArray(this.giftCardsArray, this.filterType, this.categoryType);
+    if (this.giftCardCount) {
+      this.giftCardsArray = this.giftCardsArray.slice(0, this.giftCardCount);
+    }
+  }
 }
