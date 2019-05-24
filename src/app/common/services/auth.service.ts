@@ -49,8 +49,9 @@ export class AuthService {
         this.loggedInUser = fbUser;
         console.log('in firebase subscribe', this.loggedInUser);
         if (this.userList.find(user => user.email === fbUser.email)) {
+          this.user = this.userList.find(user => user.email === fbUser.email);
           this.isUser = this.userList.find(user => user.email === fbUser.email).isUser;
-          console.log('user already existing');
+          console.log('user already existing', this.user);
         } else {
           const newUser = new User();
           newUser.email = fbUser.email;
@@ -68,8 +69,8 @@ export class AuthService {
     });
   }
 
-  async getLoggedInUser() {
-    await this.getAllUsers();
+   getLoggedInUser() {
+     this.getAllUsers();
 
   }
 }

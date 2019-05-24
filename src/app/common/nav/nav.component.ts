@@ -54,29 +54,4 @@ export class NavComponent implements OnInit {
     this.router.navigateByUrl('');
     console.log(this.authService.user);
   }
-
-  manageUsers() {
-    this.router.navigateByUrl('/admin/users');
-  }
-
-  manageOrders() {
-    this.router.navigateByUrl('/admin/orders');
-  }
-
-  manageGifts() {
-    this.router.navigateByUrl('/admin/gifts');
-  }
-
-  addCategory() {
-    this.router.navigateByUrl('/admin/addCat');
-  }
-
-  addItem() {
-    this.router.navigateByUrl('/admin/gifts/new');
-  }
-
-  getPoints() {
-    this.router.navigateByUrl('/user/points');
-  }
-
 }

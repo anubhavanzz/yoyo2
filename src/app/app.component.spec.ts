@@ -1,16 +1,42 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-
+import { NavComponent } from './common/nav/nav.component';
+import { FooterComponent } from './common/footer/footer.component';
+import { MatMenuModule, MatInputModule } from '@angular/material';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import {MatListModule} from '@angular/material/list';
+import { Store } from '@ngrx/store';
+class MockService {
+  public select() {}
+}
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        MatMenuModule,
+        MatListModule,
+        AngularFireModule.initializeApp({
+          apiKey: 'AIzaSyC4O9LJigZttUlVbxpKJwrta3UmcRZp1Zg',
+          authDomain: 'yoyogift-e2fb7.firebaseapp.com',
+          databaseURL: 'https://yoyogift-e2fb7.firebaseio.com',
+          projectId: 'yoyogift-e2fb7',
+          storageBucket: 'yoyogift-e2fb7.appspot.com',
+          messagingSenderId: '293963158537',
+          appId: '1:293963158537:web:adff0773339da453'
+        }),
+        AngularFireDatabaseModule,
+        AngularFireAuthModule
       ],
       declarations: [
-        AppComponent
+        AppComponent, NavComponent, FooterComponent
       ],
+      providers: [
+        { provide: Store, useClass: MockService },
+      ]
     }).compileComponents();
   }));
 
@@ -18,18 +44,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'yoyo'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('yoyo');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to yoyo!');
   });
 });

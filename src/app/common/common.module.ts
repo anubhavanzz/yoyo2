@@ -34,7 +34,7 @@ import { HomeComponent } from './login/home.component';
     MaterialModule, CommonModule, RouterModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [AuthService,
+  providers: [
     GiftDetailDispatcher
   ]
 })

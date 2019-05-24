@@ -47,7 +47,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatListModule,
     MatToolbarModule,
     RouterModule,
-    // AdminModule,
     MatInputModule,
     FormsModule,
     MatFormFieldModule,
@@ -65,7 +64,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     FormsModule,
     MatFormFieldModule
   ],
-  providers: [AuthGuardService, FirebaseService
+  providers: [AuthGuardService, FirebaseService, AuthService
   ],
   bootstrap: [AppComponent]
 })

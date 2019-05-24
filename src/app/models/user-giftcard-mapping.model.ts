@@ -4,7 +4,10 @@ export class UserGiftCardMapping {
     $key: string;
     sender: string;
     receiver: string;
-    giftCard: GiftCard;
-    isRedeem: string;
+    giftCardName: string;
+    giftCardId: string;
+    isRedeem: boolean;
     points: string;
+    createdDate: string;
+
 }
