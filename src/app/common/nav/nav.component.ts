@@ -23,6 +23,7 @@ export class NavComponent implements OnInit {
     private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
+    
     this.spinner.show();
     this.authService.getLoggedInUser();
 
