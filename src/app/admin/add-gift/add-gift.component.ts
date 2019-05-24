@@ -15,7 +15,7 @@ import { GIFT_DETAILS_DEFAULT } from 'src/app/common/store/gift-details-store/gi
 })
 export class AddGiftComponent implements OnInit, OnDestroy {
 
-  giftCard: GiftCard = GIFT_DETAILS_DEFAULT;
+  giftCard = new GiftCard();
   giftCardsArray: GiftCard[];
   categories: Category[] = [];
 
@@ -70,7 +70,7 @@ export class AddGiftComponent implements OnInit, OnDestroy {
    * Function to add the new gift in case the gift isn't present, it updates if the same type already exists
    */
   public onSave(giftForm) {
-    const newGift = GIFT_DETAILS_DEFAULT;
+    const newGift = new GiftCard();
     newGift.brand = giftForm.value.Brand;
     newGift.name = giftForm.value.Name;
     newGift.categoryName = giftForm.value.categoryName;

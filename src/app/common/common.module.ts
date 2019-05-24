@@ -13,6 +13,7 @@ import { GiftListComponent } from './gift-list/gift-list.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { MaterialTableComponent } from './material-table/material-table.component';
 import { GiftDetailDispatcher } from './store/gift-details-store/gift-details.dispatcher';
+import { AuthService } from './services/auth.service';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './login/home.component';
 
@@ -33,7 +34,7 @@ import { HomeComponent } from './login/home.component';
     MaterialModule, CommonModule, RouterModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers : [
+  providers: [AuthService,
     GiftDetailDispatcher
   ]
 })

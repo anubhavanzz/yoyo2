@@ -5,7 +5,6 @@ import { User } from 'src/app/models/user.model';
 import { FirebaseService } from './firebase.service';
 import { Store } from '@ngrx/store';
 import { GiftDetailState } from '../store/gift-details-store/git-details.state';
-import { CURRENT_USER } from '../store/gift-details-store/gift-details.defaults';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +12,16 @@ import { CURRENT_USER } from '../store/gift-details-store/gift-details.defaults'
 export class AuthService {
 
   loggedInUser: firebase.User;
-  user = CURRENT_USER;
+  user = new User();
+  userList: User[] = [];
+  isUser: boolean;
+  isUserLoggedIn = false;
   constructor(private afAuth: AngularFireAuth,
-    private fbService: FirebaseService ,
-    public gdStore: Store<GiftDetailState>) { }
+    private fbService: FirebaseService,
+    public gdStore: Store<GiftDetailState>) {
+
+
+  }
 
   Login() {
     localStorage.setItem('loggedInUser', 'true');
@@ -31,19 +36,40 @@ export class AuthService {
     this.afAuth.auth.signOut();
   }
 
-  getLoggedInUser() {
-    return this.afAuth.authState.subscribe(fbUser => {
-      this.loggedInUser = fbUser;
-      this.user.name = this.loggedInUser.displayName;
-      this.user.email = this.loggedInUser.email;
-      this.user.provider = 'Google.com';
-      this.user.isUser = true;
-      console.log(this.user);
-      this.gdStore.select((item: any) => item.giftDetailState).subscribe((val: any) => {
-        console.log(val);
+
+  getAllUsers() {
+    this.fbService.getAllUsersFromFirebase().subscribe(list => {
+      this.userList = list.map(item => {
+        return {
+          $key: item.key,
+          ...item.payload.val()
+        };
       });
-      // if he is already existing not need to save /
-      this.fbService.saveUser(this.user);
+      return this.afAuth.authState.subscribe(fbUser => {
+        this.loggedInUser = fbUser;
+        console.log('in firebase subscribe', this.loggedInUser);
+        if (this.userList.find(user => user.email === fbUser.email)) {
+          this.isUser = this.userList.find(user => user.email === fbUser.email).isUser;
+          console.log('user already existing');
+        } else {
+          const newUser = new User();
+          newUser.email = fbUser.email;
+          newUser.isUser = true;
+          newUser.name = fbUser.displayName;
+          newUser.provider = 'Google.com';
+          this.user = newUser;
+          this.fbService.saveUser(newUser);
+          console.log('saved the user');
+        }
+        this.isUserLoggedIn = true;
+      });
+
+      console.log('within subscirbe-', this.userList);
     });
+  }
+
+  async getLoggedInUser() {
+    await this.getAllUsers();
+
   }
 }

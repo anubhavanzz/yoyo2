@@ -24,7 +24,9 @@ import { AuthGuardService } from './common/services/auth-guard.service';
 // import { AddGiftCanDeactivateGuardService } from './common/services/add-gift-can-deactivate-guard.service';
 import { StoreModule } from '@ngrx/store';
 import { yoyoReducer } from './common/store/gift-details-store/gift-details.reducer';
-
+import { AuthService } from './common/services/auth.service';
+import { FirebaseService } from './common/services/firebase.service';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -53,7 +55,8 @@ import { yoyoReducer } from './common/store/gift-details-store/gift-details.redu
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     StoreModule.forRoot({
       giftDetailState: yoyoReducer
-    })
+    }),
+    NgxSpinnerModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -62,7 +65,7 @@ import { yoyoReducer } from './common/store/gift-details-store/gift-details.redu
     FormsModule,
     MatFormFieldModule
   ],
-  providers: [AuthGuardService
+  providers: [AuthGuardService, FirebaseService
   ],
   bootstrap: [AppComponent]
 })

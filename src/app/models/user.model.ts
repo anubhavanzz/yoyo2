@@ -6,12 +6,12 @@ export class User {
     provider: string;
 
 
-    constructor(key: string, name: string, email: string, isUser: boolean, provider: string) {
-        this.$key = key,
-            this.name = name,
-            this.email = email,
-            this.isUser = isUser,
-            this.provider = provider;
-    }
+    // constructor(key: string, name: string, email: string, isUser: boolean, provider: string) {
+    //     this.$key = key,
+    //         this.name = name,
+    //         this.email = email,
+    //         this.isUser = isUser,
+    //         this.provider = provider;
+    // }
 
 }

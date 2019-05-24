@@ -7,6 +7,7 @@ import { FirebaseService } from '../services/firebase.service';
 import { User } from 'src/app/models/user.model';
 import { GiftDetailDispatcher } from '../store/gift-details-store/gift-details.dispatcher';
 import { giftActionTypes } from '../store/gift-details-store/gift-details.action';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-nav',
@@ -15,29 +16,29 @@ import { giftActionTypes } from '../store/gift-details-store/gift-details.action
 })
 export class NavComponent implements OnInit {
 
-  users: User[];
   public isLogged: boolean;
 
   constructor(private authService: AuthService, private router: Router,
-    private fbService: FirebaseService ,  public giftDetailDispatcher: GiftDetailDispatcher) {}
+    private fbService: FirebaseService,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
-    this.isLogged = false;
+    this.spinner.show();
     this.authService.getLoggedInUser();
 
-    this.fbService.getAllUsersFromFirebase().subscribe(list => {
-      this.users = list.map(item => {
-        return {
-          $key: item.key,
-          ...item.payload.val()
-        };
-      });
-      this.giftDetailDispatcher.giftDetailDispatch(giftActionTypes.GET_ALL_USERS, this.users);
-    });
+    this.spinner.show();
+
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 9000);
+
 
   }
 
   onLogin() {
+    this.authService.isUserLoggedIn = true;
+    console.log('From login ', this.authService.isUserLoggedIn);
     this.authService.Login();
     this.isLogged = true;
 
@@ -46,8 +47,36 @@ export class NavComponent implements OnInit {
     this.router.navigateByUrl('');
   }
   onLogout() {
+    console.log('From logout ', this.authService.isUserLoggedIn);
+    this.authService.user = new User();
+    this.authService.isUserLoggedIn = false;
     this.authService.Logout();
     this.router.navigateByUrl('');
+    console.log(this.authService.user);
+  }
+
+  manageUsers() {
+    this.router.navigateByUrl('/admin/users');
+  }
+
+  manageOrders() {
+    this.router.navigateByUrl('/admin/orders');
+  }
+
+  manageGifts() {
+    this.router.navigateByUrl('/admin/gifts');
+  }
+
+  addCategory() {
+    this.router.navigateByUrl('/admin/addCat');
+  }
+
+  addItem() {
+    this.router.navigateByUrl('/admin/gifts/new');
+  }
+
+  getPoints() {
+    this.router.navigateByUrl('/user/points');
   }
 
 }
