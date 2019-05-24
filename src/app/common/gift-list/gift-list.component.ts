@@ -52,9 +52,9 @@ export class GiftListComponent implements OnInit {
       });
       this.giftDetailDispatcher.giftDetailDispatch(giftActionTypes.GET_ALL_GIFT_DETAILS, this.giftCardsArray);
       // const a = this.giftCardsArray;
-      this.gdStore.select((item: any) => item.giftDetailState).subscribe((val: any) => {
-        console.log(val);
-      });
+      // this.gdStore.select((item: any) => item.giftDetailState).subscribe((val: any) => {
+      //   console.log(val);
+      // });
       this.giftCardsArray = this.giftListService.sortGiftCardArray(this.giftCardsArray, this.filterType, this.categoryType);
       if (this.giftCardCount) {
         this.giftCardsArray = this.giftCardsArray.slice(0, this.giftCardCount);

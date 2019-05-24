@@ -15,6 +15,7 @@ import { CategoryListComponent } from './category-list/category-list.component';
 import { MaterialTableComponent } from './material-table/material-table.component';
 import { GiftDetailDispatcher } from './store/gift-details-store/gift-details.dispatcher';
 import { AuthService } from './services/auth.service';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -30,7 +31,7 @@ import { AuthService } from './services/auth.service';
 
   ],
   imports: [
-    MaterialModule, CommonModule
+    MaterialModule, CommonModule, RouterModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [AuthService,

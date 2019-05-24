@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatSort,MatPaginator } from '@angular/material';
+import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { GiftCard } from 'src/app/models/gift-card.model';
 import { FormControl } from '@angular/forms';
 import { FirebaseService } from 'src/app/common/services/firebase.service';

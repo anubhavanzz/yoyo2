@@ -1,0 +1,35 @@
+
+
+<h2>Enter Receiver's Details:</h2>
+<form [formGroup]="receiverDetails" (ngSubmit)="submitDetails(receiverDetails)" class="example-form">
+  <mat-form-field appearance="outline">
+    <mat-label>Receiver's Name</mat-label>
+    <input formControlName="name" matInput placeholder="Receiver's Name">
+    <mat-icon matSuffix>accessibility_new</mat-icon>
+  </mat-form-field>
+  <mat-error>
+    <span *ngIf="!receiverDetails.get('name').valid && receiverDetails.get('name').touched">Please enter the name</span>
+  </mat-error>
+  <br>
+  <mat-form-field appearance="outline">
+    <mat-label>Receiver's Email</mat-label>
+    <input formControlName="email" matInput placeholder="Email">
+    <mat-icon matSuffix>email</mat-icon>
+  </mat-form-field>
+  <mat-error>
+    <span *ngIf="!receiverDetails.get('email').valid && receiverDetails.get('email').touched">Please enter the email ID</span>
+  </mat-error>
+  <br>
+  <mat-form-field appearance="outline">
+    <mat-label>Message</mat-label>
+    <input formControlName="message" matInput placeholder="Message">
+    <mat-icon matSuffix>message</mat-icon>
+  </mat-form-field>
+  <mat-error>
+    <span *ngIf="!receiverDetails.get('message').valid && receiverDetails.get('message').touched">Please enter a personal message</span>
+  </mat-error>
+  <br>
+  <div class="right">
+    <button mat-raised-button color="primary">Submit</button>
+  </div>
+</form>
