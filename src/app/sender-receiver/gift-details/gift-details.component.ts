@@ -6,6 +6,7 @@ import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 import { ReceiverDetailsComponent } from 'src/app/sender-receiver/receiver-details/receiver-details.component';
+import { AuthService } from 'src/app/common/services/auth.service';
 
 @Component({
   selector: 'app-gift-details',
@@ -16,10 +17,13 @@ export class GiftDetailsComponent implements OnInit {
   giftCard: GiftCard = GIFT_DETAILS_DEFAULT;
   constructor(public gdStore: Store<GiftDetailState>,
     public dialog: MatDialog,
-    private router: Router
-    ) { }
+    private router: Router,
+    private authService: AuthService,
+  ) { }
 
   public ngOnInit(): void {
+    console.log('from Gift card details component ---', this.authService.user);
+    console.log('from Gift card details component ---', this.authService.isUser, this.authService.isUserLoggedIn);
     this.gdStore.select((item: any) => item.giftDetailState).subscribe((val: any) => {
       console.log(val.giftDetailState);
       if (val.giftDetailState) {
@@ -36,7 +40,7 @@ export class GiftDetailsComponent implements OnInit {
     const dialogRef = this.dialog.open(ReceiverDetailsComponent, {
       width: '30%',
       height: '95%',
-      data: {name: 'this.name', animal: 'this.animal'}
+      data: { name: 'this.name', animal: 'this.animal' }
     });
 
     dialogRef.afterClosed().subscribe(result => {

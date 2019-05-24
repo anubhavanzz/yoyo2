@@ -17,7 +17,7 @@ export class FirebaseService {
   giftCardsList: AngularFireList<any>;
   categoryList: AngularFireList<any>;
   userList: AngularFireList<any>;
-  userGiftCard: AngularFireList<any>;
+  userGiftCardList: AngularFireList<any>;
   userPointsList: AngularFireList<any>;
 
 
@@ -87,17 +87,23 @@ export class FirebaseService {
 
   // User bought gift card operations.
 
+  getAllUserGiftCardFromFirebase() {
+    this.userGiftCardList = this.db.list('UserGiftCardMapping');
+    return this.userGiftCardList.snapshotChanges();
+  }
   addUserGiftCardToFirbase(userGiftCardMapping: UserGiftCardMapping) {
     this.db.list('/UserGiftCardMapping').push(userGiftCardMapping);
   }
 
   updateUserGiftCardToFirebase(userGiftCardMapping: UserGiftCardMapping) {
-    this.giftCardsList.update(userGiftCardMapping.$key, {
+    this.userGiftCardList.update(userGiftCardMapping.$key, {
       sender: userGiftCardMapping.sender,
       receiver: userGiftCardMapping.receiver,
-      giftCard: userGiftCardMapping.giftCard,
+      giftCardName: userGiftCardMapping.giftCardName,
       isRedeem: userGiftCardMapping.isRedeem,
-      points: userGiftCardMapping.points
+      points: userGiftCardMapping.points,
+      giftCardId: userGiftCardMapping.giftCardId,
+      createdDate: userGiftCardMapping.createdDate
     });
   }
 

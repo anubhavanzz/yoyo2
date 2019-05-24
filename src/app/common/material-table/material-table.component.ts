@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { MatPaginator, MatTableDataSource ,MatSort } from '@angular/material';
+import { Component, OnInit, Input, ViewChild, Output } from '@angular/core';
+import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 import { MatTableColumns } from '../MatTableColumns';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-material-table',
@@ -12,6 +13,8 @@ export class MaterialTableComponent implements OnInit {
   @Input() public tableDataSource;
   @Input() public columns: MatTableColumns;
   @Input() public displayedColumns: string[];
+  @Input() public actionsEnabled: string[];
+  @Output() rowSelected = new EventEmitter();
 
   dataSource = new MatTableDataSource(this.tableDataSource);
 
@@ -28,4 +31,7 @@ export class MaterialTableComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  onClick(element) {
+    this.rowSelected.emit(element);
+  }
 }

@@ -4,6 +4,9 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { GiftDetailState } from 'src/app/common/store/gift-details-store/git-details.state';
+import { AuthService } from 'src/app/common/services/auth.service';
+import { FirebaseService } from 'src/app/common/services/firebase.service';
+import { UserGiftCardMapping } from 'src/app/models/user-giftcard-mapping.model';
 
 @Component({
   selector: 'app-receiver-details',
@@ -16,16 +19,19 @@ export class ReceiverDetailsComponent implements OnInit {
     public dialogRef: MatDialogRef<ReceiverDetailsComponent>,
     @Inject(MAT_DIALOG_DATA) public data: 'DialogData',
     private router: Router,
-    public gdStore: Store<GiftDetailState>) { }
+    public gdStore: Store<GiftDetailState>,
+    public authService: AuthService,
+    public fbService: FirebaseService) { }
 
-    public receiverDetails = this.formBuilder.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      message: ['', Validators.required]
-    });
-    public giftCardDetails;
+  public receiverDetails = this.formBuilder.group({
+    name: ['', Validators.required],
+    email: ['', Validators.required],
+    message: ['', Validators.required]
+  });
+  public giftCardDetails;
 
   ngOnInit() {
+    console.log('From receiver Detail------', this.authService.user);
   }
 
   /**
@@ -38,14 +44,15 @@ export class ReceiverDetailsComponent implements OnInit {
       console.log('this.giftCardDetails ' + val.giftDetailState);
       this.giftCardDetails = val.giftDetailState;
     });
-    const receiverDetailsPayload = {
-      sender: undefined,
-      receiver: receiverDetails.value.email,
-      giftCard: this.giftCardDetails.name,
-      isRedeem: false,
-      points: this.giftCardDetails.points
-    };
-    console.log('receiverDetailsPayload ' + receiverDetailsPayload);
+    const userGiftCard = new UserGiftCardMapping();
+    userGiftCard.sender = this.authService.user.email,
+      userGiftCard.receiver = receiverDetails.value.email,
+      userGiftCard.giftCardName = this.giftCardDetails.name,
+      userGiftCard.isRedeem = false,
+      userGiftCard.points = this.giftCardDetails.points,
+      userGiftCard.giftCardId = this.giftCardDetails.$key;
+    userGiftCard.createdDate = new Date().toString().substring(0, 15);
+    this.fbService.addUserGiftCardToFirbase(userGiftCard);
     this.dialogRef.close();
     this.router.navigateByUrl('/user/giveGift');
   }
