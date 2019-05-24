@@ -14,7 +14,7 @@
     <li><a *ngIf="!this.authService.isUserLoggedIn" href="javascript:void(0);"   (click)="onLogin()">SignIn</a></li>
     <li><a *ngIf="this.authService.isUserLoggedIn" href="javascript:void(0);"   (click)="onLogout()">SignOut</a></li>
     
-    <li><button mat-button [matMenuTriggerFor]="menu"><b> ADMIN MENU </b></button>
+    <li><button mat-button [matMenuTriggerFor]="menu" *ngIf="this.authService.user.name"><b> {{this.authService.user.name}} </b></button>
       <mat-menu #menu="matMenu">
         <button [routerLink]="['/admin/users']" mat-menu-item>MANAGE USERS</button>
         <button [routerLink]="['/admin/orders']" mat-menu-item>MANAGE ORDERS</button>

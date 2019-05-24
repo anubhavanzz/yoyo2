@@ -1,3 +1,5 @@
-<p>
-  gifts-received works!
-</p>
+<div *ngIf="userReceivedGiftOrders">
+    <app-material-table [tableDataSource]="userReceivedGiftOrders" [columns]="matTableColumns"
+     [displayedColumns]="displayedColumns" [actionsEnabled]="true">
+    </app-material-table>
+  </div>

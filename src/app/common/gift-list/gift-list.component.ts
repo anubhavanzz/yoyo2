@@ -54,7 +54,7 @@ export class GiftListComponent implements OnInit, OnDestroy {
    */
   public getGifts(): void {
     this.Subscriptions.push(this.gdStore.select((item: any) => item.giftDetailState).subscribe((val: any) => {
-      console.log(val);
+      // console.log(val);
       if (val.giftAllDetailState) {
         this.giftCardsArray = val.giftAllDetailState;
         this.modifyGiftsArray();

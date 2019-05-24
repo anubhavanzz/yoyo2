@@ -13,7 +13,7 @@ export class MaterialTableComponent implements OnInit {
   @Input() public tableDataSource;
   @Input() public columns: MatTableColumns;
   @Input() public displayedColumns: string[];
-  @Input() public actionsEnabled: string[];
+  @Input() public actionsEnabled = true;
   @Output() rowSelected = new EventEmitter();
 
   dataSource = new MatTableDataSource(this.tableDataSource);
@@ -23,7 +23,7 @@ export class MaterialTableComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.tableDataSource);
+    console.log('From materail table', this.tableDataSource);
     console.log(this.columns);
     console.log(this.displayedColumns);
     this.dataSource = new MatTableDataSource(this.tableDataSource);
@@ -32,6 +32,7 @@ export class MaterialTableComponent implements OnInit {
   }
 
   onClick(element) {
-    this.rowSelected.emit(element);
+    console.log(element);
+    //this.rowSelected.emit(element);
   }
 }

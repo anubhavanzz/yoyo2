@@ -38,6 +38,7 @@ export class UserOrdersComponent implements OnInit {
         };
       });
       this.userGiftOrders = this.allUsersGiftOrders.filter(order => order.sender === this.authService.user.email);
+      console.log('--------from userorders comp', this.userGiftOrders);
     });
 
   }
