@@ -44,7 +44,7 @@ describe('AddGiftComponent', () => {
         }),
         AngularFireDatabaseModule,
         AngularFireAuthModule,
-        RouterModule.forRoot([]),
+        RouterModule.forRoot([])
       ],
       providers: [ToastrService, GiftDetailDispatcher,
         { provide: Store, useClass: MockService },

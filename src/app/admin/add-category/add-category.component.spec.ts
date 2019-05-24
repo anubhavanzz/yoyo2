@@ -16,7 +16,8 @@ describe('AddCategoryComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AddCategoryComponent ],
-      imports: [FormsModule,
+      imports: [
+        FormsModule,
         ToastrModule.forRoot(),
          MatTableModule,
          AngularFireModule.initializeApp({
