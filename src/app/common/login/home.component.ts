@@ -5,19 +5,16 @@ import { AuthService } from '../services/auth.service';
 import { FirebaseService } from '../services/firebase.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class LoginComponent implements OnInit {
-  
+export class HomeComponent implements OnInit {
   constructor(private authService: AuthService, private afAuth: AngularFireAuth, private fbService: FirebaseService) {
 
   }
 
   ngOnInit() {
-    
-
   }
 
 
