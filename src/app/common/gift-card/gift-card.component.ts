@@ -12,17 +12,17 @@ import { giftActionTypes } from '../store/gift-details-store/gift-details.action
 export class GiftCardComponent implements OnInit {
 
   // tslint:disable-next-line:no-input-rename
-   @Input() public giftCard: GiftCard;
+  @Input() public giftCard: GiftCard;
   public rating = 4;
-public starCount = [];
+  public starCount = [];
   constructor(
     private router: Router,
     public giftDetailDispatcher: GiftDetailDispatcher
-    ) {
+  ) {
   }
-/**
- * Angular hook to initialize the component with star rating data
- */
+  /**
+   * Angular hook to initialize the component with star rating data
+   */
   public ngOnInit(): void {
     const MAX_STARS = 5;
     for (let i = 0; i < MAX_STARS; i++) {
@@ -40,6 +40,6 @@ public starCount = [];
   public giftCardDetails(): void {
     console.log(this.giftCard);
     this.giftDetailDispatcher.giftDetailDispatch(giftActionTypes.GET_GIFT_DETAILS, this.giftCard);
-     this.router.navigateByUrl('/user/giftsDetails');
+    this.router.navigateByUrl('/user/giftsDetails');
   }
 }
