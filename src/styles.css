@@ -5,6 +5,7 @@ body {
     margin: 0;
     font-family: Georgia ;
     font-size: 30px;
+    
 }
 body * {
     transition: all 0.400s ease-in-out;
@@ -63,6 +64,7 @@ color: #eee;
 main {
     margin-top: 300px;
     padding:0px;
+    background-color: #f3f3f3;
 
 }
 
