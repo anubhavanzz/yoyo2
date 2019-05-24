@@ -34,7 +34,7 @@ import { RouterModule } from '@angular/router';
     MaterialModule, CommonModule, RouterModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [AuthService,
+  providers: [
     GiftDetailDispatcher
   ]
 })
