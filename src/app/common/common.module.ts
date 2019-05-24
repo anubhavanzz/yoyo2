@@ -14,6 +14,7 @@ import { GiftListComponent } from './gift-list/gift-list.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { MaterialTableComponent } from './material-table/material-table.component';
 import { GiftDetailDispatcher } from './store/gift-details-store/gift-details.dispatcher';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { GiftDetailDispatcher } from './store/gift-details-store/gift-details.di
 
   ],
   imports: [
-    MaterialModule, CommonModule
+    MaterialModule, CommonModule, RouterModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers : [

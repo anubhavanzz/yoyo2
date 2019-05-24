@@ -15,12 +15,12 @@
     <li><a *ngIf="isLogged === true" href="javascript:void(0);"   (click)="onLogout()">SignOut</a></li>
     <li><button mat-button [matMenuTriggerFor]="menu"><b> ADMIN MENU </b></button>
       <mat-menu #menu="matMenu">
-        <button (click)='manageUsers()' mat-menu-item>MANAGE USERS</button>
-        <button (click)='manageOrders()' mat-menu-item>MANAGE ORDERS</button>
-        <button (click)='manageGifts()' mat-menu-item>MANAGE GIFTS</button>
-        <button (click)='addItem()' mat-menu-item>ADD ITEMS</button>
-        <button (click)='addCategory()' mat-menu-item>ADD CATEGORY</button>
-        <button> <a href="http://localhost:4200/user/points" >Get Points</a></button>
+        <button [routerLink]="['/admin/users']" mat-menu-item>MANAGE USERS</button>
+        <button [routerLink]="['/admin/orders']" mat-menu-item>MANAGE ORDERS</button>
+        <button [routerLink]="['/admin/gifts']" mat-menu-item>MANAGE GIFTS</button>
+        <button [routerLink]="['/admin/addCat']"  mat-menu-item>ADD CATEGORY</button>
+        <button [routerLink]="['/admin/gifts/new']" mat-menu-item>ADD ITEMS</button>
+        <button [routerLink]="['/user/points']" mat-menu-item>GET POINTS</button>
       </mat-menu></li>
   </ul>
 </nav>

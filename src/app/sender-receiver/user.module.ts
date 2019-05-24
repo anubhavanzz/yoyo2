@@ -12,12 +12,13 @@ import { MaterialModule } from '../common/material.module';
 import { CommonModule } from '@angular/common';
 import { ReceiverDetailsComponent } from './receiver-details/receiver-details.component';
 import { GetPointsComponent } from './get-points/get-points.component';
+import { FeedbackFormComponent } from './feedback-form/feedback-form.component';
 
 @NgModule({
   declarations: [PopularGiftsComponent,
     NewGiftsComponent, GiftDetailsComponent, GiveAGiftComponent,
     ProfilePageComponent, GiftHistoryComponent, GiftReviewComponent,
-    ReceiverDetailsComponent, GetPointsComponent
+    ReceiverDetailsComponent, GetPointsComponent, FeedbackFormComponent
     ],
   imports: [
     CommonFunctionalityModule, SenderReceiverRoutingModule, MaterialModule, CommonModule

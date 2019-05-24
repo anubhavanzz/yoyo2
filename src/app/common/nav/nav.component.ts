@@ -50,24 +50,4 @@ export class NavComponent implements OnInit {
     this.router.navigateByUrl('');
   }
 
-  manageUsers() {
-    this.router.navigateByUrl('/admin/users');
-  }
-
-  manageOrders() {
-    this.router.navigateByUrl('/admin/orders');
-  }
-
-  manageGifts() {
-    this.router.navigateByUrl('/admin/gifts');
-  }
-
-  addCategory() {
-    this.router.navigateByUrl('/admin/addCat');
-  }
-
-  addItem() {
-    this.router.navigateByUrl('/admin/gifts/new');
-  }
-
 }
