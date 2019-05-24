@@ -23,6 +23,8 @@ export class GiftListComponent implements OnInit, OnDestroy {
   @Input() public filterType: string;
   @Input() public categoryType: string;
   @Input() public giftCardCount: number;
+  @Input() public categories;
+
   // @Input() public giftCardList: GiftCard = new GiftCard();
   public giftCard: GiftCard;
   constructor(private fbService: FirebaseService,
@@ -54,7 +56,6 @@ export class GiftListComponent implements OnInit, OnDestroy {
    */
   public getGifts(): void {
     this.Subscriptions.push(this.gdStore.select((item: any) => item.giftDetailState).subscribe((val: any) => {
-      // console.log(val);
       if (val.giftAllDetailState) {
         this.giftCardsArray = val.giftAllDetailState;
         this.modifyGiftsArray();

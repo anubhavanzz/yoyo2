@@ -21,6 +21,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatSidenavModule} from '@angular/material/sidenav';
 @NgModule({
     declarations: [],
     imports: [
@@ -42,7 +43,8 @@ import {MatTabsModule} from '@angular/material/tabs';
         MatDialogModule,
         MatIconModule,
         MatMenuModule,
-        MatTabsModule
+        MatTabsModule,
+        MatSidenavModule
     ],
     exports: [
         MatFormFieldModule,
@@ -64,7 +66,8 @@ import {MatTabsModule} from '@angular/material/tabs';
         MatDialogModule,
         MatIconModule,
         MatMenuModule,
-        MatTabsModule
+        MatTabsModule,
+        MatSidenavModule
     ],
     providers: [{provide: MatDialogRef, useValue: {}},
         { provide: MAT_DIALOG_DATA, useValue: {} }]

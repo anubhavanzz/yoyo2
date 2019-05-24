@@ -1,5 +1,5 @@
 <div class="categoryList">
-  <mat-list role="list" *ngFor="let category of categories">
+  <mat-list role="list" class="list-item" *ngFor="let category of categories">
     <mat-list-item role="listitem" (click)="updateCategoryList(category.name)">{{category.name}}</mat-list-item>
   </mat-list>
 </div>

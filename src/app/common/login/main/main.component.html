@@ -17,8 +17,16 @@
 
   <app-gift-list [filterType]="'date'" [giftCardCount]="6"></app-gift-list>
 
-<app-category-list (categoryType)="changeCategoryType($event); giftlist.getGifts($event);"></app-category-list>
-<app-gift-list #giftlist [filterType]="'category'" [categoryType]="categoryType"></app-gift-list>
+  <h2>Categories</h2>
+<div class="row">
+  <div class="col-lg-3">
+    <app-category-list (categoryType)="changeCategoryType($event); giftlist.getGifts($event);"></app-category-list>
+  </div>
+    <div class="col-lg-9">
+    <app-gift-list #giftlist [categories]="true" [filterType]="'category'" [categoryType]="categoryType"></app-gift-list>
+  </div>
+</div>
+
   
   <div class="multi-section">
     <img src="/assets/EarnPoints.jpg" />
