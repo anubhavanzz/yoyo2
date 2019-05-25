@@ -18,18 +18,8 @@ export class AddGiftComponent implements OnInit, OnDestroy {
   giftCard = new GiftCard();
   giftCardsArray: GiftCard[];
   categories: Category[] = [];
+  giftForm: FormGroup;
 
-  giftForm = this.fb.group({
-    ImageUrl: ['', Validators.required],
-    Points: ['', [Validators.required, Validators.min(0), Validators.max(1000), Validators.pattern('^[0-9]*$')]],
-    Description: ['', [Validators.required, Validators.minLength(5)]],
-    Price: ['', [Validators.required, Validators.min(0)], Validators.pattern('^[0-9]*$')],
-    CreatedDate: [''],
-    categoryName: ['', Validators.required],
-    NumberOfTimesBought: [''],
-    Brand: ['', Validators.required],
-    Name: ['', Validators.required],
-  });
 
   name = '';
   constructor(private fb: FormBuilder,
@@ -41,6 +31,19 @@ export class AddGiftComponent implements OnInit, OnDestroy {
 
   }
   public ngOnInit() {
+
+    this.giftForm = this.fb.group({
+      ImageUrl: ['', [Validators.required]],
+      Points: ['', [Validators.required, Validators.min(0), Validators.max(1000)]],
+      Description: ['', [Validators.required, Validators.minLength(5)]],
+      Price: ['', [Validators.required, Validators.min(0), Validators.min(1000)]],
+      CreatedDate: [''],
+      categoryName: ['', Validators.required],
+      NumberOfTimesBought: [''],
+      Brand: ['', Validators.required],
+      Name: ['', Validators.required],
+    });
+
     const id = this.route.snapshot.params.id;
     this.fbService.getAllGiftCardsFromFirebase().subscribe(list => {
       this.giftCardsArray = list.map(item => {
@@ -70,6 +73,7 @@ export class AddGiftComponent implements OnInit, OnDestroy {
    * Function to add the new gift in case the gift isn't present, it updates if the same type already exists
    */
   public onSave(giftForm) {
+    console.log(this.giftForm);
     const newGift = new GiftCard();
     newGift.brand = giftForm.value.Brand;
     newGift.name = giftForm.value.Name;

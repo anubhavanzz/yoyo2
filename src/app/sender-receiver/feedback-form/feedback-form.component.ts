@@ -21,7 +21,8 @@ export class FeedbackFormComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
     private authService: AuthService,
     private fbService: FirebaseService,
-    private tostr: ToastrService) {
+    private tostr: ToastrService,
+    private dialogRef: MatDialogRef<FeedbackFormComponent>) {
 
   }
 
@@ -51,7 +52,11 @@ export class FeedbackFormComponent implements OnInit {
     this.review.rating = this.rating;
     this.review.userName = this.authService.user.name;
     this.fbService.addReviewToFirebase(this.review);
+    this.giftCard.rating = Math.floor((this.giftCard.rating + this.rating) / 2);
+    this.fbService.updateGiftCardInFirebase(this.giftCard);
     this.tostr.success('Thanks for sharing Feedback');
+    this.dialogRef.close();
+
   }
 
 }
