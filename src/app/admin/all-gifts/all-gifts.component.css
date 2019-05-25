@@ -31,4 +31,11 @@ table {
     color: #B00020;
     padding-left: 5%;
   }
+  .fa {
+    font-size: 30px;
+    padding-right: 10%;
+  }
   
+  .fa:hover {
+    color: #B00020;
+  }

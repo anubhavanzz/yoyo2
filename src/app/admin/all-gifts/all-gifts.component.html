@@ -5,10 +5,8 @@
 <div class="container-fluid">
   <div>
     <div class="row">
-      <mat-form-field>
         <input matInput class="form-field" [formControl]="globalFilter" placeholder="Global Filter"
           (keyup)=applyFilter($event.target.value)>
-      </mat-form-field>
     </div>
   </div>
   <div>
@@ -85,8 +83,10 @@
         <ng-container matColumnDef="Actions">
           <th mat-header-cell *matHeaderCellDef> Options </th>
           <td mat-cell *matCellDef="let element">
-            <button mat-raised-button color="accent" [routerLink]="[element.$key]">Edit</button>
-            <button mat-raised-button color="warn" (click)=onDeleteGift(element)>Delete</button>
+            <!-- <button mat-raised-button color="accent" [routerLink]="[element.$key]">Edit</button>
+            <button mat-raised-button color="warn" (click)=onDeleteGift(element)>Delete</button> -->
+            <i class="fa fa-pencil-square-o" aria-hidden="true" [routerLink]="[element.$key]"></i>
+            <i class="fa fa-trash" aria-hidden="true" (click)=onDeleteGift(element)></i>
           </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
