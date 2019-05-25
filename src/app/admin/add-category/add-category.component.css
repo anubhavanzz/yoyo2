@@ -1,12 +1,39 @@
 table {
-    width: 100%;
-  }
-  h2{
-    font-family: 'Brush Script MT';
-    color: #B00020;
-    padding-left: 5%;
-  }
-  input {
-    padding-left: 2%;
-  }
-  
+  width: 100%;
+}
+
+h2 {
+  font-family: 'Brush Script MT';
+  color: #B00020;
+  padding-left: 5%;
+}
+
+input {
+  padding-left: 2%;
+}
+
+.fa {
+  font-size: 30px;
+  padding-right: 10%;
+}
+
+.fa:hover {
+  color: #B00020;
+}
+
+mat-card {
+  margin: 5%;
+}
+
+button {
+  margin-top: 5%;
+  font-size: 30px;
+  color: #B00020;
+  background-color: white;
+  font-family: Georgia;
+}
+
+button:hover {
+  color: white;
+  background-color: #B00020; 
+}
