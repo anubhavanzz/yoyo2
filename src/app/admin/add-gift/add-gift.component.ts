@@ -21,9 +21,9 @@ export class AddGiftComponent implements OnInit, OnDestroy {
 
   giftForm = this.fb.group({
     ImageUrl: ['', Validators.required],
-    Points: ['', [Validators.required, Validators.min(0)]],
+    Points: ['', [Validators.required, Validators.min(0), Validators.max(1000), Validators.pattern('^[0-9]*$')]],
     Description: ['', [Validators.required, Validators.minLength(5)]],
-    Price: ['', [Validators.required, Validators.min(0)]],
+    Price: ['', [Validators.required, Validators.min(0)], Validators.pattern('^[0-9]*$')],
     CreatedDate: [''],
     categoryName: ['', Validators.required],
     NumberOfTimesBought: [''],

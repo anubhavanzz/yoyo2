@@ -64,7 +64,7 @@
         <!-- Created Date Column -->
 
         <ng-container matColumnDef="createdDate">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> created Date </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Add Date </th>
           <td mat-cell *matCellDef="let element"> {{element.createdDate | date:'MM/dd/yyyy'}} </td>
         </ng-container>
 
@@ -97,7 +97,7 @@
   </div>
 
   <div>
-      <button mat-raised-button color="primary" (click)="addGiftCard()">Add Gift Card</button>
+      <button mat-raised-button (click)="addGiftCard()">Add Gift Card</button>
   </div>
 </div>
 </mat-card>

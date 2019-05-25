@@ -24,6 +24,7 @@ export class GiftCardComponent implements OnInit {
    * Angular hook to initialize the component with star rating data
    */
   public ngOnInit(): void {
+    console.log('from gift card component : ', this.giftCard);
     const MAX_STARS = 5;
     for (let i = 0; i < MAX_STARS; i++) {
       if (i < this.rating) {

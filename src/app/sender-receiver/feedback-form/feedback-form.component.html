@@ -1,13 +1,15 @@
 <div class=" jumbotron border">
     <div class="border solid">
-        <h1><b>Thanks {{  this.authService.user.name}} for Sharing Feedback </b> </h1>
+        <h5><b>Thanks {{  this.authService.user.name}} for claiming the gift </b> </h5>
     </div>
     <mat-dialog-content class="mat-typography">
         <div class="border solid row">
             <div>
                 <table>
-                    <app-gift-card [giftCard]='giftCard'></app-gift-card>
+                    <app-gift-card [giftCard]="giftCard"></app-gift-card>
+
                     <tr>
+                        <p>Please provide the rating </p>
                         <fieldset class="rating">
                             <input type="radio" value="5" [checked]="rating===5" />
                             <label title="Rocks!" (click)='onClick(5)'>5 stars</label>
@@ -26,6 +28,7 @@
                         </fieldset>
                     </tr>
                     <tr>
+                        <p>Please provide the feedback comments  </p>
                         <div class="form-group">
                             <label for="comment">Feedback Comment:</label>
                             <textarea class="form-control" rows="5" id="comment" #comment></textarea>
@@ -36,8 +39,9 @@
         </div>
 
     </mat-dialog-content>
-    <mat-dialog-actions >
-        <button mat-raised-button color="primary" class="ml-3"(click)="onSaveClick(comment.value)"><i class="fas fa-save fa-2x mr-1 p-1"></i>Save
+    <mat-dialog-actions>
+        <button mat-raised-button color="primary" class="ml-3" (click)="onSaveClick(comment.value)"><i
+                class="fas fa-save fa-2x mr-1 p-1"></i>Save
             Feedback</button>
         <button mat-raised-button color="warn" mat-dialog-close cdkFocusInitial class="ml-3"> <i
                 class="fas fa-times fa-2x mr-1 p-1"></i>Cancel</button>

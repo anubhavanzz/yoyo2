@@ -13,7 +13,7 @@ width: 100px;
 
 mat-toolbar{
   color: azure;
-  background-color: brown;
+  background-color: #B00020;
   font-family: 'Courier New', Courier, monospace;
   font-weight: 200;
 }
@@ -39,4 +39,25 @@ mat-card {
   padding: 2%;
   margin: 2%;
 }
+.mat-form-field {
+  font-family: Georgia !important;
+  color: #B00020;
+}
 
+span {
+  margin-top: -10px;
+  font-family: Georgia !important;
+  font-size: 15px;
+}
+button {
+  margin-top: 5%;
+  font-size: 30px;
+  color: #B00020;
+  background-color: white;
+  font-family: Georgia;
+}
+
+button:hover {
+  color: white;
+  background-color: #B00020; 
+}

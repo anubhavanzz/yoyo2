@@ -16,15 +16,15 @@ table {
   }
   
   th {
-    font-size: 16px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+    font-family: 'Georgia';
     color:white; 
     background-color: rgb(197, 23, 23)
   }
   
   td {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 16px;
+    font-size: 25px;
   }
   h2{
     font-family: 'Brush Script MT';
@@ -38,4 +38,16 @@ table {
   
   .fa:hover {
     color: #B00020;
+  }
+  button {
+    margin-top: 5%;
+    font-size: 30px;
+    color: #B00020;
+    background-color: white;
+    font-family: Georgia;
+  }
+  
+  button:hover {
+    color: white;
+    background-color: #B00020; 
   }
