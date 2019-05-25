@@ -80,6 +80,7 @@ export class AddGiftComponent implements OnInit, OnDestroy {
     newGift.price = giftForm.value.Price;
     newGift.createdDate = new Date().toString();
     newGift.numberOfTimesBought = 0;
+    newGift.rating = 0;
 
     if (this.giftCard.$key) {
       newGift.numberOfTimesBought = this.giftCard.numberOfTimesBought;

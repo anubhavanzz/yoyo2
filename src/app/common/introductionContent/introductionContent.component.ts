@@ -22,7 +22,7 @@ export class IntroductionContentComponent implements OnInit, AfterViewInit {
   }
   ngAfterViewInit(): void {
 
-    //this.spinner.hide();
+    // this.spinner.hide();
   }
 
 }

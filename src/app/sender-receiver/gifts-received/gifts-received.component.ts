@@ -5,6 +5,9 @@ import { FirebaseService } from 'src/app/common/services/firebase.service';
 import { AuthService } from 'src/app/common/services/auth.service';
 import { UserPoints } from 'src/app/models/user-points.model';
 import { ToastrService } from 'ngx-toastr';
+import { MatDialog } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { FeedbackFormComponent } from '../feedback-form/feedback-form.component';
 
 @Component({
   selector: 'app-gifts-received',
@@ -33,7 +36,8 @@ export class GiftsReceivedComponent implements OnInit {
 
   constructor(private fbService: FirebaseService,
     private authService: AuthService,
-    private tostr: ToastrService) { }
+    private tostr: ToastrService ,
+    public dialog: MatDialog) { }
 
   ngOnInit() {
     this.fbService.getAllUserGiftCardFromFirebase().subscribe(list => {
@@ -59,10 +63,25 @@ export class GiftsReceivedComponent implements OnInit {
   }
 
   onCardRedeem(input) {
-    console.log('in gift recieved component', input);
-    this.userPoints.points = this.userPoints.points - input.points;
-    this.fbService.updateUserPointsToFirebase(this.userPoints);
-    this.tostr.success('Redeemed Successfully');
+    this.openDialog(input);
+    // console.log('in gift recieved component', input);
+    // this.userPoints.points = this.userPoints.points - input.points;
+    // this.fbService.updateUserPointsToFirebase(this.userPoints);
+    // this.tostr.success('Redeemed Successfully');
+  }
+
+  openDialog(giftData): void {
+    const dialogRef = this.dialog.open(FeedbackFormComponent, {
+      data: {
+        height: '700px',
+        width: '300px',
+        bookData: giftData
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 }

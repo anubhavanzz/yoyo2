@@ -4,6 +4,7 @@ import { GiftCard } from 'src/app/models/gift-card.model';
 import { FormControl } from '@angular/forms';
 import { FirebaseService } from 'src/app/common/services/firebase.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 
 export interface PeriodicElement {
@@ -40,10 +41,11 @@ export class AllGiftsComponent implements OnInit {
   categoryFilter = new FormControl();
 
   constructor(private fbService: FirebaseService,
-    private tostr: ToastrService) { }
+    private tostr: ToastrService,
+    private router: Router) { }
 
 
-    /** Function to fetch all the gift cards from the database on the initialization of the component */
+  /** Function to fetch all the gift cards from the database on the initialization of the component */
   public ngOnInit(): void {
     this.fbService.getAllGiftCardsFromFirebase().subscribe(list => {
       this.giftCardsArray = list.map(item => {
@@ -122,5 +124,9 @@ export class AllGiftsComponent implements OnInit {
       }
     };
     return myFilterPredicate;
+  }
+
+  addGiftCard() {
+    this.router.navigateByUrl('/admin/gifts/new');
   }
 }
