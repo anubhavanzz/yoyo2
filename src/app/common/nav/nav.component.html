@@ -16,8 +16,8 @@
     
     <li><button mat-button [matMenuTriggerFor]="menu" *ngIf="this.authService.user.name"><b> {{this.authService.user.name}} </b></button>
       <mat-menu #menu="matMenu">
-        <button [routerLink]="['/admin/users']" mat-menu-item>MANAGE USERS</button>
-        <button [routerLink]="['/admin/orders']" mat-menu-item>MANAGE ORDERS</button>
+        <button [routerLink]="['/admin/users']" mat-menu-item>ALL USERS</button>
+        <button [routerLink]="['/admin/orders']" mat-menu-item>ALL ORDERS</button>
         <button [routerLink]="['/admin/gifts']" mat-menu-item>MANAGE GIFTS</button>
         <button [routerLink]="['/admin/addCat']"  mat-menu-item>ADD CATEGORY</button>
         <button [routerLink]="['/admin/gifts/new']" mat-menu-item>ADD ITEMS</button>

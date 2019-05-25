@@ -26,4 +26,16 @@ table {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 16px;
   }
+  h2{
+    font-family: 'Brush Script MT';
+    color: #B00020;
+    padding-left: 5%;
+  }
+  .fa {
+    font-size: 30px;
+    padding-right: 10%;
+  }
   
+  .fa:hover {
+    color: #B00020;
+  }

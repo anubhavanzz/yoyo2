@@ -1,5 +1,10 @@
+<h2>
+    All Orders
+  </h2>
+  <mat-card>
 <div *ngIf="allUsersGiftOrders">
     <app-material-table [tableDataSource]="allUsersGiftOrders" [columns]="matTableColumns"
      [displayedColumns]="displayedColumns">
     </app-material-table>
   </div>
+  </mat-card>
