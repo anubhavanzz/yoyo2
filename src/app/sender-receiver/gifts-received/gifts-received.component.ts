@@ -18,7 +18,7 @@ export class GiftsReceivedComponent implements OnInit {
 
   // ColumnDef, HeaderCellDef
   matTableColumns: MatTableColumns[] = [
-    new MatTableColumns('receiver', 'Sent to'),
+    new MatTableColumns('sender', 'Received From'),
     new MatTableColumns('giftCardName', 'Gift Card Name'),
     new MatTableColumns('giftCardId', 'GiftCard Number'),
     new MatTableColumns('points', 'Points'),
@@ -26,7 +26,7 @@ export class GiftsReceivedComponent implements OnInit {
     new MatTableColumns('actions', 'Actions'),
   ];
 
-  displayedColumns: string[] = ['receiver', 'giftCardName', 'giftCardId', 'points', 'createdDate', 'actions'];
+  displayedColumns: string[] = ['sender', 'giftCardName', 'giftCardId', 'points', 'createdDate', 'actions'];
 
   allUsersGiftOrders: UserGiftCardMapping[];
   userReceivedGiftOrders: UserGiftCardMapping[];
@@ -75,7 +75,7 @@ export class GiftsReceivedComponent implements OnInit {
       data: {
         height: '700px',
         width: '300px',
-        bookData: giftData
+        gfdata: giftData
       }
     });
 

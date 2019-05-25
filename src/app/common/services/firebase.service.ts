@@ -7,6 +7,7 @@ import { AuthService } from './auth.service';
 import { User } from 'src/app/models/user.model';
 import { UserGiftCardMapping } from 'src/app/models/user-giftcard-mapping.model';
 import { UserPoints } from 'src/app/models/user-points.model';
+import { Review } from 'src/app/models/review.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,7 @@ export class FirebaseService {
   userList: AngularFireList<any>;
   userGiftCardList: AngularFireList<any>;
   userPointsList: AngularFireList<any>;
+  reviews: AngularFireList<any>;
 
 
   constructor(private db: AngularFireDatabase) { }
@@ -48,7 +50,7 @@ export class FirebaseService {
       numberOfTimesBought: giftCard.numberOfTimesBought,
       brand: giftCard.brand,
       name: giftCard.name,
-      rating : giftCard.rating,
+      rating: giftCard.rating,
     });
   }
 
@@ -125,5 +127,15 @@ export class FirebaseService {
     });
   }
 
+  // Review CRUD operations
+  addReviewToFirebase(review: Review) {
+    this.db.list('/Reviews').push(review);
+  }
+  getReviewsFromFirebase() {
+    this.reviews = this.db.list('Reviews');
+    return this.reviews.snapshotChanges();
+  }
+
+  
 
 }
