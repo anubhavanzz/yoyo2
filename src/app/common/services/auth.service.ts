@@ -19,12 +19,9 @@ export class AuthService {
   constructor(private afAuth: AngularFireAuth,
     private fbService: FirebaseService,
     public gdStore: Store<GiftDetailState>) {
-
-
   }
 
   Login() {
-    localStorage.setItem('loggedInUser', 'true');
     this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider).then(() => {
       this.getLoggedInUser();
       console.log(this.user);
@@ -32,7 +29,6 @@ export class AuthService {
   }
 
   Logout() {
-    localStorage.removeItem('loggedInUser');
     this.afAuth.auth.signOut();
   }
 
@@ -45,9 +41,10 @@ export class AuthService {
           ...item.payload.val()
         };
       });
+
       return this.afAuth.authState.subscribe(fbUser => {
         this.loggedInUser = fbUser;
-        if (this.userList && fbUser ) {
+        if (this.userList && fbUser) {
           console.log('In Firebase susbscribed user', this.loggedInUser);
           if (this.userList.find(user => user.email === fbUser.email)) {
             this.user = this.userList.find(user => user.email === fbUser.email);
@@ -59,6 +56,7 @@ export class AuthService {
             newUser.isUser = true;
             newUser.name = fbUser.displayName;
             newUser.provider = 'Google.com';
+            newUser.points = 0;
             this.user = newUser;
             this.fbService.saveUser(newUser);
             console.log('New User Saved');

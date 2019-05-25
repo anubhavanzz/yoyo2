@@ -88,6 +88,12 @@ export class FirebaseService {
     return this.userList.snapshotChanges();
   }
 
+  updateUserPointsToFirebase(key, points) {
+    this.userList.update(key, {
+      points: points
+    });
+  }
+
   // User bought gift card operations.
 
   getAllUserGiftCardFromFirebase() {
@@ -110,22 +116,22 @@ export class FirebaseService {
     });
   }
 
-  // User points operations
+  // // User points operations
 
-  addUserPointsToFirebase(userPoints: UserPoints) {
-    this.db.list('/UserPoints').push(userPoints);
-  }
-  getUsersPointsFromFirebase() {
-    this.userPointsList = this.db.list('UserPoints');
-    return this.userPointsList.snapshotChanges();
-  }
+  // addUserPointsToFirebase(userPoints: UserPoints) {
+  //   this.db.list('/UserPoints').push(userPoints);
+  // }
+  // getUsersPointsFromFirebase() {
+  //   this.userPointsList = this.db.list('UserPoints');
+  //   return this.userPointsList.snapshotChanges();
+  // }
 
-  updateUserPointsToFirebase(userPoints: UserPoints) {
-    this.userPointsList.update(userPoints.$key, {
-      userEmail: userPoints.userEmail,
-      points: userPoints.points
-    });
-  }
+  // updateUserPointsToFirebase(userPoints: UserPoints) {
+  //   this.userPointsList.update(userPoints.$key, {
+  //     userEmail: userPoints.userEmail,
+  //     points: userPoints.points
+  //   });
+  // }
 
   // Review CRUD operations
   addReviewToFirebase(review: Review) {
@@ -136,6 +142,6 @@ export class FirebaseService {
     return this.reviews.snapshotChanges();
   }
 
-  
+
 
 }

@@ -23,9 +23,8 @@ export class NavComponent implements OnInit {
     private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
-    this.spinner.show();
-    this.authService.getLoggedInUser();
 
+    this.authService.getLoggedInUser();
     this.spinner.show();
 
     setTimeout(() => {
@@ -39,6 +38,7 @@ export class NavComponent implements OnInit {
   onLogin() {
     console.log('From login ', this.authService.isUserLoggedIn);
     this.authService.Login();
+
     this.authService.isUserLoggedIn = true;
     this.isLogged = true;
 

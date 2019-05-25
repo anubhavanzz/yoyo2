@@ -30,8 +30,7 @@ export class GiftsReceivedComponent implements OnInit {
 
   allUsersGiftOrders: UserGiftCardMapping[];
   userReceivedGiftOrders: UserGiftCardMapping[];
-  userPointsArray: UserPoints[];
-  userPoints: UserPoints;
+
 
 
   constructor(private fbService: FirebaseService,
@@ -50,15 +49,6 @@ export class GiftsReceivedComponent implements OnInit {
       this.userReceivedGiftOrders = this.allUsersGiftOrders.filter(order => order.receiver === this.authService.user.email);
     });
 
-    this.fbService.getUsersPointsFromFirebase().subscribe(list => {
-      this.userPointsArray = list.map(item => {
-        return {
-          $key: item.key,
-          ...item.payload.val()
-        };
-      });
-      this.userPoints = this.userPointsArray.find(user => user.userEmail === this.authService.user.email);
-    });
 
   }
 

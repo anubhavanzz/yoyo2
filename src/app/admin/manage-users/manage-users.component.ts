@@ -17,9 +17,10 @@ export class ManageUsersComponent implements OnInit {
     new MatTableColumns('email', 'Email'),
     new MatTableColumns('isUser', 'Is User?'),
     new MatTableColumns('provider', 'Provider'),
+    new MatTableColumns('points', 'Credit Points'),
   ];
 
-  displayedColumns: string[] = ['name', 'email', 'isUser', 'provider'];
+  displayedColumns: string[] = ['name', 'email', 'isUser', 'provider', 'points'];
 
 
   constructor(private fbService: FirebaseService) { }
