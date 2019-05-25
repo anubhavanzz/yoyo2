@@ -28,9 +28,9 @@ export class GiftListComponent implements OnInit, OnDestroy {
   // @Input() public giftCardList: GiftCard = new GiftCard();
   public giftCard: GiftCard;
   constructor(private fbService: FirebaseService,
-  private giftListService: GiftListService,
-  public giftDetailDispatcher: GiftDetailDispatcher,
-  public gdStore: Store<GiftDetailState>) { }
+    private giftListService: GiftListService,
+    public giftDetailDispatcher: GiftDetailDispatcher,
+    public gdStore: Store<GiftDetailState>) { }
 
   /**
    * Angular hook to initialize the component with gift card properties and get details of all the gifts
@@ -46,7 +46,8 @@ export class GiftListComponent implements OnInit, OnDestroy {
       categoryName: '',
       numberOfTimesBought: 7,
       brand: '',
-      name: 'flipkart gift card'
+      name: 'flipkart gift card',
+      rating: 1
     };
     this.getGifts();
   }

@@ -23,7 +23,8 @@ export class MainComponent implements OnInit {
       categoryName: '',
       numberOfTimesBought: 7,
       brand: '',
-      name: 'flipkart gift card'
+      name: 'flipkart gift card',
+      rating: 1
     };
   }
 

@@ -4,23 +4,24 @@ import { GiftDetailsComponent } from './gift-details/gift-details.component';
 import { GiveAGiftComponent } from './give-a-gift/give-a-gift.component';
 import { GetPointsComponent } from './get-points/get-points.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
+import { AuthGuardService } from '../common/services/auth-guard.service';
 
 export const routes: Routes = [
   {
     path: 'giftsDetails',
-    component: GiftDetailsComponent
+    component: GiftDetailsComponent, canActivate: [AuthGuardService]
   },
   {
     path: 'giveGift',
-    component: GiveAGiftComponent
+    component: GiveAGiftComponent, canActivate: [AuthGuardService]
   },
   {
     path: 'points',
-    component: GetPointsComponent
+    component: GetPointsComponent, canActivate: [AuthGuardService]
   },
   {
     path: 'orders',
-    component: OrderHistoryComponent
+    component: OrderHistoryComponent, canActivate: [AuthGuardService]
   }
 ];
 

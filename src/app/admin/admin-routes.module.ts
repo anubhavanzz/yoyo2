@@ -12,7 +12,7 @@ import { OrdersComponent } from './orders/orders.component';
 export const routes: Routes = [
   {
     path: 'gifts/new',
-    component: AddGiftComponent
+    component: AddGiftComponent, canActivate: [AuthGuardService]
   },
   {
     path: 'gifts/:id',
@@ -24,16 +24,16 @@ export const routes: Routes = [
   },
   {
     path: 'users',
-    component: ManageUsersComponent
+    component: ManageUsersComponent, canActivate: [AuthGuardService]
   },
 
   {
     path: 'addCat',
-    component: AddCategoryComponent
+    component: AddCategoryComponent, canActivate: [AuthGuardService]
   },
   {
     path: 'orders',
-    component: OrdersComponent
+    component: OrdersComponent, canActivate: [AuthGuardService]
   },
 
 

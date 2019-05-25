@@ -23,7 +23,6 @@ export class NavComponent implements OnInit {
     private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
-    
     this.spinner.show();
     this.authService.getLoggedInUser();
 
@@ -49,9 +48,8 @@ export class NavComponent implements OnInit {
   }
   onLogout() {
     console.log('From logout ', this.authService.isUserLoggedIn);
-    this.authService.user = new User();
-    
     this.authService.Logout();
+    this.authService.user = new User();
     this.authService.isUserLoggedIn = false;
     this.router.navigateByUrl('');
     console.log(this.authService.user);

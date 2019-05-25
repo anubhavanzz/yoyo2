@@ -47,7 +47,8 @@ export class FirebaseService {
       categoryName: giftCard.categoryName,
       numberOfTimesBought: giftCard.numberOfTimesBought,
       brand: giftCard.brand,
-      name: giftCard.name
+      name: giftCard.name,
+      rating : giftCard.rating,
     });
   }
 

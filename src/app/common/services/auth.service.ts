@@ -47,30 +47,30 @@ export class AuthService {
       });
       return this.afAuth.authState.subscribe(fbUser => {
         this.loggedInUser = fbUser;
-        console.log('in firebase subscribe', this.loggedInUser);
-        if (this.userList.find(user => user.email === fbUser.email)) {
-          this.user = this.userList.find(user => user.email === fbUser.email);
-          this.isUser = this.userList.find(user => user.email === fbUser.email).isUser;
-          console.log('user already existing', this.user);
-        } else {
-          const newUser = new User();
-          newUser.email = fbUser.email;
-          newUser.isUser = true;
-          newUser.name = fbUser.displayName;
-          newUser.provider = 'Google.com';
-          this.user = newUser;
-          this.fbService.saveUser(newUser);
-          console.log('saved the user');
+        if (this.userList && fbUser ) {
+          console.log('In Firebase susbscribed user', this.loggedInUser);
+          if (this.userList.find(user => user.email === fbUser.email)) {
+            this.user = this.userList.find(user => user.email === fbUser.email);
+            this.isUser = this.userList.find(user => user.email === fbUser.email).isUser;
+            console.log('User already registerd with application', this.user);
+          } else {
+            const newUser = new User();
+            newUser.email = fbUser.email;
+            newUser.isUser = true;
+            newUser.name = fbUser.displayName;
+            newUser.provider = 'Google.com';
+            this.user = newUser;
+            this.fbService.saveUser(newUser);
+            console.log('New User Saved');
+          }
+          this.isUserLoggedIn = true;
         }
-        this.isUserLoggedIn = true;
       });
-
-      console.log('within subscirbe-', this.userList);
     });
   }
 
-   getLoggedInUser() {
-     this.getAllUsers();
+  getLoggedInUser() {
+    this.getAllUsers();
 
   }
 }

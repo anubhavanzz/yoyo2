@@ -26,6 +26,6 @@ import { GiftsReceivedComponent } from './gifts-received/gifts-received.componen
   imports: [
     CommonFunctionalityModule, SenderReceiverRoutingModule, MaterialModule, CommonModule
   ],
-  entryComponents: [ReceiverDetailsComponent]
+  entryComponents: [ReceiverDetailsComponent, FeedbackFormComponent]
 })
 export class SenderReceiverModule { }

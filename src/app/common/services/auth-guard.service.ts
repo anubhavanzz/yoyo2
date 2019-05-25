@@ -10,8 +10,8 @@ export class AuthGuardService implements CanActivate {
 
   canActivate() {
 
-
-    if (localStorage.getItem('loggedInUser') === 'true') {
+    console.log('From canActivate guard :User getting validated here is :' , this.authService.user);
+    if (this.authService.user.email) {
       return true;
     }
     this.router.navigate(['/']);
