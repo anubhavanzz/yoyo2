@@ -1,1 +1,20 @@
-<button mat-button color="primary" (click)=getPoints()>Get Points</button>
+<div class="container">
+    <div class="col ">
+        <div class="row" *ngIf="this.userPoints.points">
+            <h4> <b> <p > Total Credit : {{this.userPoints.points}} </p></b></h4> 
+        </div>
+        <div class="row">
+            <h1> Welcome to YO YO GIFT PORTAL </h1>
+            <p>
+                By clicking on the GET POINTS your account will be credited with 500 points .
+                As you started buying , sending and receiving the the gift cards to your dear ones ,
+                the point will be calculated .
+            </p>
+        </div>
+        <div class="row">
+            <button mat-raised-button color="warn" (click)=getPoints()>
+               <h5> Get Points </h5> 
+            </button>
+        </div>
+    </div>
+</div>

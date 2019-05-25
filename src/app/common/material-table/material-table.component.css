@@ -1,3 +1,16 @@
 table {
     width: 100%;
   }
+
+  th {
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:white; 
+    background-color: rgb(197, 23, 23)
+  }
+  
+  td {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+  }
+  

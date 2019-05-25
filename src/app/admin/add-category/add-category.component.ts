@@ -21,7 +21,7 @@ export class AddCategoryComponent implements OnInit {
     this.fbService.getAllCategoryFromFirebase().subscribe(list => {
       list.map(item => {
         const category = new Category();
-        category.$key = item.payload,
+        category.$key = item.key,
           category.name = item.payload.val();
         this.categories.push(category);
       });

@@ -38,9 +38,9 @@ export class NavComponent implements OnInit {
   }
 
   onLogin() {
-    this.authService.isUserLoggedIn = true;
     console.log('From login ', this.authService.isUserLoggedIn);
     this.authService.Login();
+    this.authService.isUserLoggedIn = true;
     this.isLogged = true;
 
   }
@@ -50,8 +50,9 @@ export class NavComponent implements OnInit {
   onLogout() {
     console.log('From logout ', this.authService.isUserLoggedIn);
     this.authService.user = new User();
-    this.authService.isUserLoggedIn = false;
+    
     this.authService.Logout();
+    this.authService.isUserLoggedIn = false;
     this.router.navigateByUrl('');
     console.log(this.authService.user);
   }

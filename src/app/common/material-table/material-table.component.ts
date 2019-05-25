@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild, Output } from '@angular/core';
 import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 import { MatTableColumns } from '../MatTableColumns';
-import { EventEmitter } from 'events';
+import {  EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-material-table',
@@ -33,6 +33,6 @@ export class MaterialTableComponent implements OnInit {
 
   onClick(element) {
     console.log(element);
-    //this.rowSelected.emit(element);
+    this.rowSelected.emit(element);
   }
 }

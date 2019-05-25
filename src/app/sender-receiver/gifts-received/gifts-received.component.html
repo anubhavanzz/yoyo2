@@ -1,5 +1,5 @@
 <div *ngIf="userReceivedGiftOrders">
     <app-material-table [tableDataSource]="userReceivedGiftOrders" [columns]="matTableColumns"
-     [displayedColumns]="displayedColumns" [actionsEnabled]="true">
+     [displayedColumns]="displayedColumns" [actionsEnabled]="true" (rowSelected)=onCardRedeem($event)>
     </app-material-table>
   </div>

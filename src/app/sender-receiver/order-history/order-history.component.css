@@ -1,11 +1,11 @@
-.example-small-box, .example-large-box {
+/* .example-small-box, .example-large-box {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 16px;
     padding: 16px;
     border-radius: 8px;
-  }
+  } */
   
   .example-small-box {
     height: 600px;
@@ -16,4 +16,8 @@
     height: 600px;
     width: 1500px;
   }
+
+ 
+
+  
   
