@@ -1,14 +1,10 @@
 
 
 .example-form {
-  min-width: 150px;
-  max-width: 500px;
+  /* min-width: 150px;
+  max-width: 500px; */
   width: 100%;
 }
-
-  input {
-  color: black;
-}  
 
  mat-form-field{
 width: 100px;
@@ -23,6 +19,24 @@ mat-toolbar{
 }
 
 .example-full-width{
-  width: 300px;
+  width: 500px;
+  /* width: 100%; */
+}
+input:not([type]):focus:not([readonly]){
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+ input {
+  border-bottom: none !important;
+  outline: none !important;
+}
+input:hover {
+  border-bottom: none;
+  outline: none !important;
+}
+
+mat-card {
+  padding: 2%;
+  margin: 2%;
 }
 
