@@ -6,7 +6,7 @@
         <mat-toolbar>
           <h3>Add Gift Card</h3>
         </mat-toolbar>
-        <button mat-raised-button color="primary"(click)="addCategory()">Add Category</button>
+        <button mat-raised-button (click)="addCategory()">Add Category</button>
       </div>
       <div>
         <form [formGroup]="giftForm"  (ngSubmit)="onSave(giftForm)" class="example-form">
@@ -17,7 +17,7 @@
                   <input matInput placeholder="Gift Name" formControlName="Name"  [(ngModel)]="giftCard.name">
                 </mat-form-field>
                 <mat-error>
-                  <span *ngIf="!giftForm.get('Name').valid && giftForm.get('Name').touched">Add Name </span>
+                  <span *ngIf="!giftForm.get('Name').valid && giftForm.get('Name').touched">Please add the gift name</span>
                 </mat-error>
               </td>
               <td>
@@ -25,7 +25,7 @@
                   <input matInput placeholder="Brand Name" formControlName="Brand" [(ngModel)]="giftCard.brand"> 
                 </mat-form-field>
                 <mat-error>
-                  <span *ngIf="!giftForm.get('Brand').valid && giftForm.get('Brand').touched">Add Brand </span>
+                  <span *ngIf="!giftForm.get('Brand').valid && giftForm.get('Brand').touched">Please add the brand</span>
                 </mat-error>
               </td>
             </tr>
@@ -36,7 +36,7 @@
                   <mat-hint>Points should be greater than 0</mat-hint>  
                 </mat-form-field>
                 <mat-error>
-                  <span *ngIf="!giftForm.get('Points').valid && giftForm.get('Points').touched">Add Points </span>
+                  <span *ngIf="!giftForm.get('Points').valid && giftForm.get('Points').touched">Please add the gift name</span>
                 </mat-error>
               </td>
               <td>
@@ -50,7 +50,7 @@
                   </mat-select>
                   <mat-error>
                     <span *ngIf="!giftForm.get('categoryName').valid && giftForm.get('categoryName').touched">Please select
-                      any Category !!!</span>
+                      a Category!!!</span>
                   </mat-error>
                 </mat-form-field >
               </td>
@@ -61,7 +61,7 @@
                   <input matInput placeholder="Price" formControlName="Price" [(ngModel)]="giftCard.price">
                 </mat-form-field>
                 <mat-error>
-                  <span *ngIf="!giftForm.get('Price').valid && giftForm.get('Price').touched">Add Price </span>
+                  <span *ngIf="!giftForm.get('Price').valid && giftForm.get('Price').touched">Please add the Point</span>
                 </mat-error>
               </td>
               <td>
@@ -89,7 +89,7 @@
             <tr>
               <div class="row ml-4">
 
-                <button mat-raised-button color="primary" [disabled]="!giftForm.valid">Save Gift</button>
+                <button mat-raised-button [disabled]="!giftForm.valid">Save Gift</button>
               </div>
             </tr>
           </table>
