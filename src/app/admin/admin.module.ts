@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { EditGiftComponent } from './edit-gift/edit-gift.component';
 import { AddGiftComponent } from './add-gift/add-gift.component';
 import { MaterialModule } from 'src/app/common/material.module';
 import { FormsModule } from '@angular/forms';
@@ -15,7 +14,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpLoaderFactory } from '../app.module';
 
 @NgModule({
-  declarations: [EditGiftComponent, AddGiftComponent, AllGiftsComponent, AddCategoryComponent,
+  declarations: [AddGiftComponent, AllGiftsComponent, AddCategoryComponent,
     ManageUsersComponent, OrdersComponent],
   imports: [
     CommonFunctionalityModule,
@@ -32,7 +31,6 @@ import { HttpLoaderFactory } from '../app.module';
       }
   })
   ],
-  exports: [EditGiftComponent, AddGiftComponent, AllGiftsComponent, AddCategoryComponent],
-  // schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  exports: [AddGiftComponent, AllGiftsComponent, AddCategoryComponent],
 })
 export class AdminModule { }

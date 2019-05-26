@@ -8,6 +8,7 @@ import { User } from 'src/app/models/user.model';
 import { GiftDetailDispatcher } from '../store/gift-details-store/gift-details.dispatcher';
 import { giftActionTypes } from '../store/gift-details-store/gift-details.action';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-nav',
@@ -20,7 +21,10 @@ export class NavComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router,
     private fbService: FirebaseService,
-    private spinner: NgxSpinnerService) { }
+    private spinner: NgxSpinnerService,
+    private translate: TranslateService) {
+    translate.getDefaultLang();
+    }
 
   ngOnInit() {
 
@@ -31,10 +35,13 @@ export class NavComponent implements OnInit {
       /** spinner ends after 5 seconds */
       this.spinner.hide();
     }, 9000);
-
-
   }
 
+
+  changeLang(lang: string) {
+    console.log(lang);
+    this.authService.changeLanguage(lang);
+  }
   onLogin() {
     console.log('From Nav login ', this.authService.isUserLoggedIn);
     this.authService.Login();

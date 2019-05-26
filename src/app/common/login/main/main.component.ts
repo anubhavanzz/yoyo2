@@ -1,6 +1,7 @@
 import { GiftCard } from './../../../models/gift-card.model';
 import { Component, OnInit } from '@angular/core';
 import { GiftListService } from 'src/app/common/services/gift-list.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-main',
@@ -9,7 +10,9 @@ import { GiftListService } from 'src/app/common/services/gift-list.service';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private giftListService: GiftListService) { }
+  constructor(private giftListService: GiftListService, private translate: TranslateService) {
+    translate.getDefaultLang();
+   }
   public giftCard: GiftCard;
   public categoryType: string;
 

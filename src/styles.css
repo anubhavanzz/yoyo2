@@ -7,9 +7,9 @@ body {
     font-size: 30px;
     
 }
-body * {
+/* body * {
     transition: all 0.400s ease-in-out;
-}
+} */
 
 h1, h2, h3, h4 {
     font-family: Georgia ;

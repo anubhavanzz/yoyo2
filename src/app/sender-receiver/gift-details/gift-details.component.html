@@ -26,8 +26,12 @@
           </span> 
         </mat-card-subtitle>
       </mat-card-header>
-      <app-gift-review [rating]='4'></app-gift-review>
+      <app-gift-review *ngIf='filteredReviewList && giftCard' [rating]='giftCard.rating' [userReviews]='filteredReviewList'></app-gift-review>
       </div>
     </mat-card>
+    <!-- <h2>User Reviews/Comments: </h2>
+    <mat-list *ngFor="let review of filteredReviewList">
+      <mat-list-item role="listitem"><h3>{{review.userName}}:</h3> {{review.comment}}</mat-list-item>
+    </mat-list> -->
     </div>
 </div>

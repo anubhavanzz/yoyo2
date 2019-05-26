@@ -18,7 +18,7 @@ export class AddCategoryComponent implements OnInit, OnDestroy {
   subscription: Subscription[] = [];
   constructor(private fbService: FirebaseService, private translate: TranslateService,
     private tostrService: ToastrService) {
-    translate.setDefaultLang('en');
+    translate.getDefaultLang();
     }
 
   /**Fetching all the category details from the database on initialization */

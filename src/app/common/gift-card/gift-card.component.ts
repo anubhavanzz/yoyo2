@@ -4,6 +4,10 @@ import { Router } from '@angular/router';
 import { GIFT_DETAILS_DEFAULT } from '../store/gift-details-store/gift-details.defaults';
 import { GiftDetailDispatcher } from '../store/gift-details-store/gift-details.dispatcher';
 import { giftActionTypes } from '../store/gift-details-store/gift-details.action';
+import { Subscription } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { GiftDetailState } from '../store/gift-details-store/git-details.state';
+import { ErrorModel } from 'src/app/models/error.model';
 @Component({
   selector: 'app-gift-card',
   templateUrl: './gift-card.component.html',
@@ -15,9 +19,12 @@ export class GiftCardComponent implements OnInit {
   @Input() public giftCard: GiftCard;
   public rating = 4;
   public starCount = [];
+  public subscriptions: Subscription[] = [];
+  public giftCardsArray: GiftCard[];
   constructor(
     private router: Router,
-    public giftDetailDispatcher: GiftDetailDispatcher
+    public giftDetailDispatcher: GiftDetailDispatcher,
+    public gdStore: Store<GiftDetailState>
   ) {
   }
   /**
@@ -25,6 +32,7 @@ export class GiftCardComponent implements OnInit {
    */
   public ngOnInit(): void {
     const MAX_STARS = 5;
+    this.rating = this.giftCard.rating;
     for (let i = 0; i < MAX_STARS; i++) {
       if (i < this.rating) {
         this.starCount[i] = 'checked';

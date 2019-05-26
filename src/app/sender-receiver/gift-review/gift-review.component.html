@@ -2,15 +2,14 @@
   <span *ngFor="let stars of starCount">
       <span class="fa fa-star" [ngClass]="stars ? stars: ''"></span>
   </span>
-  <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-         View Customer Reviews
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-    
-      <p>Customers review on the products</p>
-    
-    </mat-expansion-panel>
+
 </mat-card>
+<h2>User Reviews/Comments: </h2>
+<mat-list *ngFor="let review of userReviews">
+  <mat-list-item role="listitem">{{review.userName}}: {{review.comment}}
+    <span *ngFor="let stars of overallRating; let i = index">
+      <span class="fa fa-star" [ngClass]="i < review.rating? 'checked': ''"></span>
+    </span>
+  </mat-list-item>
+</mat-list>
 <br>
