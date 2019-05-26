@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { MatTableDataSource } from '@angular/material';
 import { Category } from 'src/app/models/category.model';
 import { FirebaseService } from 'src/app/common/services/firebase.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-add-category',
@@ -13,8 +14,10 @@ export class AddCategoryComponent implements OnInit {
   displayedColumns: string[] = ['categoryName', 'Actions'];
   categories: Category[] = [];
   dataSource = new MatTableDataSource(this.categories);
-  constructor(private fbService: FirebaseService,
-    private tostrService: ToastrService) { }
+  constructor(private fbService: FirebaseService, private translate: TranslateService,
+    private tostrService: ToastrService) {
+    translate.setDefaultLang('en');
+    }
 
   /**Fetching all the category details from the database on initialization */
   public ngOnInit(): void {
