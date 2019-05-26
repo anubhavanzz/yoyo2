@@ -24,7 +24,6 @@ export class CategoryListComponent implements OnInit {
           category.name = item.payload.val();
         this.categories.push(category);
       });
-      console.log(this.categories);
     });
   }
 /**

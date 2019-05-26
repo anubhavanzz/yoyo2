@@ -24,7 +24,7 @@ export class NavComponent implements OnInit {
 
   ngOnInit() {
 
-    this.authService.getLoggedInUser();
+    // this.authService.getLoggedInUser();
     this.spinner.show();
 
     setTimeout(() => {
@@ -36,7 +36,7 @@ export class NavComponent implements OnInit {
   }
 
   onLogin() {
-    console.log('From login ', this.authService.isUserLoggedIn);
+    console.log('From Nav login ', this.authService.isUserLoggedIn);
     this.authService.Login();
 
     this.authService.isUserLoggedIn = true;
@@ -47,7 +47,7 @@ export class NavComponent implements OnInit {
     this.router.navigateByUrl('');
   }
   onLogout() {
-    console.log('From logout ', this.authService.isUserLoggedIn);
+    console.log('From nav logout ', this.authService.isUserLoggedIn);
     this.authService.Logout();
     this.authService.user = new User();
     this.authService.isUserLoggedIn = false;
