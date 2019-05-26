@@ -9,8 +9,10 @@ import { Subscription } from 'rxjs';
   templateUrl: './manage-users.component.html',
   styleUrls: ['./manage-users.component.css']
 })
-export class ManageUsersComponent implements OnInit ,OnDestroy {
+export class ManageUsersComponent implements OnInit, OnDestroy {
 
+  allUsersArray: User[];
+  adminsArray: User[];
   usersArray: User[];
   subscriptions: Subscription[] = [];
   // ColumnDef, HeaderCellDef
@@ -31,12 +33,14 @@ export class ManageUsersComponent implements OnInit ,OnDestroy {
 
     this.subscriptions.push(
       this.fbService.getAllUsersFromFirebase().subscribe(list => {
-        this.usersArray = list.map(item => {
+        this.allUsersArray = list.map(item => {
           return {
             $key: item.key,
             ...item.payload.val()
           };
         });
+        this.usersArray = this.allUsersArray.filter(item => item.isUser === true);
+        this.adminsArray = this.allUsersArray.filter(item => item.isUser === false);
       })
     );
   }
