@@ -1,3 +1,4 @@
+import { Review } from './../../models/review.model';
 import { Component, OnInit } from '@angular/core';
 import { GiftCard } from 'src/app/models/gift-card.model';
 import { GIFT_DETAILS_DEFAULT } from 'src/app/common/store/gift-details-store/gift-details.defaults';
@@ -8,6 +9,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 import { ReceiverDetailsComponent } from 'src/app/sender-receiver/receiver-details/receiver-details.component';
 import { AuthService } from 'src/app/common/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { FirebaseService } from 'src/app/common/services/firebase.service';
 
 @Component({
   selector: 'app-gift-details',
@@ -15,12 +17,15 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./gift-details.component.css']
 })
 export class GiftDetailsComponent implements OnInit {
-  giftCard: GiftCard = GIFT_DETAILS_DEFAULT;
+  public giftCard: GiftCard = GIFT_DETAILS_DEFAULT;
+  public reviewList: Review[];
+  public filteredReviewList: Review[];
   constructor(public gdStore: Store<GiftDetailState>,
     public dialog: MatDialog,
     private router: Router,
     private authService: AuthService,
-    private tostr: ToastrService
+    private tostr: ToastrService,
+    private fbService: FirebaseService
   ) { }
 
   public ngOnInit(): void {
@@ -33,6 +38,15 @@ export class GiftDetailsComponent implements OnInit {
       } else {
         this.router.navigateByUrl('/');
       }
+    });
+    this.fbService.getReviewsFromFirebase().subscribe(list => {
+      this.reviewList = list.map(item => {
+        return {
+          $key: item.key,
+          ...item.payload.val()
+        };
+      });
+      this.filteredReviewList = this.reviewList.filter(item => item.giftCardId === this.giftCard.$key);
     });
   }
   public buyNow() {

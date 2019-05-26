@@ -2,18 +2,23 @@
   <ul>
     <li>
       <a id="logo" (click)='home()' class="navbar-brand">
-        <span><img id="logo" src="../../../assets/logo.png" height="20px" width="20px"></span>
+        <span><img id="logo" src="../../../assets/logo.png" height="40px" width="40px"></span>
         YOYO</a>
     </li>
   </ul>
   <ul class="medium-nav">
-    <li><a href="#">About Us</a></li>
+    <li><a translate>Nav.AboutUs</a></li>
     <li><a href="#">Contact Us</a></li>
   </ul>
   <ul>
     <li><a *ngIf="!this.authService.isUserLoggedIn" href="javascript:void(0);"   (click)="onLogin()">SignIn</a></li>
     <li><a *ngIf="this.authService.isUserLoggedIn" href="javascript:void(0);"   (click)="onLogout()">SignOut</a></li>
-    
+    <li><span class="user-name" [matMenuTriggerFor]="LangMenu"><b> Language </b></span>
+      <mat-menu #LangMenu="matMenu">
+        <button (click)="changeLang('en')" mat-menu-item>ENGLISH</button>
+        <button (click)="changeLang('de')" mat-menu-item>GERMAN</button>
+      </mat-menu>
+    </li>
     <li><span class="user-name" [matMenuTriggerFor]="menu" *ngIf="this.authService.user.name"><b> {{this.authService.user.name}} </b></span>
       <mat-menu #menu="matMenu">
         <button [routerLink]="['/admin/users']" mat-menu-item>ALL USERS</button>
