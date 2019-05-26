@@ -71,6 +71,10 @@ describe('AddCategoryComponent', () => {
     // fixture.detectChanges();
   });
 
+  afterAll(() => {
+    component = null;
+  });
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
