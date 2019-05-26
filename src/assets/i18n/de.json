@@ -18,5 +18,24 @@
         "AddItems": "ADD ITEMS",
         "GetPoints": "GET POINTS",
         "UserOrderHistroy": "USER ORDER HISTORY"
+    },
+        "IntroductionContent" : {
+        "Heading" : "YOYO GIFTING PORTAL",
+        "Caption" : "Give gifts to your dear ones through our portal by just earning reward points and fill them with happiness...",
+        "GiveAGift": "GIVE A GIFT",
+        "LearnMore": "LEARN MORE"
+    },
+    "Main" : {
+        "Heading" : "Fill your dear ones with happiness!",
+        "Content": "Welcome to our Site, where we provide you an exciting collection of gifts for your loved ones. Redeem your earned points and select from the amazing wide  pool we have. Besides the gifts, we also provide coupons or passes for movies, spa, trips, etc that can also be gifted.",
+        "PopularSection": "Our Popular Gift Section...",
+        "NewStuff" : "Check out the new stuffs...",
+        "Categories": "Categories",
+        "RedeemPoints": "Redeem Points.",
+        "RedeemPointsContent1": "The simplest step would be to collect points, which can be through sharing it with more and more people, every time you gift someone and through the reward points attained by your friends.",
+        "RedeemPointsContent2": "So what are you waiting for? Hurry up and share this with more of your familiars to gain more points.",
+        "PurchaseGift" : "Purchase a Gift",
+        "PurchaseGiftContent1" : "Redeem your points by selecting the coupons or gifts from our exciting collection. Purchase them through the points you have instead of the money. How cool is that?",
+        "PurchaseGiftContent2": "The coupons would be sent on the other person's email ID, which can be used by them or can also be delivered to their personal addresses with the perfect gift wrapping."
     }
 }

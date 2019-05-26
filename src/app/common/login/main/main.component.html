@@ -1,23 +1,23 @@
 <main>
   <div class="intro">
-    <h3 class='first-heading'>Fill your dear ones with happiness!</h3>
-      <p>
-         Welcome to our Site, where we provide you an exciting collection of gifts for your loved ones. Redeem your earned points and select from the amazing wide  pool we have. Besides the gifts, we also provide coupons or passes for movies, spa, trips, etc that can also be gifted.
+    <h3 class='first-heading' translate>Main.Heading</h3>
+      <p translate>
+      Main.Content
       </p>
   </div>
   <mat-card class="multi-section list">
 <marquee>
-  <h2>Our Popular Gift Section...</h2>
+  <h2 translate>Main.Popularsection</h2>
 </marquee>
   <!-- <app-gift-list [filterType]="'category'" [categoryType]="'Home'"></app-gift-list> -->
   <app-gift-list class="popular" [filterType]="'popularity'" [giftCardCount]="6"></app-gift-list>
 </mat-card>
 
-<h2>Check out the new stuffs...</h2>
+<h2 translate>Main.NewStuff</h2>
 
   <app-gift-list [filterType]="'date'" [giftCardCount]="6"></app-gift-list>
 
-  <h2>Categories</h2>
+  <h2 translate>Main.Categories</h2>
 <div class="row">
   <div class="col-lg-3">
     <app-category-list (categoryType)="changeCategoryType($event); giftlist.getGifts($event);"></app-category-list>
@@ -32,11 +32,11 @@
   <div class="multi-section">
     <img src="/assets/EarnPoints.jpg" />
     <div>
-      <h3 class='second-heading'>Redeem Points.</h3>
-      <p>
-        The simplest step would be to collect points, which can be through sharing it with more and more people, every time you gift someone and through the reward points attained by your friends.
+      <h3 class='second-heading' translate>Main.RedeemPoints</h3>
+      <p translate>
+      Main.RedeemPointsContent1
       </p>
-      <p> So what are you waiting for? Hurry up and share this with more of your familiars to gain more points.</p>
+      <p translate> Main.RedeemPointsContent2</p>
     
     </div>
   </div>
@@ -44,9 +44,9 @@
   <div class="multi-section-two">
       <img class="a" src="/assets/GiveGifts.jpeg" />
       <div class="b">
-        <h3 class='second-heading'>Purchase a Gift</h3>
-        <p>Redeem your points by selecting the coupons or gifts from our exciting collection. Purchase them through the points you have instead of the money. How cool is that?</p>
-        <p> The coupons would be sent on the other person's email ID, which can be used by them or can also be delivered to their personal addresses with the perfect gift wrapping.</p>
+        <h3 class='second-heading' translate>Main.PurchaseGift</h3>
+        <p translate>Main.PurchaseGiftContent1</p>
+        <p translate>Main.PurchaseGiftContent2 </p>
       </div>
   </div>
 
