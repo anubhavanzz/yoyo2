@@ -53,5 +53,6 @@ export class NavComponent implements OnInit {
     this.authService.isUserLoggedIn = false;
     this.router.navigateByUrl('');
     console.log(this.authService.user);
+    
   }
 }
