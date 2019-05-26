@@ -8,6 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 import { MatDialog } from '@angular/material';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { FeedbackFormComponent } from '../feedback-form/feedback-form.component';
+import { select } from '@ngrx/store';
 
 @Component({
   selector: 'app-gifts-received',
@@ -35,7 +36,7 @@ export class GiftsReceivedComponent implements OnInit {
 
   constructor(private fbService: FirebaseService,
     private authService: AuthService,
-    private tostr: ToastrService ,
+    private tostr: ToastrService,
     public dialog: MatDialog) { }
 
   ngOnInit() {
@@ -54,10 +55,10 @@ export class GiftsReceivedComponent implements OnInit {
 
   onCardRedeem(input) {
     this.openDialog(input);
-    // console.log('in gift recieved component', input);
-    // this.userPoints.points = this.userPoints.points - input.points;
-    // this.fbService.updateUserPointsToFirebase(this.userPoints);
-    // this.tostr.success('Redeemed Successfully');
+    const selected = this.userReceivedGiftOrders.find(item => item.$key === item.$key);
+    selected.isRedeem = true;
+    this.fbService.updateUserGiftCardToFirebase(selected);
+
   }
 
   openDialog(giftData): void {

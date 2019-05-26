@@ -18,6 +18,7 @@ export class FeedbackFormComponent implements OnInit {
   giftCard: GiftCard;
   rating = 0;
   giftCards: GiftCard[];
+  reviews: Review[];
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
     private authService: AuthService,
     private fbService: FirebaseService,
@@ -38,7 +39,8 @@ export class FeedbackFormComponent implements OnInit {
       this.giftCard = this.giftCards.find(item => item.$key === this.data.gfdata.giftCardId);
     });
 
-  }
+}
+
   onClick(rating: number): void {
     console.log(rating);
     this.rating = rating;

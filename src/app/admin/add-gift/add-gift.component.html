@@ -36,8 +36,8 @@
                   <mat-hint>Points should be greater than 0</mat-hint>  
                 </mat-form-field>
                 <mat-error>
-                   <!-- <span *ngIf="!giftForm.get('Points').valid && giftForm.get('Points').touched">Points required </span> -->
-                  <span *ngIf="giftForm.get('Points').errors.min || giftForm.get('Points').errors.max || !giftForm.get('Points').valid && giftForm.get('Points').touched"> Points should be between 0 and 1000</span> 
+                   <span *ngIf="!giftForm.get('Points').valid && giftForm.get('Points').touched">Points required & should be between 0 and 1000 </span>
+                  <!-- <span *ngIf="giftForm.get('Points').errors.min || giftForm.get('Points').errors.max || !giftForm.get('Points').valid && giftForm.get('Points').touched"> Points should be between 0 and 1000</span>  -->
                   <!-- <span *ngIf="giftForm.get('Points').errors.pattern"> No alpha bet or special char allowed</span>  -->
                 </mat-error>
               </td>
@@ -61,8 +61,8 @@
                   <input matInput placeholder="Price" formControlName="Price" [(ngModel)]="giftCard.price">
                 </mat-form-field>
                 <mat-error>
-                   <!-- <span *ngIf="!giftForm.get('Price').valid && giftForm.get('Price').touched">Price is required</span>  -->
-                  <span *ngIf="giftForm.get('Price').errors.max || giftForm.get('Price').errors.min ||!giftForm.get('Price').valid && giftForm.get('Price').touched ">Price should between 0 and 1000 </span>
+                   <span *ngIf="!giftForm.get('Price').valid && giftForm.get('Price').touched">Required ,Price should between 0 and 1000</span> 
+                  <!-- <span *ngIf="giftForm.get('Price').errors.max || giftForm.get('Price').errors.min ||!giftForm.get('Price').valid && giftForm.get('Price').touched ">Price should between 0 and 1000 </span> -->
                   <!-- <span *ngIf="giftForm.get('Price').errors.min">Price should be greater than 0 </span> -->
                   <!-- <span *ngIf="giftForm.get('Price').errors.pattern"> No alpha bet or special char or decimal allowed</span>  -->
                 </mat-error>
@@ -93,7 +93,7 @@
             <tr>
               <div class="row ml-4">
 
-                <button mat-raised-button [disabled]="giftForm.valid">Save Gift</button>
+                <button mat-raised-button [disabled]="!giftForm.valid">Save Gift</button>
               </div>
             </tr>
           </table>

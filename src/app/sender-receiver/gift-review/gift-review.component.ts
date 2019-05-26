@@ -12,7 +12,7 @@ public coloredStars: number;
   constructor() { }
 
   ngOnInit() {
-    console.log(this.rating);
+  //  console.log(this.rating);
     const MAX_STARS = 5;
     for (let i = 0; i < MAX_STARS; i++) {
       if (i < this.rating) {
@@ -21,6 +21,9 @@ public coloredStars: number;
         this.starCount[i] = '';
       }
     }
-    console.log(this.starCount);
+
+    78 
+   // console.log(this.starCount);
+
   }
 }

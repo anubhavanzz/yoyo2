@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 import { ReceiverDetailsComponent } from 'src/app/sender-receiver/receiver-details/receiver-details.component';
 import { AuthService } from 'src/app/common/services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-gift-details',
@@ -19,6 +20,7 @@ export class GiftDetailsComponent implements OnInit {
     public dialog: MatDialog,
     private router: Router,
     private authService: AuthService,
+    private tostr: ToastrService
   ) { }
 
   public ngOnInit(): void {
@@ -37,15 +39,23 @@ export class GiftDetailsComponent implements OnInit {
     // this.router.navigateByUrl('/user/giveGift');
   }
   public openDialog(): void {
-    const dialogRef = this.dialog.open(ReceiverDetailsComponent, {
-      width: '30%',
-      height: '95%',
-      data: { name: 'this.name', animal: 'this.animal' }
-    });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      // this.animal = result;
-    });
+    if (this.authService.user.points > 0) {
+      const dialogRef = this.dialog.open(ReceiverDetailsComponent, {
+        width: '30%',
+        height: '95%',
+        data: { name: 'this.name', animal: 'this.animal' }
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        // this.animal = result;
+      });
+
+    } else {
+      this.tostr.warning('No Sufficient Credits', 'Please recharge account');
+    }
+
+
+
   }
 }

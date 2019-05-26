@@ -25,6 +25,8 @@ export class FirebaseService {
 
   constructor(private db: AngularFireDatabase) { }
 
+  // Gift card releated CRUD
+
   addGiftCardToFirebase(giftCard: GiftCard) {
     this.db.list('/GiftCard').push(giftCard);
   }
@@ -33,11 +35,6 @@ export class FirebaseService {
     return this.giftCardsList.snapshotChanges();
   }
 
-  // getGiftCard(key) {
-  //   return this.db.object('/GiftCard/' + key).snapshotChanges().map(res => {
-  //     return res.payload.val();
-  //   });
-  // }
 
   updateGiftCardInFirebase(giftCard: GiftCard) {
     this.giftCardsList.update(giftCard.$key, {
@@ -116,22 +113,6 @@ export class FirebaseService {
     });
   }
 
-  // // User points operations
-
-  // addUserPointsToFirebase(userPoints: UserPoints) {
-  //   this.db.list('/UserPoints').push(userPoints);
-  // }
-  // getUsersPointsFromFirebase() {
-  //   this.userPointsList = this.db.list('UserPoints');
-  //   return this.userPointsList.snapshotChanges();
-  // }
-
-  // updateUserPointsToFirebase(userPoints: UserPoints) {
-  //   this.userPointsList.update(userPoints.$key, {
-  //     userEmail: userPoints.userEmail,
-  //     points: userPoints.points
-  //   });
-  // }
 
   // Review CRUD operations
   addReviewToFirebase(review: Review) {

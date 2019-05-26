@@ -22,7 +22,10 @@ export class AuthService {
   }
 
   Login() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider);
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider).then(() => {
+        this.getLoggedInUser();
+        console.log(this.user);
+      });
     // this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider).then(() => {
     //   this.getLoggedInUser();
     //   console.log(this.user);

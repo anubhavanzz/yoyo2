@@ -7,7 +7,7 @@ export class UserGiftCardMapping {
     giftCardName: string;
     giftCardId: string;
     isRedeem: boolean;
-    points: string;
+    points: number;
     createdDate: string;
 
 }

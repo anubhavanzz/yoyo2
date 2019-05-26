@@ -36,7 +36,7 @@ export class AddGiftComponent implements OnInit, OnDestroy {
       ImageUrl: ['', [Validators.required]],
       Points: ['', [Validators.required, Validators.min(0), Validators.max(1000)]],
       Description: ['', [Validators.required, Validators.minLength(5)]],
-      Price: ['', [Validators.required, Validators.min(0), Validators.min(1000)]],
+      Price: ['', [Validators.required, Validators.min(0), Validators.max(1000)]],
       CreatedDate: [''],
       categoryName: ['', Validators.required],
       NumberOfTimesBought: [''],

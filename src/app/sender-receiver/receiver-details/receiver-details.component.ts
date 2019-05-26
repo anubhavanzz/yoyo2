@@ -7,6 +7,8 @@ import { GiftDetailState } from 'src/app/common/store/gift-details-store/git-det
 import { AuthService } from 'src/app/common/services/auth.service';
 import { FirebaseService } from 'src/app/common/services/firebase.service';
 import { UserGiftCardMapping } from 'src/app/models/user-giftcard-mapping.model';
+import { ToastrService } from 'ngx-toastr';
+import { GiftCard } from 'src/app/models/gift-card.model';
 
 @Component({
   selector: 'app-receiver-details',
@@ -21,14 +23,14 @@ export class ReceiverDetailsComponent implements OnInit {
     private router: Router,
     public gdStore: Store<GiftDetailState>,
     public authService: AuthService,
-    public fbService: FirebaseService) { }
+    public fbService: FirebaseService, private tostr: ToastrService) { }
 
   public receiverDetails = this.formBuilder.group({
     name: ['', Validators.required],
     email: ['', Validators.required],
     message: ['', Validators.required]
   });
-  public giftCardDetails;
+  public giftCardDetails: GiftCard;
 
   ngOnInit() {
     console.log('From receiver Detail------', this.authService.user);
@@ -52,9 +54,15 @@ export class ReceiverDetailsComponent implements OnInit {
       userGiftCard.points = this.giftCardDetails.points,
       userGiftCard.giftCardId = this.giftCardDetails.$key;
     userGiftCard.createdDate = new Date().toString().substring(0, 15);
+    this.authService.user.points = this.authService.user.points - this.giftCardDetails.points;
+    this.fbService.updateUserPointsToFirebase(this.authService.user.$key, this.authService.user.points);
     this.fbService.addUserGiftCardToFirbase(userGiftCard);
-    this.dialogRef.close();
+    this.giftCardDetails.numberOfTimesBought = this.giftCardDetails.numberOfTimesBought + 1;
+    this.fbService.updateGiftCardInFirebase(this.giftCardDetails);
+    this.tostr.success('Gift card has been sent to : ' + userGiftCard.sender, 'Success');
     this.router.navigateByUrl('/user/giveGift');
+    this.dialogRef.close();
+
   }
 
 }
