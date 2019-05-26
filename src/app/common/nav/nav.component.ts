@@ -24,7 +24,7 @@ export class NavComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private translate: TranslateService) {
     translate.getDefaultLang();
-    }
+  }
 
   ngOnInit() {
 
@@ -38,11 +38,11 @@ export class NavComponent implements OnInit {
   }
 
 
-  changeLang(lang: string) {
+  public changeLang(lang: string): void {
     console.log(lang);
     this.authService.changeLanguage(lang);
   }
-  onLogin() {
+  public onLogin(): void {
     console.log('From Nav login ', this.authService.isUserLoggedIn);
     this.authService.Login();
 
@@ -50,16 +50,15 @@ export class NavComponent implements OnInit {
     this.isLogged = true;
 
   }
-  home() {
+  public home(): void {
     this.router.navigateByUrl('');
   }
-  onLogout() {
+  public onLogout(): void {
     console.log('From nav logout ', this.authService.isUserLoggedIn);
     this.authService.Logout();
     this.authService.user = new User();
     this.authService.isUserLoggedIn = false;
     this.router.navigateByUrl('');
     console.log(this.authService.user);
-    
   }
 }

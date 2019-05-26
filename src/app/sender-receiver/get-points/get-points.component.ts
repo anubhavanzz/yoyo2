@@ -13,8 +13,8 @@ import { User } from 'src/app/models/user.model';
 })
 export class GetPointsComponent implements OnInit {
 
-  usersArray: User[];
-  user = new User();
+  public usersArray: User[];
+  public user = new User();
   constructor(private authService: AuthService, private fbService: FirebaseService,
     private tostr: ToastrService) { }
 
@@ -22,7 +22,7 @@ export class GetPointsComponent implements OnInit {
 
   }
 
-  getPoints() {
+  public getPoints(): void {
     alert('500 Points will be credited to your account ,do you want to procceed');
     this.authService.user.points = this.authService.user.points + 500;
     this.fbService.updateUserPointsToFirebase(this.authService.user.$key, this.authService.user.points);

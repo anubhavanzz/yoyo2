@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatTableColumns } from 'src/app/common/MatTableColumns';
 import { UserGiftCardMapping } from 'src/app/models/user-giftcard-mapping.model';
 import { FirebaseService } from 'src/app/common/services/firebase.service';
@@ -9,13 +9,14 @@ import { MatDialog } from '@angular/material';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { FeedbackFormComponent } from '../feedback-form/feedback-form.component';
 import { select } from '@ngrx/store';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-gifts-received',
   templateUrl: './gifts-received.component.html',
   styleUrls: ['./gifts-received.component.css']
 })
-export class GiftsReceivedComponent implements OnInit {
+export class GiftsReceivedComponent implements OnInit, OnDestroy {
 
   // ColumnDef, HeaderCellDef
   matTableColumns: MatTableColumns[] = [
@@ -30,9 +31,9 @@ export class GiftsReceivedComponent implements OnInit {
 
   displayedColumns: string[] = ['sender', 'giftCardName', 'giftCardId', 'points', 'createdDate', 'actions'];
 
-  allUsersGiftOrders: UserGiftCardMapping[];
-  userReceivedGiftOrders: UserGiftCardMapping[];
-
+  public allUsersGiftOrders: UserGiftCardMapping[];
+  public userReceivedGiftOrders: UserGiftCardMapping[];
+  public subscriptions: Subscription[] = [];
 
 
   constructor(private fbService: FirebaseService,
@@ -41,20 +42,22 @@ export class GiftsReceivedComponent implements OnInit {
     public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.fbService.getAllUserGiftCardFromFirebase().subscribe(list => {
-      this.allUsersGiftOrders = list.map(item => {
-        return {
-          $key: item.key,
-          ...item.payload.val()
-        };
-      });
-      this.userReceivedGiftOrders = this.allUsersGiftOrders.filter(order => order.receiver === this.authService.user.email);
-    });
+    this.subscriptions.push(
+      this.fbService.getAllUserGiftCardFromFirebase().subscribe(list => {
+        this.allUsersGiftOrders = list.map(item => {
+          return {
+            $key: item.key,
+            ...item.payload.val()
+          };
+        });
+        this.userReceivedGiftOrders = this.allUsersGiftOrders.filter(order => order.receiver === this.authService.user.email);
+      })
+    );
 
 
   }
 
-  onCardRedeem(input) {
+  public onCardRedeem(input): void {
     this.openDialog(input);
     const selected = this.userReceivedGiftOrders.find(item => item.$key === item.$key);
     selected.isRedeem = true;
@@ -62,7 +65,7 @@ export class GiftsReceivedComponent implements OnInit {
 
   }
 
-  openDialog(giftData): void {
+  public openDialog(giftData): void {
     const dialogRef = this.dialog.open(FeedbackFormComponent, {
       data: {
         height: '700px',
@@ -73,6 +76,11 @@ export class GiftsReceivedComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+    });
+  }
+  public ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription: Subscription) => {
+      subscription.unsubscribe();
     });
   }
 
