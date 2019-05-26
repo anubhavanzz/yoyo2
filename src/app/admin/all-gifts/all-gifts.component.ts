@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { GiftCard } from 'src/app/models/gift-card.model';
 import { FormControl } from '@angular/forms';
 import { FirebaseService } from 'src/app/common/services/firebase.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 
 export interface PeriodicElement {
@@ -21,12 +22,14 @@ export interface PeriodicElement {
   templateUrl: './all-gifts.component.html',
   styleUrls: ['./all-gifts.component.css']
 })
-export class AllGiftsComponent implements OnInit {
+export class AllGiftsComponent implements OnInit, OnDestroy {
 
   displayedColumns: string[] = ['imageUrl', 'name', 'brand', 'points',
     'description', 'createdDate', 'numberOfTimesBought', 'categoryName', 'Actions'];
   dataSource = new MatTableDataSource();
   giftCardsArray: GiftCard[];
+  subscriptions: Subscription[] = [];
+
 
   filteredValues = {
     brand: '', categoryName: '',
@@ -47,20 +50,21 @@ export class AllGiftsComponent implements OnInit {
 
   /** Function to fetch all the gift cards from the database on the initialization of the component */
   public ngOnInit(): void {
-    this.fbService.getAllGiftCardsFromFirebase().subscribe(list => {
-      this.giftCardsArray = list.map(item => {
-        return {
-          $key: item.key,
-          ...item.payload.val()
-        };
-      });
-      this.dataSource = new MatTableDataSource(this.giftCardsArray);
-      this.dataSource.sort = this.sort;
-      this.dataSource.filterPredicate = this.customFilterPredicate();
-      this.dataSource.paginator = this.paginator;
-    });
 
-
+    this.subscriptions.push(
+      this.fbService.getAllGiftCardsFromFirebase().subscribe(list => {
+        this.giftCardsArray = list.map(item => {
+          return {
+            $key: item.key,
+            ...item.payload.val()
+          };
+        });
+        this.dataSource = new MatTableDataSource(this.giftCardsArray);
+        this.dataSource.sort = this.sort;
+        this.dataSource.filterPredicate = this.customFilterPredicate();
+        this.dataSource.paginator = this.paginator;
+      })
+    );
   }
 
   /**
@@ -128,5 +132,11 @@ export class AllGiftsComponent implements OnInit {
 
   addGiftCard() {
     this.router.navigateByUrl('/admin/gifts/new');
+  }
+
+  public ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription: Subscription) => {
+      subscription.unsubscribe();
+    });
   }
 }

@@ -56,7 +56,8 @@ export class GiftListComponent implements OnInit, OnDestroy {
    * Getting all gift data from Firebase and dispatching it to the store, if not present. If present, select the data from store.
    */
   public getGifts(): void {
-    this.Subscriptions.push(this.gdStore.select((item: any) => item.giftDetailState).subscribe((val: any) => {
+    this.Subscriptions.push(
+      this.gdStore.select((item: any) => item.giftDetailState).subscribe((val: any) => {
       if (val.giftAllDetailState) {
         this.giftCardsArray = val.giftAllDetailState;
         this.modifyGiftsArray();

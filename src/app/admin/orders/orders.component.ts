@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UserGiftCardMapping } from 'src/app/models/user-giftcard-mapping.model';
 import { FirebaseService } from 'src/app/common/services/firebase.service';
 import { AuthService } from 'src/app/common/services/auth.service';
 import { MatTableColumns } from 'src/app/common/MatTableColumns';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.css']
 })
-export class OrdersComponent implements OnInit {
+export class OrdersComponent implements OnInit, OnDestroy {
 
   // ColumnDef, HeaderCellDef
   matTableColumns: MatTableColumns[] = [
@@ -19,6 +20,8 @@ export class OrdersComponent implements OnInit {
     new MatTableColumns('points', 'Points'),
     new MatTableColumns('createdDate', 'Created Date'),
   ];
+
+  subscriptions: Subscription[] = [];
 
   displayedColumns: string[] = ['receiver', 'giftCardName', 'giftCardId', 'points', 'createdDate'];
 
@@ -30,15 +33,23 @@ export class OrdersComponent implements OnInit {
     private authService: AuthService) { }
 
   ngOnInit() {
-    this.fbService.getAllUserGiftCardFromFirebase().subscribe(list => {
-      this.allUsersGiftOrders = list.map(item => {
-        return {
-          $key: item.key,
-          ...item.payload.val()
-        };
-      });
-    });
+    this.subscriptions.push(
+      this.fbService.getAllUserGiftCardFromFirebase().subscribe(list => {
+        this.allUsersGiftOrders = list.map(item => {
+          return {
+            $key: item.key,
+            ...item.payload.val()
+          };
+        });
+      })
+    );
 
+  }
+
+  public ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription: Subscription) => {
+      subscription.unsubscribe();
+    });
   }
 
 }

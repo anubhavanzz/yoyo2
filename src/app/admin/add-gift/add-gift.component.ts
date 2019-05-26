@@ -108,6 +108,6 @@ export class AddGiftComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy() {
-    localStorage.setItem('giftFormDirty', 'true');
+ 
   }
 }
