@@ -11,16 +11,13 @@ export class AuthGuardService implements CanActivate {
     private tostr: ToastrService) { }
 
   canActivate() {
-
     console.log('From canActivate guard :User getting validated here is :', this.authService.user);
     if (this.authService.user.email) {
       return true;
     }
-
     this.tostr.warning('Please Log in');
     this.router.navigate(['/']);
     return false;
-
   }
 
 }
