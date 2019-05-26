@@ -9,6 +9,8 @@ import { FirebaseService } from 'src/app/common/services/firebase.service';
 import { UserGiftCardMapping } from 'src/app/models/user-giftcard-mapping.model';
 import { ToastrService } from 'ngx-toastr';
 import { GiftCard } from 'src/app/models/gift-card.model';
+import { GiftListService } from 'src/app/common/services/gift-list.service';
+import { ReceiverDetails } from 'src/app/models/review.model';
 
 @Component({
   selector: 'app-receiver-details',
@@ -23,7 +25,9 @@ export class ReceiverDetailsComponent implements OnInit {
     private router: Router,
     public gdStore: Store<GiftDetailState>,
     public authService: AuthService,
-    public fbService: FirebaseService, private tostr: ToastrService) { }
+    public fbService: FirebaseService,
+    private tostr: ToastrService,
+    private giftListService: GiftListService) { }
 
   public receiverDetails = this.formBuilder.group({
     name: ['', Validators.required],
@@ -41,7 +45,6 @@ export class ReceiverDetailsComponent implements OnInit {
    * @param receiverDetails: details of the receiver entered by the user
    */
   public submitDetails(receiverDetails: FormGroup): void {
-    console.log('receiverDetails ' + receiverDetails);
     this.gdStore.select((item: any) => item.giftDetailState).subscribe((val: any) => {
       console.log('this.giftCardDetails ' + val.giftDetailState);
       this.giftCardDetails = val.giftDetailState;
@@ -54,6 +57,8 @@ export class ReceiverDetailsComponent implements OnInit {
       userGiftCard.points = this.giftCardDetails.points,
       userGiftCard.giftCardId = this.giftCardDetails.$key;
     userGiftCard.createdDate = new Date().toString().substring(0, 15);
+    const userDetails: ReceiverDetails = { name: receiverDetails.value.name, email: receiverDetails.value.email };
+    this.giftListService.setReceiverDetails(userDetails);
     this.authService.user.points = this.authService.user.points - this.giftCardDetails.points;
     this.fbService.updateUserPointsToFirebase(this.authService.user.$key, this.authService.user.points);
     this.fbService.addUserGiftCardToFirbase(userGiftCard);
