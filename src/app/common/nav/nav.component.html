@@ -7,12 +7,12 @@
     </li>
   </ul>
   <ul class="medium-nav">
-    <li><a translate>Nav.AboutUs</a></li>
-    <li><a href="#">Contact Us</a></li>
+    <li><a [routerLink]="['/']" translate>Nav.AboutUs</a></li>
+    <li><a [routerLink]="['/']" translate>Nav.ContactUs</a></li>
   </ul>
   <ul>
-    <li><a *ngIf="!this.authService.isUserLoggedIn" href="javascript:void(0);"   (click)="onLogin()">SignIn</a></li>
-    <li><a *ngIf="this.authService.isUserLoggedIn" href="javascript:void(0);"   (click)="onLogout()">SignOut</a></li>
+    <li><a *ngIf="!this.authService.isUserLoggedIn" href="javascript:void(0);"   (click)="onLogin()" translate>Nav.SignIn</a></li>
+    <li><a *ngIf="this.authService.isUserLoggedIn" href="javascript:void(0);"   (click)="onLogout()" translate>Nav.SignOut</a></li>
     <li><span class="user-name" [matMenuTriggerFor]="LangMenu"><b> Language </b></span>
       <mat-menu #LangMenu="matMenu">
         <button (click)="changeLang('en')" mat-menu-item>ENGLISH</button>
@@ -21,13 +21,13 @@
     </li>
     <li><span class="user-name" [matMenuTriggerFor]="menu" *ngIf="this.authService.user.name"><b> {{this.authService.user.name}} </b></span>
       <mat-menu #menu="matMenu">
-        <button [routerLink]="['/admin/users']" mat-menu-item>ALL USERS</button>
-        <button [routerLink]="['/admin/orders']" mat-menu-item>ALL ORDERS</button>
-        <button [routerLink]="['/admin/gifts']" mat-menu-item>MANAGE GIFTS</button>
-        <button [routerLink]="['/admin/addCat']"  mat-menu-item>ADD CATEGORY</button>
-        <button [routerLink]="['/admin/gifts/new']" mat-menu-item>ADD ITEMS</button>
-        <button [routerLink]="['/user/points']" mat-menu-item>GET POINTS</button>
-        <button [routerLink]="['/user/orders']" mat-menu-item>USER ORDER HISTORY</button>
+        <button *ngIf="!this.authService.user.isUser" [routerLink]="['/admin/users']" mat-menu-item translate>Nav.AllUsers</button>
+        <button *ngIf="!this.authService.user.isUser" [routerLink]="['/admin/orders']" mat-menu-item translate>Nav.AllOrders</button>
+        <button *ngIf="!this.authService.user.isUser" [routerLink]="['/admin/gifts']" mat-menu-item translate>Nav.ManageGifts</button>
+        <button *ngIf="!this.authService.user.isUser" [routerLink]="['/admin/addCat']"  mat-menu-item translate>Nav.AddCategory</button>
+        <button *ngIf="!this.authService.user.isUser" [routerLink]="['/admin/gifts/new']" mat-menu-item translate>Nav.AddItems</button>
+        <button *ngIf="this.authService.user.isUser" [routerLink]="['/user/points']" mat-menu-item translate>Nav.GetPoints</button>
+        <button *ngIf="this.authService.user.isUser" [routerLink]="['/user/orders']" mat-menu-item translate>Nav.UserOrderHistroy</button>
       </mat-menu></li>
   </ul>
 

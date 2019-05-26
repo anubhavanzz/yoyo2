@@ -7,6 +7,16 @@
 
     },
     "Nav" : {
-        "AboutUs" : "About Us"
+        "AboutUs" : "About Us",
+        "ContactUs" : "Contact Us",
+        "SignIn" : "Sign In",
+        "SignOut": "Sign Out",
+        "AllUsers": "ALL USERS",
+        "AllOrders" : "ALL ORDERS",
+        "ManageGifts": "MANAGE GIFTS",
+        "AddCategory": "ADD CATEGORY",
+        "AddItems": "ADD ITEMS",
+        "GetPoints": "GET POINTS",
+        "UserOrderHistroy": "USER ORDER HISTORY"
     }
 }
