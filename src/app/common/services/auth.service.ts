@@ -12,11 +12,11 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AuthService {
 
-  loggedInUser: firebase.User;
-  user = new User();
-  userList: User[] = [];
-  isUser: boolean;
-  isUserLoggedIn = false;
+  public loggedInUser: firebase.User;
+  public user = new User();
+  public userList: User[] = [];
+  public isUser: boolean;
+  public isUserLoggedIn = false;
   constructor(private afAuth: AngularFireAuth,
     private fbService: FirebaseService,
     public gdStore: Store<GiftDetailState>,
@@ -24,12 +24,12 @@ export class AuthService {
       this.translate.setDefaultLang('en');
   }
 
-  changeLanguage (lang) {
+  public changeLanguage (lang) {
     this.translate.setDefaultLang(lang);
     console.log('Here');
   }
 
-  Login() {
+  public Login() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider).then(() => {
         this.getLoggedInUser();
         console.log(this.user);
@@ -40,12 +40,12 @@ export class AuthService {
     // });
   }
 
-  Logout() {
+  public Logout() {
     this.afAuth.auth.signOut();
   }
 
 
-  getAllUsers() {
+  public getAllUsers() {
     this.fbService.getAllUsersFromFirebase().subscribe(list => {
       this.userList = list.map(item => {
         return {
@@ -79,7 +79,7 @@ export class AuthService {
     });
   }
 
-  getLoggedInUser() {
+  public getLoggedInUser() {
     this.getAllUsers();
 
   }

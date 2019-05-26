@@ -15,27 +15,27 @@ import { Review } from 'src/app/models/review.model';
 export class FirebaseService {
 
   // Gift Card releated CRUD operations
-  giftCardsList: AngularFireList<any>;
-  categoryList: AngularFireList<any>;
-  userList: AngularFireList<any>;
-  userGiftCardList: AngularFireList<any>;
-  userPointsList: AngularFireList<any>;
-  reviews: AngularFireList<any>;
+  public giftCardsList: AngularFireList<any>;
+  public categoryList: AngularFireList<any>;
+  public userList: AngularFireList<any>;
+  public userGiftCardList: AngularFireList<any>;
+  public userPointsList: AngularFireList<any>;
+  public reviews: AngularFireList<any>;
 
 
   constructor(private db: AngularFireDatabase) { }
 
   // Gift card releated CRUD
 
-  addGiftCardToFirebase(giftCard: GiftCard) {
+  public addGiftCardToFirebase(giftCard: GiftCard): void {
     this.db.list('/GiftCard').push(giftCard);
   }
-  getAllGiftCardsFromFirebase() {
+  public getAllGiftCardsFromFirebase() {
     this.giftCardsList = this.db.list('GiftCard');
     return this.giftCardsList.snapshotChanges();
   }
 
-  updateGiftCardInFirebase(giftCard: GiftCard) {
+  public updateGiftCardInFirebase(giftCard: GiftCard) {
     this.giftCardsList.update(giftCard.$key, {
       imageUrl: giftCard.imageUrl,
       points: giftCard.points,
@@ -50,41 +50,41 @@ export class FirebaseService {
     });
   }
 
-  deleteGiftCardFromFirebase($key) {
+  public deleteGiftCardFromFirebase($key) {
     this.giftCardsList.remove($key);
   }
 
   //  Category releated CRUD operations
-  addCategoryToFirebase(category: Category) {
+  public addCategoryToFirebase(category: Category) {
     this.db.list('/Category').push(category);
   }
-  getAllCategoryFromFirebase() {
+  public getAllCategoryFromFirebase() {
     this.categoryList = this.db.list('Category');
     return this.categoryList.snapshotChanges();
   }
 
-  updateCategoryInFirebase(category: Category) {
+  public updateCategoryInFirebase(category: Category) {
     this.categoryList.update(category.$key, {
       name: category.name
     });
   }
 
-  deleteCategoryFromFirebase($key) {
+  public deleteCategoryFromFirebase($key) {
     this.categoryList.remove($key);
   }
 
   // Save user to firebase
 
-  saveUser(user) {
+  public saveUser(user) {
     this.db.list('/User').push(user);
   }
 
-  getAllUsersFromFirebase() {
+  public getAllUsersFromFirebase() {
     this.userList = this.db.list('User');
     return this.userList.snapshotChanges();
   }
 
-  updateUserPointsToFirebase(key, points) {
+  public updateUserPointsToFirebase(key, points) {
     this.userList.update(key, {
       points: points
     });
@@ -92,15 +92,15 @@ export class FirebaseService {
 
   // User bought gift card operations.
 
-  getAllUserGiftCardFromFirebase() {
+  public getAllUserGiftCardFromFirebase() {
     this.userGiftCardList = this.db.list('UserGiftCardMapping');
     return this.userGiftCardList.snapshotChanges();
   }
-  addUserGiftCardToFirbase(userGiftCardMapping: UserGiftCardMapping) {
+  public addUserGiftCardToFirbase(userGiftCardMapping: UserGiftCardMapping) {
     this.db.list('/UserGiftCardMapping').push(userGiftCardMapping);
   }
 
-  updateUserGiftCardToFirebase(userGiftCardMapping: UserGiftCardMapping) {
+  public updateUserGiftCardToFirebase(userGiftCardMapping: UserGiftCardMapping) {
     this.userGiftCardList.update(userGiftCardMapping.$key, {
       sender: userGiftCardMapping.sender,
       receiver: userGiftCardMapping.receiver,
@@ -114,10 +114,10 @@ export class FirebaseService {
 
 
   // Review CRUD operations
-  addReviewToFirebase(review: Review) {
+  public addReviewToFirebase(review: Review) {
     this.db.list('/Reviews').push(review);
   }
-  getReviewsFromFirebase() {
+  public getReviewsFromFirebase() {
     this.reviews = this.db.list('Reviews');
     return this.reviews.snapshotChanges();
   }
