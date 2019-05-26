@@ -13,3 +13,7 @@
 .list-item:hover {
     transform: scale(1.1);
 }
+.active {
+    background-color : #B00020;
+    color: #fff;
+}

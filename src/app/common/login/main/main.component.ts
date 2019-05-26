@@ -1,5 +1,6 @@
 import { GiftCard } from './../../../models/gift-card.model';
 import { Component, OnInit } from '@angular/core';
+import { GiftListService } from 'src/app/common/services/gift-list.service';
 
 @Component({
   selector: 'app-main',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private giftListService: GiftListService) { }
   public giftCard: GiftCard;
   public categoryType: string;
 
@@ -30,6 +31,7 @@ export class MainComponent implements OnInit {
 
   public changeCategoryType(categoryType: string): void {
     this.categoryType = categoryType;
+    this.giftListService.setCategoryType(categoryType);
   }
 
 }

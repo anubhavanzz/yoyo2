@@ -23,7 +23,8 @@
     <app-category-list (categoryType)="changeCategoryType($event); giftlist.getGifts($event);"></app-category-list>
   </div>
     <div class="col-lg-9">
-    <app-gift-list #giftlist [categories]="true" [filterType]="'category'" [categoryType]="categoryType"></app-gift-list>
+    <app-gift-list #giftlist [hidden]="categoryType==='All'" [categories]="true" [filterType]="'category'" [categoryType]="categoryType"></app-gift-list>
+    <app-gift-list *ngIf="(!categoryType || categoryType === 'All')" [filterType]="'all'"></app-gift-list>
   </div>
 </div>
 

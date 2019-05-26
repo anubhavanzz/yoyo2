@@ -6,9 +6,18 @@ import { GiftCard } from 'src/app/models/gift-card.model';
 })
 export class GiftListService {
 
+  public categoryType: string;
   constructor() { }
+  public setCategoryType(categoryType: string): void {
+    this.categoryType = categoryType;
+  }
+
+  public getCategoryType(): string {
+    return this.categoryType;
+  }
 
   public sortGiftCardArray(giftArray: GiftCard[], flterType: string, categoryType: string): GiftCard[] {
+    categoryType = this.getCategoryType() ? this.getCategoryType() : '';
     const length = giftArray.length;
     for (let i = 0; i < length - 1; i++) {
       for (let j = 0; j < length - i - 1; j++) {
