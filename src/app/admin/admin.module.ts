@@ -33,6 +33,5 @@ import { HttpLoaderFactory } from '../app.module';
   })
   ],
   exports: [EditGiftComponent, AddGiftComponent, AllGiftsComponent, AddCategoryComponent],
-  // schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AdminModule { }

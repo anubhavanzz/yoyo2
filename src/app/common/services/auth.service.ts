@@ -5,6 +5,7 @@ import { User } from 'src/app/models/user.model';
 import { FirebaseService } from './firebase.service';
 import { Store } from '@ngrx/store';
 import { GiftDetailState } from '../store/gift-details-store/git-details.state';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,14 @@ export class AuthService {
   isUserLoggedIn = false;
   constructor(private afAuth: AngularFireAuth,
     private fbService: FirebaseService,
-    public gdStore: Store<GiftDetailState>) {
+    public gdStore: Store<GiftDetailState>,
+    private translate: TranslateService) {
+      this.translate.setDefaultLang('en');
+  }
+
+  changeLanguage (lang) {
+    this.translate.setDefaultLang(lang);
+    console.log('Here');
   }
 
   Login() {

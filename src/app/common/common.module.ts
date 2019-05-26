@@ -16,8 +16,13 @@ import { GiftDetailDispatcher } from './store/gift-details-store/gift-details.di
 import { AuthService } from './services/auth.service';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './login/home.component';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 @NgModule({
   declarations: [SearchBarComponent, CategoriesComponent,
     LayoutComponent, HomeComponent, IntroductionContentComponent, MainComponent, NavComponent, FooterComponent,
@@ -31,7 +36,14 @@ import { HomeComponent } from './login/home.component';
 
   ],
   imports: [
-    MaterialModule, CommonModule, RouterModule
+    MaterialModule, CommonModule, RouterModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
