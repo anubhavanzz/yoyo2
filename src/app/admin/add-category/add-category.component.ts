@@ -1,32 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { MatTableDataSource } from '@angular/material';
 import { Category } from 'src/app/models/category.model';
 import { FirebaseService } from 'src/app/common/services/firebase.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-add-category',
   templateUrl: './add-category.component.html',
   styleUrls: ['./add-category.component.css']
 })
-export class AddCategoryComponent implements OnInit {
+export class AddCategoryComponent implements OnInit, OnDestroy {
   displayedColumns: string[] = ['categoryName', 'Actions'];
   categories: Category[] = [];
   dataSource = new MatTableDataSource(this.categories);
+  subscription: Subscription[] = [];
   constructor(private fbService: FirebaseService,
     private tostrService: ToastrService) { }
 
   /**Fetching all the category details from the database on initialization */
   public ngOnInit(): void {
-    this.fbService.getAllCategoryFromFirebase().subscribe(list => {
-      list.map(item => {
-        const category = new Category();
-        category.$key = item.key,
-          category.name = item.payload.val();
-        this.categories.push(category);
-      });
-      this.dataSource = new MatTableDataSource(this.categories);
-    });
+    this.subscription.push(
+      this.fbService.getAllCategoryFromFirebase().subscribe(list => {
+        list.map(item => {
+          const category = new Category();
+          category.$key = item.key,
+            category.name = item.payload.val();
+          this.categories.push(category);
+        });
+        this.dataSource = new MatTableDataSource(this.categories);
+      })
+    );
   }
 
   /**
@@ -47,6 +51,12 @@ export class AddCategoryComponent implements OnInit {
     this.fbService.deleteCategoryFromFirebase(element.$key);
     this.tostrService.success('Deleted Successfully');
     this.categories = [];
+  }
+
+  public ngOnDestroy(): void {
+    this.subscription.forEach((subscription: Subscription) => {
+      subscription.unsubscribe();
+    });
   }
 }
 
