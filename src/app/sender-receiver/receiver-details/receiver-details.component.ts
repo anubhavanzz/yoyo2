@@ -31,8 +31,8 @@ export class ReceiverDetailsComponent implements OnInit {
 
   public receiverDetails = this.formBuilder.group({
     name: ['', Validators.required],
-    email: ['', Validators.required],
-    message: ['', Validators.required]
+    email: ['', [Validators.required, Validators.email]],
+      message: ['', Validators.required]
   });
   public giftCardDetails: GiftCard;
 

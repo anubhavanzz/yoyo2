@@ -7,16 +7,17 @@
     <mat-icon matSuffix>accessibility_new</mat-icon>
   </mat-form-field>
   <mat-error>
-    <span *ngIf="!receiverDetails.get('name').valid && receiverDetails.get('name').touched">Please enter the name</span>
+    <span *ngIf="!receiverDetails.get('name').valid && receiverDetails.get('name').touched">Please enter name</span>
   </mat-error>
   <br>
   <mat-form-field appearance="outline">
     <mat-label>Receiver's Email</mat-label>
     <input formControlName="email" matInput placeholder="Email">
     <mat-icon matSuffix>email</mat-icon>
+    <mat-hint>*Should be in abc@xyz.com format</mat-hint>
   </mat-form-field>
   <mat-error>
-    <span *ngIf="!receiverDetails.get('email').valid && receiverDetails.get('email').touched">Please enter the email ID</span>
+    <span *ngIf="!receiverDetails.get('email').valid && receiverDetails.get('email').touched">Please enter valid email id </span>
   </mat-error>
   <br>
   <mat-form-field appearance="outline">
@@ -29,6 +30,6 @@
   </mat-error>
   <br>
   <div class="right">
-    <button mat-raised-button>Submit</button>
+    <button mat-raised-button [disabled]="!receiverDetails.valid">Submit</button>
   </div>
 </form>
