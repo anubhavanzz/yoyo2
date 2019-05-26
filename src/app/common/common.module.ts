@@ -1,7 +1,4 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { SearchBarComponent } from './search-bar/search-bar.component';
-import { CategoriesComponent } from './categories/categories.component';
-import { LayoutComponent } from './layout/layout.component';
 import { IntroductionContentComponent } from './introductionContent/introductionContent.component';
 import { MainComponent } from './login/main/main.component';
 import { NavComponent } from './nav/nav.component';
@@ -19,19 +16,28 @@ import { HomeComponent } from './login/home.component';
 
 
 @NgModule({
-  declarations: [SearchBarComponent, CategoriesComponent,
-    LayoutComponent, HomeComponent, IntroductionContentComponent, MainComponent, NavComponent, FooterComponent,
+  declarations: [ HomeComponent,
+    IntroductionContentComponent,
+    MainComponent,
+    NavComponent,
+    FooterComponent,
     GiftCardComponent,
     GiftListComponent,
     CategoryListComponent,
-    GiftListComponent, MaterialTableComponent
+    GiftListComponent,
+    MaterialTableComponent
   ],
-  exports: [SearchBarComponent, CategoriesComponent, LayoutComponent, HomeComponent, IntroductionContentComponent,
-    GiftCardComponent, NavComponent, FooterComponent, MaterialTableComponent
-
+  exports: [ HomeComponent,
+    IntroductionContentComponent,
+    GiftCardComponent,
+    NavComponent,
+    FooterComponent,
+    MaterialTableComponent
   ],
   imports: [
-    MaterialModule, CommonModule, RouterModule
+    MaterialModule,
+    CommonModule,
+    RouterModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
