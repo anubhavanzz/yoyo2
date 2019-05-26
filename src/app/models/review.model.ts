@@ -7,3 +7,8 @@ export class Review {
     email: string;
     createdDate: string;
 }
+
+export class ReceiverDetails {
+    name: string;
+    email: string;
+}

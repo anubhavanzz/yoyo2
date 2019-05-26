@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { GiftCard } from 'src/app/models/gift-card.model';
+import { ReceiverDetails } from 'src/app/models/review.model';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,7 @@ import { GiftCard } from 'src/app/models/gift-card.model';
 export class GiftListService {
 
   public categoryType: string;
+  public receiverDetails: ReceiverDetails = {name: '', email: ''};
   constructor() { }
   public setCategoryType(categoryType: string): void {
     this.categoryType = categoryType;
@@ -14,6 +16,15 @@ export class GiftListService {
 
   public getCategoryType(): string {
     return this.categoryType;
+  }
+
+  public setReceiverDetails(receiverDetails: ReceiverDetails): void {
+    this.receiverDetails.name = receiverDetails.name;
+    this.receiverDetails.email = receiverDetails.email;
+  }
+
+  public getReceiverDetails(): ReceiverDetails {
+    return this.receiverDetails;
   }
 
   public sortGiftCardArray(giftArray: GiftCard[], flterType: string, categoryType: string): GiftCard[] {
