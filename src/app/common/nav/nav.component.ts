@@ -39,7 +39,7 @@ export class NavComponent implements OnInit {
     console.log('From Nav login ', this.authService.isUserLoggedIn);
     this.authService.Login();
 
-    this.authService.isUserLoggedIn = true;
+    // this.authService.isUserLoggedIn = true;
     this.isLogged = true;
 
   }

@@ -25,6 +25,7 @@ export class GiftsReceivedComponent implements OnInit {
     new MatTableColumns('points', 'Points'),
     new MatTableColumns('createdDate', 'Created Date'),
     new MatTableColumns('actions', 'Actions'),
+    new MatTableColumns('isRedeem', 'IsRedeem'),
   ];
 
   displayedColumns: string[] = ['sender', 'giftCardName', 'giftCardId', 'points', 'createdDate', 'actions'];

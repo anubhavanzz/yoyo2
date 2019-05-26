@@ -35,7 +35,6 @@ export class FirebaseService {
     return this.giftCardsList.snapshotChanges();
   }
 
-
   updateGiftCardInFirebase(giftCard: GiftCard) {
     this.giftCardsList.update(giftCard.$key, {
       imageUrl: giftCard.imageUrl,
