@@ -23,7 +23,7 @@ export class FeedbackFormComponent implements OnInit, OnDestroy {
   public subscriptions: Subscription[] = [];
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-    private authService: AuthService,
+    public authService: AuthService,
     private fbService: FirebaseService,
     private tostr: ToastrService,
     private dialogRef: MatDialogRef<FeedbackFormComponent>) {

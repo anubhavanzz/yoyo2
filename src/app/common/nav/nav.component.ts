@@ -19,7 +19,7 @@ export class NavComponent implements OnInit {
 
   public isLogged: boolean;
 
-  constructor(private authService: AuthService, private router: Router,
+  constructor(public authService: AuthService, private router: Router,
     private fbService: FirebaseService,
     private spinner: NgxSpinnerService,
     private translate: TranslateService) {

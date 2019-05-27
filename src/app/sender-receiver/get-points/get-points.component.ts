@@ -15,7 +15,7 @@ export class GetPointsComponent implements OnInit {
 
   public usersArray: User[];
   public user = new User();
-  constructor(private authService: AuthService, private fbService: FirebaseService,
+  constructor(public authService: AuthService, private fbService: FirebaseService,
     private tostr: ToastrService) { }
 
   ngOnInit() {

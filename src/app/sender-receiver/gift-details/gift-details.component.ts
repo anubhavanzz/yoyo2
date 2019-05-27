@@ -68,8 +68,9 @@ export class GiftDetailsComponent implements OnInit {
     } else {
       this.tostr.warning('No Sufficient Credits', 'Please recharge account');
     }
+  }
 
-
-
+  public onAddToCart(): void {
+    this.tostr.warning('For Future Implementation', 'Stay Tune :) ');
   }
 }
