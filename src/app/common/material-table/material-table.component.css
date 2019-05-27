@@ -3,14 +3,14 @@ table {
   }
 
   th {
-    font-size: 16px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+    font-family: 'Georgia';
     color:white; 
-    background-color: rgb(197, 23, 23)
+    background-color: #B00020;
   }
   
   td {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 16px;
+    font-size: 20px;
   }
   

@@ -1,12 +1,14 @@
 <h2>
-    All Orders
+    All Items
   </h2>
   <mat-card>
 <div class="container-fluid">
   <div>
     <div class="row">
-        <input matInput class="form-field" [formControl]="globalFilter" placeholder="Global Filter"
-          (keyup)=applyFilter($event.target.value)>
+        <mat-form-field >
+          <input matInput class="form-field" [formControl]="globalFilter" placeholder="Global Filter"
+            (keyup)=applyFilter($event.target.value)>
+        </mat-form-field>
     </div>
   </div>
   <div>
@@ -16,16 +18,17 @@
         <ng-container matColumnDef="imageUrl">
           <th mat-header-cell *matHeaderCellDef> Image </th>
           <td mat-cell *matCellDef="let element"> <img src={{element.imageUrl}} alt='imageUrl'
-              style="width:100px;height:150px;"> </td>
+              style="width:150px;height:100px;"> </td>
         </ng-container>
 
         <!-- Brand Column with filter -->
         <ng-container matColumnDef="brand">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Brand
-            <div>
-              <input matInput class="form-field border" [formControl]="brandFilter" placeholder="Brand Filter"
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> 
+            <tr>Brand</tr>
+            <tr>
+              <input matInput class="form-field filter" [formControl]="brandFilter" placeholder="Brand Filter"
                 (keyup)=applyFilter($event.target.value)>
-            </div>
+            </tr>
           </th>
           <td mat-cell *matCellDef="let element"> {{element.brand}} </td>
         </ng-container>
@@ -39,9 +42,14 @@
         <!-- Category Column with filter -->
 
         <ng-container matColumnDef="categoryName">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Category
-            <input matInput class="form-field border" [formControl]="categoryFilter" placeholder="Category Filter"
-              (keyup)=applyFilter($event.target.value)>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> 
+              <tr>
+                  Category
+                  </tr>
+            <tr>
+              <input matInput class="form-field filter" [formControl]="categoryFilter" placeholder="Category Filter"
+                (keyup)=applyFilter($event.target.value)>
+</tr>
           </th>
           <td mat-cell *matCellDef="let element"> {{element.categoryName}} </td>
         </ng-container>

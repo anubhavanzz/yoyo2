@@ -1,26 +1,25 @@
-<nav>
+<mat-toolbar>
+
   <ul>
     <li>
       <a class="logo" (click)='home()' class="navbar-brand">
-        <span><img class="logo" src="../../../assets/logo.png" height="60px" width="60px"></span>
+        <span><img class="logo" src="../../../assets/logo.png" height="50px" width="50px"></span>
         YOYO</a>
     </li>
-  </ul>
-  <ul class="medium-nav">
     <li><a [routerLink]="['/']" translate>Nav.AboutUs</a></li>
     <li><a [routerLink]="['/']" translate>Nav.ContactUs</a></li>
   </ul>
-  <ul>
+      <ul class="medium-nav ml-auto">
     <li><a *ngIf="!this.authService.isUserLoggedIn" href="javascript:void(0);"   (click)="onLogin()" translate>Nav.SignIn</a></li>
     <li><a *ngIf="this.authService.isUserLoggedIn" href="javascript:void(0);"   (click)="onLogout()" translate>Nav.SignOut</a></li>
-    <li><span class="user-name" [matMenuTriggerFor]="LangMenu"><b> Language <i class="fa fa-sort-desc" aria-hidden="true"></i></b></span>
+    <li><span class="user-name" [matMenuTriggerFor]="LangMenu"><b> Language  <i class="fa fa-sort-desc" aria-hidden="true"></i></b></span>
       <mat-menu #LangMenu="matMenu">
           <button class="flag"  (click)="changeLang('en')" mat-menu-item><img  src="../../../assets/en.png" height="40px" width="80px"></button>
           <button class="flag" (click)="changeLang('de')" mat-menu-item> <img   src="../../../assets/de.png" height="40px" width="80px"></button>
 
       </mat-menu>
     </li>
-    <li><span class="user-name" [matMenuTriggerFor]="menu" *ngIf="this.authService.user.name"><b> {{this.authService.user.name}}<i class="fa fa-sort-desc" aria-hidden="true"></i> </b></span>
+    <li><span class="user-name" [matMenuTriggerFor]="menu" *ngIf="this.authService.user.name"><b> {{this.authService.user.name}}  <i class="fa fa-sort-desc" aria-hidden="true"></i> </b></span>
       <mat-menu #menu="matMenu">
         <button *ngIf="!this.authService.user.isUser" [routerLink]="['/admin/users']" mat-menu-item translate>Nav.AllUsers</button>
         <button *ngIf="!this.authService.user.isUser" [routerLink]="['/admin/orders']" mat-menu-item translate>Nav.AllOrders</button>
@@ -32,7 +31,7 @@
       </mat-menu></li>
   </ul>
 
-</nav>
+</mat-toolbar>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
 

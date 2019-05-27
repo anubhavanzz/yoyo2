@@ -1,5 +1,6 @@
 table {
     width: 100%;
+    padding-bottom: 2%;
   }
 
   th.mat-sort-header-sorted {
@@ -11,15 +12,16 @@ table {
   }
   
   .mat-form-field {
-    font-size: 14px;
+    font-size: 25px;
     width: 100%;
   }
+  /* .mat-form-field[_ngcontent-c14] */
   
   th {
     font-size: 25px;
     font-family: 'Georgia';
     color:white; 
-    background-color: rgb(197, 23, 23)
+    background-color: #B00020
   }
   
   td {
@@ -50,4 +52,32 @@ table {
   button:hover {
     color: white;
     background-color: #B00020; 
+  }
+
+  img {
+    border-radius: 20%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+
+  input:not([type]):focus:not([readonly]){
+    border-bottom: none !important;
+    box-shadow: none !important;
+  }
+   input {
+    border-bottom: none !important;
+    outline: none !important;
+    border-color: #B00020;
+    border-radius: 10%;
+  }
+  .filter {
+    background-color: #fff;
+    color: #B00020;
+    font-size: 20px;
+  }
+
+  .mat-sort-header-stem {
+    /* color: white; */
+    height: 20px;
+    width: 8px;
   }

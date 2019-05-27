@@ -1,5 +1,5 @@
 <h2 translate>
-    AddCategory.AllOrders
+        All Orders
 </h2>
 <mat-card>
 <div class="container-fluid">
@@ -12,12 +12,12 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-user-tie"></i></span>
                         </div>
-                        <input name="CategoryName" id="CategoryName" placeholder="Enter a new Category needs to be added..." class="form-control"
+                        <input name="CategoryName" placeholder="Enter a new Category needs to be added..." class="form-control"
                             ngModel #CategoryName="ngModel" required minlength="3">
                     </div>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary mr-3" [disabled]=!regiForm.valid translate>AddCategory.Save</button>
+                    <button class="btn btn-primary mr-3" [disabled]=!regiForm.valid translate>Save</button>
                 </div>
             </form>
         </div>

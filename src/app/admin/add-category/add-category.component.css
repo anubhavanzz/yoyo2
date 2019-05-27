@@ -31,9 +31,18 @@ button {
   color: #B00020;
   background-color: white;
   font-family: Georgia;
+  font-size : 20px;
 }
 
 button:hover {
   color: white;
   background-color: #B00020; 
+}
+input, td {
+  font-size : 20px;
+  font-family: Georgia;
+}
+th {
+  font-size : 25px;
+  font-family: Georgia;
 }

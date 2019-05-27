@@ -19,12 +19,12 @@ export class ManageUsersComponent implements OnInit, OnDestroy {
   public matTableColumns: MatTableColumns[] = [
     new MatTableColumns('name', 'User Name'),
     new MatTableColumns('email', 'Email'),
-    new MatTableColumns('isUser', 'Is User?'),
+    // new MatTableColumns('isUser', 'Is User?'),
     new MatTableColumns('provider', 'Provider'),
     new MatTableColumns('points', 'Credit Points'),
   ];
 
-  public displayedColumns: string[] = ['name', 'email', 'isUser', 'provider', 'points'];
+  public displayedColumns: string[] = ['name', 'email', 'provider', 'points'];
 
 
   constructor(private fbService: FirebaseService) { }

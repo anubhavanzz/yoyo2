@@ -10,7 +10,7 @@
     position: relative;
     animation-name: example;
     animation-duration: 4s;
-    font-size: 30px;
+    font-size: 40px;
 }
 
 .flag {
@@ -32,41 +32,42 @@ nav {
 }
 
 
-nav ul:first-of-type {
+mat-toolbar ul:first-of-type {
     padding-left: 20px;
 }
 
 
 
-nav ul:first-of-type li:first-of-type a {
+mat-toolbar ul:first-of-type li:first-of-type a {
     color: #eee;
     font-weight: bold;
     font-size: 1.4rem;
    
 }
-nav ul:last-of-type {
+mat-toolbar ul:last-of-type {
     text-align: right;
     padding-right: 20px;
 }
 
 .medium-nav {
     text-align: right;
+    /* float: right; */
 }
 
 
-nav ul li{
+mat-toolbar ul li{
     list-style-type: none;
     display: inline-block;
-    margin-right: 10px;
+    margin-right: 5%;
+    align-content: left;
 }
-nav ul li a{
+mat-toolbar ul li a{
     color: #fff;
     text-decoration: none;
     display: block;
 
 }
-nav ul:last-of-type li:last-of-type a {
-    /* background: #6200EE; */
+mat-toolbar ul:last-of-type li:last-of-type a {
     padding: 10px;
     color: #fff;
     border-radius: 5px;
@@ -84,4 +85,17 @@ button:hover {
 .user-name:hover {
     color: #fff;
     cursor: pointer;
+}
+a {
+    font-size: 25px;
+}
+mat-toolbar {
+    background-color: #B00020;
+    padding-right: 5%;
+    padding-top: 1%;
+}
+span {
+    color: #fff;
+    cursor: pointer;
+    font-size: 25px;
 }
