@@ -36,6 +36,7 @@ export class GiftListComponent implements OnInit, OnDestroy {
    * Angular hook to initialize the component with gift card properties and get details of all the gifts
    */
   public ngOnInit(): void {
+    console.log(this.categories);
     this.giftCard = {
       $key: '',
       imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_Ye9g_Iw1YhVuXIniKGjdm6Yd8bAuUu46cEhPDpo1fJ2OgUId5Q',

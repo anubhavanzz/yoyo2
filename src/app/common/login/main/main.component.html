@@ -7,7 +7,7 @@
   </div>
   <mat-card class="multi-section list">
 <marquee>
-  <h2 translate>Main.Popularsection</h2>
+  <h2 translate>Main.PopularSection</h2>
 </marquee>
   <!-- <app-gift-list [filterType]="'category'" [categoryType]="'Home'"></app-gift-list> -->
   <app-gift-list class="popular" [filterType]="'popularity'" [giftCardCount]="6"></app-gift-list>
@@ -24,7 +24,7 @@
   </div>
     <div class="col-lg-9">
     <app-gift-list #giftlist [hidden]="categoryType==='All'" [categories]="true" [filterType]="'category'" [categoryType]="categoryType"></app-gift-list>
-    <app-gift-list *ngIf="(!categoryType || categoryType === 'All')" [filterType]="'all'"></app-gift-list>
+    <app-gift-list *ngIf="(!categoryType || categoryType === 'All')" [categories]="true"  [filterType]="'all'"></app-gift-list>
   </div>
 </div>
 

@@ -62,7 +62,12 @@ ul {
     max-width:100%; 
   }
 
+  .categories {
+    padding-bottom: 5%;
+  }
   .background {
-    background-color: #B00020;
+    background-image: url('./../../../assets/catBackground.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 

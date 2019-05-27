@@ -7,7 +7,7 @@
     </div>
 <mat-card *ngIf="categories" class="background">
     <div class="row blocks">
-        <div class="card-block border-0 col-lg-4" *ngFor="let gift of giftCardsArray">
+        <div class="card-block border-0 col-lg-4 categories" *ngFor="let gift of giftCardsArray">
           <app-gift-card [giftCard]='gift'></app-gift-card>
         </div>
     </div>
