@@ -6,11 +6,15 @@
 }
 
 /* The element to apply the animation to */
-#logo {
+.logo {
     position: relative;
     animation-name: example;
     animation-duration: 4s;
     font-size: 30px;
+}
+
+.flag {
+    margin-bottom: 20%;
 }
 
 nav {

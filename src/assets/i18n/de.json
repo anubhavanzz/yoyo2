@@ -7,35 +7,35 @@
 
     },
     "Nav" : {
-        "AboutUs" : "About Us",
-        "ContactUs" : "Contact Us",
-        "SignIn" : "Sign In",
-        "SignOut": "Sign Out",
-        "AllUsers": "ALL USERS",
-        "AllOrders" : "ALL ORDERS",
-        "ManageGifts": "MANAGE GIFTS",
-        "AddCategory": "ADD CATEGORY",
-        "AddItems": "ADD ITEMS",
-        "GetPoints": "GET POINTS",
-        "UserOrderHistroy": "USER ORDER HISTORY"
+        "AboutUs" : "Über uns",
+        "ContactUs" : "Kontaktiere uns",
+        "SignIn" : "Einloggen",
+        "SignOut": "Ausloggen",
+        "AllUsers": "ALLE NUTZER",
+        "AllOrders" : "ALLE BESTELLUNGEN",
+        "ManageGifts": "GESCHENKE VERWALTEN",
+        "AddCategory": "KATEGORIE HINZUFÜGEN",
+        "AddItems": "FÜGE ARTIKEL HINZU",
+        "GetPoints": "PUNKTE BEKOMMEN",
+        "UserOrderHistroy": "BENUTZERAUFTRAGSGESCHICHTE"
     },
         "IntroductionContent" : {
-        "Heading" : "YOYO GIFTING PORTAL",
-        "Caption" : "Give gifts to your dear ones through our portal by just earning reward points and fill them with happiness...",
-        "GiveAGift": "GIVE A GIFT",
-        "LearnMore": "LEARN MORE"
+        "Heading" : "YOYO GESCHENKPORTAL",
+        "Caption" : "Schenken Sie Ihren Lieben über unser Portal, indem Sie einfach Belohnungspunkte sammeln und sie mit Freude erfüllen...",
+        "GiveAGift": "EIN GESCHENK GEBEN",
+        "LearnMore": "LERN MEHR"
     },
     "Main" : {
-        "Heading" : "Fill your dear ones with happiness!",
-        "Content": "Welcome to our Site, where we provide you an exciting collection of gifts for your loved ones. Redeem your earned points and select from the amazing wide  pool we have. Besides the gifts, we also provide coupons or passes for movies, spa, trips, etc that can also be gifted.",
-        "PopularSection": "Our Popular Gift Section...",
-        "NewStuff" : "Check out the new stuffs...",
-        "Categories": "Categories",
-        "RedeemPoints": "Redeem Points.",
-        "RedeemPointsContent1": "The simplest step would be to collect points, which can be through sharing it with more and more people, every time you gift someone and through the reward points attained by your friends.",
-        "RedeemPointsContent2": "So what are you waiting for? Hurry up and share this with more of your familiars to gain more points.",
-        "PurchaseGift" : "Purchase a Gift",
-        "PurchaseGiftContent1" : "Redeem your points by selecting the coupons or gifts from our exciting collection. Purchase them through the points you have instead of the money. How cool is that?",
-        "PurchaseGiftContent2": "The coupons would be sent on the other person's email ID, which can be used by them or can also be delivered to their personal addresses with the perfect gift wrapping."
+        "Heading" : "Fülle deine Lieben mit Glück!",
+        "Content": "Willkommen auf unserer Website, auf der wir Ihnen eine aufregende Sammlung von Geschenken für Ihre Lieben anbieten. Lösen Sie Ihre verdienten Punkte ein und wählen Sie aus dem erstaunlich großen Pool, den wir haben. Neben den Geschenken bieten wir auch Gutscheine oder Pässe für Filme, Wellness, Ausflüge usw. an, die auch geschenkt werden können.",
+        "PopularSection": "Unsere beliebte Geschenkabteilung...",
+        "NewStuff" : "Schauen Sie sich die neuen Sachen an...",
+        "Categories": "Kategorien",
+        "RedeemPoints": "Punkte einlösen.",
+        "RedeemPointsContent1": "Der einfachste Schritt wäre, Punkte zu sammeln, indem Sie diese mit immer mehr Menschen teilen, jedes Mal, wenn Sie jemanden beschenken, und durch die von Ihren Freunden erzielten Belohnungspunkte.",
+        "RedeemPointsContent2": "Also, worauf wartest Du? Beeilen Sie sich und teilen Sie dies mit mehr Ihrer Vertrauten, um mehr Punkte zu sammeln.",
+        "PurchaseGift" : "Kaufen Sie ein Geschenk",
+        "PurchaseGiftContent1" : "Lösen Sie Ihre Punkte ein, indem Sie Gutscheine oder Geschenke aus unserer aufregenden Sammlung auswählen. Kaufen Sie sie durch die Punkte, die Sie anstelle des Geldes haben. Wie cool ist das?",
+        "PurchaseGiftContent2": "Die Gutscheine werden auf die E-Mail-ID der anderen Person gesendet, die von dieser Person verwendet oder mit der perfekten Geschenkverpackung auch an ihre persönlichen Adressen gesendet werden kann."
     }
 }

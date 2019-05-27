@@ -26,7 +26,6 @@ export class AuthService {
 
   public changeLanguage (lang) {
     this.translate.setDefaultLang(lang);
-    console.log('Here');
   }
 
   public Login() {

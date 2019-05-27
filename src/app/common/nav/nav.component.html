@@ -1,8 +1,8 @@
 <nav>
   <ul>
     <li>
-      <a id="logo" (click)='home()' class="navbar-brand">
-        <span><img id="logo" src="../../../assets/logo.png" height="40px" width="40px"></span>
+      <a class="logo" (click)='home()' class="navbar-brand">
+        <span><img class="logo" src="../../../assets/logo.png" height="60px" width="60px"></span>
         YOYO</a>
     </li>
   </ul>
@@ -13,13 +13,14 @@
   <ul>
     <li><a *ngIf="!this.authService.isUserLoggedIn" href="javascript:void(0);"   (click)="onLogin()" translate>Nav.SignIn</a></li>
     <li><a *ngIf="this.authService.isUserLoggedIn" href="javascript:void(0);"   (click)="onLogout()" translate>Nav.SignOut</a></li>
-    <li><span class="user-name" [matMenuTriggerFor]="LangMenu"><b> Language </b></span>
+    <li><span class="user-name" [matMenuTriggerFor]="LangMenu"><b> Language <i class="fa fa-sort-desc" aria-hidden="true"></i></b></span>
       <mat-menu #LangMenu="matMenu">
-        <button (click)="changeLang('en')" mat-menu-item>ENGLISH</button>
-        <button (click)="changeLang('de')" mat-menu-item>GERMAN</button>
+          <button class="flag"  (click)="changeLang('en')" mat-menu-item><img  src="../../../assets/en.png" height="40px" width="80px"></button>
+          <button class="flag" (click)="changeLang('de')" mat-menu-item> <img   src="../../../assets/de.png" height="40px" width="80px"></button>
+
       </mat-menu>
     </li>
-    <li><span class="user-name" [matMenuTriggerFor]="menu" *ngIf="this.authService.user.name"><b> {{this.authService.user.name}} </b></span>
+    <li><span class="user-name" [matMenuTriggerFor]="menu" *ngIf="this.authService.user.name"><b> {{this.authService.user.name}}<i class="fa fa-sort-desc" aria-hidden="true"></i> </b></span>
       <mat-menu #menu="matMenu">
         <button *ngIf="!this.authService.user.isUser" [routerLink]="['/admin/users']" mat-menu-item translate>Nav.AllUsers</button>
         <button *ngIf="!this.authService.user.isUser" [routerLink]="['/admin/orders']" mat-menu-item translate>Nav.AllOrders</button>

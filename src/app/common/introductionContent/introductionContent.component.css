@@ -46,3 +46,10 @@ header img {
   display: block;
   z-index: 9;
 }
+
+.contact {
+  margin-right: 81px;
+}
+.contact:hover {
+  color : white
+}
