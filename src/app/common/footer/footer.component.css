@@ -1,22 +1,9 @@
-#myFooter{
-    max-height: 30px;
-    background-color: #B00020;
-    line-height: 1;
-    position: fixed; bottom: 0;
-    width: 100%;
-    }
-    .footer-copyright{
-        padding: 10px;
-        color: #fffff0;
-        background-color:#B00020;
+    footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+         background-color: #B00020;
+        color: white;
         text-align: center;
-        font-style: italic;
-        font-size: 120%;
-        font-family: Georgia, Serif;
-    }
-    
-    @media screen and (max-width: 760px) {
-        .footer-copyright{
-            font-size: 80%;
-        }
-    }
+      }

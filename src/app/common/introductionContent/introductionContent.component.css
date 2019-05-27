@@ -44,7 +44,7 @@ header img {
   height: 550px;
   right: 10%;
   display: block;
-  z-index: 9;
+  z-index: 0;
 }
 
 .contact {
