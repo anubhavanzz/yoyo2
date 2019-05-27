@@ -11,12 +11,12 @@ import { Subscription } from 'rxjs';
 })
 export class ManageUsersComponent implements OnInit, OnDestroy {
 
-  allUsersArray: User[];
-  adminsArray: User[];
-  usersArray: User[];
-  subscriptions: Subscription[] = [];
+  public allUsersArray: User[];
+  public adminsArray: User[];
+  public usersArray: User[];
+  public subscriptions: Subscription[] = [];
   // ColumnDef, HeaderCellDef
-  matTableColumns: MatTableColumns[] = [
+  public matTableColumns: MatTableColumns[] = [
     new MatTableColumns('name', 'User Name'),
     new MatTableColumns('email', 'Email'),
     new MatTableColumns('isUser', 'Is User?'),
@@ -24,12 +24,12 @@ export class ManageUsersComponent implements OnInit, OnDestroy {
     new MatTableColumns('points', 'Credit Points'),
   ];
 
-  displayedColumns: string[] = ['name', 'email', 'isUser', 'provider', 'points'];
+  public displayedColumns: string[] = ['name', 'email', 'isUser', 'provider', 'points'];
 
 
   constructor(private fbService: FirebaseService) { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
 
     this.subscriptions.push(
       this.fbService.getAllUsersFromFirebase().subscribe(list => {
