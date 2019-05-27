@@ -24,14 +24,14 @@ export interface PeriodicElement {
 })
 export class AllGiftsComponent implements OnInit, OnDestroy {
 
-  displayedColumns: string[] = ['imageUrl', 'name', 'brand', 'points',
+  public displayedColumns: string[] = ['imageUrl', 'name', 'brand', 'points',
     'description', 'createdDate', 'numberOfTimesBought', 'categoryName', 'Actions'];
-  dataSource = new MatTableDataSource();
-  giftCardsArray: GiftCard[];
-  subscriptions: Subscription[] = [];
+  public dataSource = new MatTableDataSource();
+  public giftCardsArray: GiftCard[];
+  public subscriptions: Subscription[] = [];
 
 
-  filteredValues = {
+  public filteredValues = {
     brand: '', categoryName: '',
     isGlobal: ''
   };
@@ -39,9 +39,9 @@ export class AllGiftsComponent implements OnInit, OnDestroy {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  brandFilter = new FormControl();
-  globalFilter = new FormControl();
-  categoryFilter = new FormControl();
+  public brandFilter = new FormControl();
+  public globalFilter = new FormControl();
+  public categoryFilter = new FormControl();
 
   constructor(private fbService: FirebaseService,
     private tostr: ToastrService,
@@ -71,7 +71,7 @@ export class AllGiftsComponent implements OnInit, OnDestroy {
    * @param filter : Parameter to identify the filter criterion
    * Function to filter the gifts based on the category passed
    */
-  applyFilter(filter): void {
+  public applyFilter(filter): void {
 
     console.log(filter);
     this.filteredValues['brand'] = this.brandFilter.value;
@@ -80,14 +80,11 @@ export class AllGiftsComponent implements OnInit, OnDestroy {
     this.dataSource.filter = JSON.stringify(this.filteredValues);
   }
 
-  onEditGift(element) {
-
-  }
   /**
    * @param element : The particular gift selected
    * Function to delete the selected element
    */
-  onDeleteGift(element): void {
+  public onDeleteGift(element): void {
     this.fbService.deleteGiftCardFromFirebase(element.$key);
     this.tostr.success('Deleted Successfully');
   }
@@ -96,7 +93,7 @@ export class AllGiftsComponent implements OnInit, OnDestroy {
   /**
    * Function to custom Filter Predicate
    */
-  customFilterPredicate(): any {
+  public customFilterPredicate(): any {
     const myFilterPredicate = (data: PeriodicElement, filter: string): boolean => {
       const searchString = JSON.parse(filter);
       const datarow = data.name + data.brand + data.points + data.description + data.numberOfTimesBought + data.categoryName;
@@ -130,7 +127,7 @@ export class AllGiftsComponent implements OnInit, OnDestroy {
     return myFilterPredicate;
   }
 
-  addGiftCard() {
+  public addGiftCard(): void {
     this.router.navigateByUrl('/admin/gifts/new');
   }
 

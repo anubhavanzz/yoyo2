@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
 export class OrdersComponent implements OnInit, OnDestroy {
 
   // ColumnDef, HeaderCellDef
-  matTableColumns: MatTableColumns[] = [
+  public matTableColumns: MatTableColumns[] = [
     new MatTableColumns('receiver', 'Sent to'),
     new MatTableColumns('giftCardName', 'Gift Card Name'),
     new MatTableColumns('giftCardId', 'GiftCard Number'),
@@ -21,18 +21,18 @@ export class OrdersComponent implements OnInit, OnDestroy {
     new MatTableColumns('createdDate', 'Created Date'),
   ];
 
-  subscriptions: Subscription[] = [];
+  private subscriptions: Subscription[] = [];
 
-  displayedColumns: string[] = ['receiver', 'giftCardName', 'giftCardId', 'points', 'createdDate'];
+  public displayedColumns: string[] = ['receiver', 'giftCardName', 'giftCardId', 'points', 'createdDate'];
 
-  allUsersGiftOrders: UserGiftCardMapping[];
+  public allUsersGiftOrders: UserGiftCardMapping[];
 
 
 
   constructor(private fbService: FirebaseService,
     private authService: AuthService) { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.subscriptions.push(
       this.fbService.getAllUserGiftCardFromFirebase().subscribe(list => {
         this.allUsersGiftOrders = list.map(item => {
