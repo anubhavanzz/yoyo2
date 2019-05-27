@@ -1,4 +1,8 @@
-button{
-    height: 100px;
-    width: 300px;
+button {
+  height: 100px;
+  width: 300px;
+  background-color: #B00020;
+  font-family: Georgia;
+  color: #fff;
 }
+
