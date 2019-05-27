@@ -3,13 +3,19 @@
       <span class="fa fa-star" [ngClass]="stars ? stars: ''"></span>
   </span>
 
+  <h4>User Reviews/Comments: </h4>
+  <mat-list *ngFor="let review of userReviews">
+<mat-card>
+
+    <mat-list-item role="listitem" class="name">
+      {{review.userName}} &nbsp;&nbsp;&nbsp;
+      <span *ngFor="let stars of overallRating; let i = index">
+        <span class="fa fa-star" [ngClass]="i < review.rating? 'checked': ''"></span>
+      </span>
+    </mat-list-item>
+    <mat-list-item role="listitem" class="description">
+      <p>{{review.comment}}</p>
+    </mat-list-item>
+    </mat-card>
+  </mat-list>
 </mat-card>
-<h2>User Reviews/Comments: </h2>
-<mat-list *ngFor="let review of userReviews">
-  <mat-list-item role="listitem">{{review.userName}}: {{review.comment}}
-    <span *ngFor="let stars of overallRating; let i = index">
-      <span class="fa fa-star" [ngClass]="i < review.rating? 'checked': ''"></span>
-    </span>
-  </mat-list-item>
-</mat-list>
-<br>

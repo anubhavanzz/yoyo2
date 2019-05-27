@@ -4,3 +4,18 @@
 mat-expansion-panel {
     margin-top : 2%;
 }
+.name {
+    font-weight: bold;
+}
+.description {
+    margin-bottom: 2%;
+    font-size: 25px;
+}
+.stars {
+    margin-left: 5%;
+}
+.name {
+    margin-bottom: 1%;
+    font-size: 25px;
+    font-weight: bold;
+}
