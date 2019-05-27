@@ -13,6 +13,7 @@ import { configureTestSuiteEnv } from 'src/app/common/config/configureTestSuiteE
 import { FirebaseService } from 'src/app/common/services/firebase.service';
 import { AngularFireList } from '@angular/fire/database';
 import { Category } from 'src/app/models/category.model';
+import { TranslateService } from '@ngx-translate/core';
 
 describe('AddCategoryComponent', () => {
   configureTestSuiteEnv();
@@ -38,6 +39,9 @@ describe('AddCategoryComponent', () => {
     public addCategoryToFirebase(category: Category): void {
       return null;
     }
+    public getDefaultLang(): string {
+      return 'en';
+    }
   }
 
   beforeAll((done: any) => (async() => {
@@ -58,8 +62,9 @@ describe('AddCategoryComponent', () => {
         AngularFireDatabaseModule,
         AngularFireAuthModule],
       schemas: [NO_ERRORS_SCHEMA],
-      providers: [{provide: ToastrService, useClass: MockService },
-        {provide: FirebaseService, useClass: MockService }]
+      providers: [{ provide: ToastrService, useClass: MockService },
+      { provide: FirebaseService, useClass: MockService },
+      { provide: TranslateService, useClass: MockService }]
     });
     await TestBed.compileComponents();
   })().then(done).catch(done.fail));

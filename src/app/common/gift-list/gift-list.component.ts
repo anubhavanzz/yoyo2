@@ -1,4 +1,3 @@
-import { element } from 'protractor';
 import { Store } from '@ngrx/store';
 import { GiftDetailState } from './../store/gift-details-store/git-details.state';
 import { GiftDetailDispatcher } from './../store/gift-details-store/gift-details.dispatcher';
@@ -19,7 +18,7 @@ import { ErrorModel } from 'src/app/models/error.model';
 export class GiftListComponent implements OnInit, OnDestroy {
 
   public giftCardsArray: GiftCard[];
-  public Subscriptions: Subscription[] = [];
+  public subscriptions: Subscription[] = [];
   @Input() public filterType: string;
   @Input() public categoryType: string;
   @Input() public giftCardCount: number;
@@ -36,7 +35,14 @@ export class GiftListComponent implements OnInit, OnDestroy {
    * Angular hook to initialize the component with gift card properties and get details of all the gifts
    */
   public ngOnInit(): void {
-    console.log(this.categories);
+    this.initializeGiftCard();
+    this.getGifts();
+  }
+
+  /**
+   * Function to initialize the gift card
+   */
+  public initializeGiftCard(): void {
     this.giftCard = {
       $key: '',
       imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_Ye9g_Iw1YhVuXIniKGjdm6Yd8bAuUu46cEhPDpo1fJ2OgUId5Q',
@@ -50,20 +56,19 @@ export class GiftListComponent implements OnInit, OnDestroy {
       name: 'flipkart gift card',
       rating: 1
     };
-    this.getGifts();
   }
 
   /**
    * Getting all gift data from Firebase and dispatching it to the store, if not present. If present, select the data from store.
    */
   public getGifts(): void {
-    this.Subscriptions.push(
+    this.subscriptions.push(
       this.gdStore.select((item: any) => item.giftDetailState).subscribe((val: any) => {
       if (val.giftAllDetailState) {
         this.giftCardsArray = val.giftAllDetailState;
         this.modifyGiftsArray();
       } else {
-        this.Subscriptions.push(this.fbService.getAllGiftCardsFromFirebase().subscribe(list => {
+        this.subscriptions.push(this.fbService.getAllGiftCardsFromFirebase().subscribe(list => {
           this.giftCardsArray = list.map(item => {
             return {
               $key: item.key,
@@ -95,7 +100,7 @@ export class GiftListComponent implements OnInit, OnDestroy {
    * Angular hook to unsubscribe from all the subscriptions on destruction of the component.
    */
   public ngOnDestroy(): void {
-    this.Subscriptions.forEach((subscription: Subscription) => {
+    this.subscriptions.forEach((subscription: Subscription) => {
       subscription.unsubscribe();
     });
   }
