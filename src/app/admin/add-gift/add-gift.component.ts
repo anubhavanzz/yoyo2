@@ -1,3 +1,5 @@
+import { ErrorModel } from 'src/app/models/error.model';
+import { Subscription } from 'rxjs';
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormsModule, NgForm } from '@angular/forms';
 import { GiftCard } from 'src/app/models/gift-card.model';
@@ -15,13 +17,12 @@ import { GIFT_DETAILS_DEFAULT } from 'src/app/common/store/gift-details-store/gi
 })
 export class AddGiftComponent implements OnInit, OnDestroy {
 
-  giftCard = new GiftCard();
-  giftCardsArray: GiftCard[];
-  categories: Category[] = [];
-  giftForm: FormGroup;
+  public giftCard = new GiftCard();
+  public giftCardsArray: GiftCard[];
+  public categories: Category[] = [];
+  public giftForm: FormGroup;
+  public subscriptions: Subscription[] = [];
 
-
-  name = '';
   constructor(private fb: FormBuilder,
     private fbService: FirebaseService,
     private tostr: ToastrService,
@@ -30,8 +31,7 @@ export class AddGiftComponent implements OnInit, OnDestroy {
   ) {
 
   }
-  public ngOnInit() {
-
+  public ngOnInit(): void {
     this.giftForm = this.fb.group({
       ImageUrl: ['', [Validators.required]],
       Points: ['', [Validators.required, Validators.min(0), Validators.max(1000)]],
@@ -45,7 +45,7 @@ export class AddGiftComponent implements OnInit, OnDestroy {
     });
 
     const id = this.route.snapshot.params.id;
-    this.fbService.getAllGiftCardsFromFirebase().subscribe(list => {
+    this.subscriptions.push(this.fbService.getAllGiftCardsFromFirebase().subscribe(list => {
       this.giftCardsArray = list.map(item => {
         return {
           $key: item.key,
@@ -55,16 +55,20 @@ export class AddGiftComponent implements OnInit, OnDestroy {
       if (id) {
         this.giftCard = this.giftCardsArray.filter(item => item.$key === id)[0];
       }
-    });
+    }, (exception: ErrorModel) => {
+      console.log(exception);
+    }));
     // Getting all categories
-    this.fbService.getAllCategoryFromFirebase().subscribe(list => {
+    this.subscriptions.push(this.fbService.getAllCategoryFromFirebase().subscribe(list => {
       list.map(item => {
         const category = new Category();
         category.$key = item.key,
           category.name = item.payload.val();
         this.categories.push(category);
       });
-    });
+    }, (exception: ErrorModel) => {
+      console.log(exception);
+    }));
 
   }
 
@@ -72,7 +76,7 @@ export class AddGiftComponent implements OnInit, OnDestroy {
    * @param giftForm: the details fetched from the form
    * Function to add the new gift in case the gift isn't present, it updates if the same type already exists
    */
-  public onSave(giftForm) {
+  public onSave(giftForm): void {
     console.log(this.giftForm);
     const newGift = new GiftCard();
     newGift.brand = giftForm.value.Brand;
@@ -100,14 +104,20 @@ export class AddGiftComponent implements OnInit, OnDestroy {
     this.giftForm.reset();
   }
 
+  public trackByFn(index, item): number {
+    return index;
+  }
+
   /**
    * Function to navigate to the category form
    */
-  public addCategory() {
+  public addCategory(): void {
     this.router.navigateByUrl('/admin/addCat');
   }
 
-  public ngOnDestroy() {
- 
+  public ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription: Subscription) => {
+      subscription.unsubscribe();
+    });
   }
 }

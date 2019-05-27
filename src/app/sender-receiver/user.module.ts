@@ -1,10 +1,7 @@
 import { CommonFunctionalityModule } from './../common/common.module';
 import { NgModule } from '@angular/core';
-import { PopularGiftsComponent } from './popular-gifts/popular-gifts.component';
-import { NewGiftsComponent } from './new-gifts/new-gifts.component';
 import { GiftDetailsComponent } from './gift-details/gift-details.component';
 import { GiveAGiftComponent } from './give-a-gift/give-a-gift.component';
-import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { GiftReviewComponent } from './gift-review/gift-review.component';
 import { SenderReceiverRoutingModule } from './user-routes.module';
 import { MaterialModule } from '../common/material.module';
@@ -17,11 +14,15 @@ import { UserOrdersComponent } from './user-orders/user-orders.component';
 import { GiftsReceivedComponent } from './gifts-received/gifts-received.component';
 
 @NgModule({
-  declarations: [PopularGiftsComponent,
-    NewGiftsComponent, GiftDetailsComponent, GiveAGiftComponent,
-    ProfilePageComponent, GiftReviewComponent,
-    ReceiverDetailsComponent, GetPointsComponent, FeedbackFormComponent,
-    OrderHistoryComponent, UserOrdersComponent, GiftsReceivedComponent
+  declarations: [ GiftDetailsComponent,
+    GiveAGiftComponent,
+    GiftReviewComponent,
+    ReceiverDetailsComponent,
+    GetPointsComponent,
+    FeedbackFormComponent,
+    OrderHistoryComponent,
+    UserOrdersComponent,
+    GiftsReceivedComponent
   ],
   imports: [
     CommonFunctionalityModule, SenderReceiverRoutingModule, MaterialModule, CommonModule
