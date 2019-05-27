@@ -30,7 +30,6 @@ export class ManageUsersComponent implements OnInit, OnDestroy {
   constructor(private fbService: FirebaseService) { }
 
   public ngOnInit(): void {
-
     this.subscriptions.push(
       this.fbService.getAllUsersFromFirebase().subscribe(list => {
         this.allUsersArray = list.map(item => {
