@@ -10,7 +10,7 @@
     position: relative;
     animation-name: example;
     animation-duration: 4s;
-    font-size: 40px;
+    font-size: 24px;
 }
 
 .flag {
@@ -74,7 +74,7 @@ mat-toolbar ul:last-of-type li:last-of-type a {
     font-weight: bold;
 }
 button, b, li{
-    font-size: 20px;
+    font-size: 14px;
     font-family: Georgia ;
 }
 
@@ -87,15 +87,16 @@ button:hover {
     cursor: pointer;
 }
 a {
-    font-size: 25px;
+    font-size: 16px;
 }
 mat-toolbar {
     background-color: #B00020;
     padding-right: 5%;
     padding-top: 1%;
+    height: 50px;
 }
 span {
     color: #fff;
     cursor: pointer;
-    font-size: 25px;
+    font-size: 16px;
 }

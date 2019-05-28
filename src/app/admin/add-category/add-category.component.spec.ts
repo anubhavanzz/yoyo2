@@ -73,7 +73,7 @@ describe('AddCategoryComponent', () => {
     fixture = TestBed.createComponent(AddCategoryComponent);
     component = fixture.componentInstance;
     component.categories = [];
-    // fixture.detectChanges();
+    fixture.detectChanges();
   });
 
   afterAll(() => {

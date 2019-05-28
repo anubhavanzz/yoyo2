@@ -7,11 +7,11 @@
       <span class="name">
         {{giftCard.name}}
       </span><br/>
-      <span *ngFor="let stars of starCount">
+      <span class="star" *ngFor="let stars of starCount">
           <span class="fa fa-star" [ngClass]="stars ? stars: ''"></span>
       </span>
       <br/>
-        <span>Brand : {{giftCard.brand}}</span>
+        <span class="brand">Brand : {{giftCard.brand}}</span>
 
     </div> <br/>
     

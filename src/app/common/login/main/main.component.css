@@ -16,23 +16,23 @@ img {
 .first-heading {
    font-family: 'Brush Script MT';
    font-weight: bold;
-   font-size : 45px;
+   font-size : 26px;
    color: #B00020
 }
 .second-heading {
     margin-top: 10%;
     font-weight: bold;
-    font-size : 35px;
+    font-size : 18px;
     color: #B00020
 }
 * {
-    font-size : 25px
+    font-size : 16px
 }
 h2 {
     width: 30%;  
     color: #B00020;
     font-family: 'Brush Script MT';
-    font-size: 45px;
+    font-size: 24px;
     font-weight: bolder;
     padding-left: 2%;
 }

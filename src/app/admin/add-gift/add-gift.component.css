@@ -10,16 +10,17 @@
 width: 100px;
 }  
 
-
 mat-toolbar{
   color: azure;
   background-color: #B00020;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Georgia';
   font-weight: 200;
 }
-
+h4 {
+  font-family: 'Georgia';
+}
 .example-full-width{
-  width: 500px;
+  width: 250px;
   /* width: 100%; */
 }
 input:not([type]):focus:not([readonly]){
@@ -51,7 +52,7 @@ span {
 }
 button {
   margin-top: 5%;
-  font-size: 30px;
+  font-size: 24px;
   color: #B00020;
   background-color: white;
   font-family: Georgia;

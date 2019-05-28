@@ -1,6 +1,8 @@
 example-container {
   display: flex;
   flex-direction: column;
+  font-family: Georgia;
+  font-size: 12px;
 }
 
 .example-container {
@@ -23,7 +25,7 @@ example-container {
 
 .example-card {
   max-width: 400px;
-  border-radius: 15px;
+  border-radius: 8px;
 }
 
 .example-header-image {
@@ -36,17 +38,17 @@ input {
 }
 
 .image {
-  margin-top: 0px !important;
-  height: 500px;
-  width: 100%;
-  max-height: 200px;
-
+  margin-top: -7px !important;
+  height: 130px;
+  width: 110%;
+  /* max-height: 200px; */
 }
 
 tr,
 td {
   text-align: center;
   display: block;
+  padding: 0px 0px;
 }
 
 .cardContent {
@@ -59,9 +61,16 @@ td {
 .points,
 .checked {
   color: #B00020;
+  font-size: 12px;
+  font-family: Georgia;
+}
+.star,
+.brand {
+  font-size: 10px;
+  font-family: Georgia;
 }
 
 .details {
   font-family: Georgia;
-  font-size: 25px;
+  font-size: 9px;
 }

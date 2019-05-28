@@ -3,7 +3,7 @@ table {
   }
 
   th {
-    font-size: 25px;
+    font-size: 16px;
     font-family: 'Georgia';
     color:white; 
     background-color: #B00020;
@@ -11,6 +11,6 @@ table {
   
   td {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 20px;
+    font-size: 16px;
   }
   

@@ -9,13 +9,13 @@ mat-expansion-panel {
 }
 .description {
     margin-bottom: 2%;
-    font-size: 25px;
+    font-size: 14px;
 }
 .stars {
     margin-left: 5%;
 }
 .name {
     margin-bottom: 1%;
-    font-size: 25px;
+    font-size: 14px;
     font-weight: bold;
 }

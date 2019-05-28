@@ -29,19 +29,19 @@ header h1 {
 header p {
   width: 40%;
   font-family: 'Brush Script MT';
-  font-size: 35px;
+  font-size: 24px;
 }
 
 header a {
-  font-size: 20px;
+  font-size: 12px;
   font-weight: bold;
 }
 
 header img {
   top: 600px;
   position: absolute;
-  width: 700px;
-  height: 550px;
+  width: 400px;
+  height: 350px;
   right: 10%;
   display: block;
   z-index: 0;

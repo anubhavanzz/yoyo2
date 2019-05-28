@@ -2,7 +2,7 @@ table {
   width: 100%;
 }
 
-h2 {
+h4 {
   font-family: 'Brush Script MT';
   color: #B00020;
   padding-left: 5%;
@@ -13,7 +13,7 @@ input {
 }
 
 .fa {
-  font-size: 30px;
+  font-size: 16px;
   padding-right: 10%;
 }
 
@@ -31,7 +31,7 @@ button {
   color: #B00020;
   background-color: white;
   font-family: Georgia;
-  font-size : 20px;
+  font-size : 12px;
 }
 
 button:hover {
@@ -39,10 +39,10 @@ button:hover {
   background-color: #B00020; 
 }
 input, td {
-  font-size : 20px;
+  font-size : 12px;
   font-family: Georgia;
 }
 th {
-  font-size : 25px;
+  font-size : 14px;
   font-family: Georgia;
 }

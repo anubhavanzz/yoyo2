@@ -1,8 +1,8 @@
-<h2>
+<h4>
   All Users
-</h2>
+</h4>
 <mat-card>
-  <h4>Users Registered</h4>
+  <h6>Users Registered</h6>
   <mat-card>
     <div *ngIf="usersArray">
       <app-material-table [tableDataSource]="usersArray" [columns]="matTableColumns" [displayedColumns]="displayedColumns">
@@ -10,7 +10,7 @@
     </div>
   </mat-card>
   
-  <h4>Admins Registered</h4>
+  <h6>Admins Registered</h6>
   <mat-card>
     <div *ngIf="usersArray">
       <app-material-table [tableDataSource]="adminsArray" [columns]="matTableColumns" [displayedColumns]="displayedColumns">

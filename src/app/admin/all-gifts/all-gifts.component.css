@@ -12,13 +12,13 @@ table {
   }
   
   .mat-form-field {
-    font-size: 25px;
+    font-size: 16px;
     width: 100%;
   }
   /* .mat-form-field[_ngcontent-c14] */
   
   th {
-    font-size: 25px;
+    font-size: 16px;
     font-family: 'Georgia';
     color:white; 
     background-color: #B00020
@@ -26,15 +26,15 @@ table {
   
   td {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 25px;
+    font-size: 16px;
   }
-  h2{
+  h4{
     font-family: 'Brush Script MT';
     color: #B00020;
     padding-left: 5%;
   }
   .fa {
-    font-size: 30px;
+    font-size: 18px;
     padding-right: 10%;
   }
   
@@ -43,7 +43,7 @@ table {
   }
   button {
     margin-top: 5%;
-    font-size: 30px;
+    font-size: 18px;
     color: #B00020;
     background-color: white;
     font-family: Georgia;
@@ -73,7 +73,7 @@ table {
   .filter {
     background-color: #fff;
     color: #B00020;
-    font-size: 20px;
+    font-size: 12px;
   }
 
   .mat-sort-header-stem {

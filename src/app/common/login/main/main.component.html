@@ -19,10 +19,10 @@
 
   <h2 translate>Main.Categories</h2>
 <div class="row">
-  <div class="col-lg-3">
+  <div class="col-lg-4">
     <app-category-list (categoryType)="changeCategoryType($event); giftlist.getGifts($event);"></app-category-list>
   </div>
-    <div class="col-lg-9">
+    <div class="col-lg-8">
     <app-gift-list #giftlist [hidden]="categoryType==='All'" [categories]="true" [filterType]="'category'" [categoryType]="categoryType"></app-gift-list>
     <app-gift-list *ngIf="(!categoryType || categoryType === 'All')" [categories]="true"  [filterType]="'all'"></app-gift-list>
   </div>

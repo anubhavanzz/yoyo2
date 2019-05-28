@@ -1,5 +1,5 @@
 .zoom {
-    padding: 50px;
+    padding: 28px;
     /* background-color: green; */
     transition: transform .2s; /* Animation */
     width: 600px;
@@ -28,16 +28,16 @@ mat-card {
     color : #B00020;
     background-color: #ffffff;
     padding: 25px 0 25px 0;
-    font-size: 25px;
+    font-size: 14px;
   }
   .name {
     color : #B00020;
-    font-size: 30px;
+    font-size: 16px;
     font-weight: bold;
   }
   .title {
     font-weight: bold;
   }
   span {
-    font-size: 25px;
+    font-size: 14px;
   }
