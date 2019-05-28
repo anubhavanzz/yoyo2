@@ -1,8 +1,8 @@
 example-container {
   display: flex;
   flex-direction: column;
-  font-family: Georgia;
   font-size: 12px;
+  font-family: Georgia;
 }
 
 .example-container {
@@ -52,8 +52,9 @@ td {
 }
 
 .cardContent {
-  text-align: center;
-  width: 100%
+  /* text-align: center; */
+  width: 100%;
+  /* padding-right: -10%; */
     /* display: block; */
 }
 
