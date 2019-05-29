@@ -5,6 +5,7 @@ import { MatListModule } from '@angular/material';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('CategoryListComponent', () => {
   let component: CategoryListComponent;
@@ -26,7 +27,8 @@ describe('CategoryListComponent', () => {
         }),
         AngularFireDatabaseModule,
         AngularFireAuthModule,
-      ]
+      ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));

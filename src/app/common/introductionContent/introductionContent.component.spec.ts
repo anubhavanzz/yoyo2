@@ -4,7 +4,15 @@ import { IntroductionContentComponent } from './introductionContent.component';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
-
+import { TranslateService } from '@ngx-translate/core';
+class MockService {
+  public getDefaultLang(): string {
+    return 'en';
+  }
+  public setDefaultLang(lang: string): string {
+    return lang;
+  }
+}
 describe('IntroductionContentComponent', () => {
   let component: IntroductionContentComponent;
   let fixture: ComponentFixture<IntroductionContentComponent>;
@@ -24,6 +32,9 @@ describe('IntroductionContentComponent', () => {
         }),
         AngularFireDatabaseModule,
         AngularFireAuthModule
+      ],
+      providers: [
+        { provide: TranslateService, useClass: MockService }
       ]
     })
     .compileComponents();

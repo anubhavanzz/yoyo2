@@ -2,13 +2,14 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AllGiftsComponent } from './all-gifts.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule, MatTableModule, MatPaginatorModule, MatInputModule } from '@angular/material';
+import { MatFormFieldModule, MatTableModule, MatPaginatorModule, MatInputModule, MatCardModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { ToastrModule } from 'ngx-toastr';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { NO_ERRORS_SCHEMA } from '@angular/compiler/src/core';
 
 describe('AllGiftsComponent', () => {
   let component: AllGiftsComponent;
@@ -17,6 +18,7 @@ describe('AllGiftsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AllGiftsComponent ],
+      // schemas: [NO_ERRORS_SCHEMA],
       imports: [
         FormsModule,
         NoopAnimationsModule,
@@ -25,6 +27,7 @@ describe('AllGiftsComponent', () => {
         MatTableModule,
         MatPaginatorModule,
         MatInputModule,
+        MatCardModule,
         RouterModule.forRoot([]),
         AngularFireModule.initializeApp({
           apiKey: 'AIzaSyC4O9LJigZttUlVbxpKJwrta3UmcRZp1Zg',
@@ -39,6 +42,9 @@ describe('AllGiftsComponent', () => {
         AngularFireAuthModule,
         ToastrModule.forRoot(),
         MatFormFieldModule
+      ],
+      providers: [
+        // { provide: Store, useClass: MockService },
       ]
     })
     .compileComponents();

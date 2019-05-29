@@ -3,14 +3,21 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { NavComponent } from './common/nav/nav.component';
 import { FooterComponent } from './common/footer/footer.component';
-import { MatMenuModule, MatInputModule } from '@angular/material';
+import { MatMenuModule, MatInputModule, MatToolbarModule } from '@angular/material';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import {MatListModule} from '@angular/material/list';
 import { Store } from '@ngrx/store';
+import { TranslateService } from '@ngx-translate/core';
 class MockService {
   public select() {}
+  public getDefaultLang(): string {
+    return 'en';
+  }
+  public setDefaultLang(lang: string): string {
+    return lang;
+  }
 }
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -19,6 +26,7 @@ describe('AppComponent', () => {
         RouterTestingModule,
         MatMenuModule,
         MatListModule,
+        MatToolbarModule,
         AngularFireModule.initializeApp({
           apiKey: 'AIzaSyC4O9LJigZttUlVbxpKJwrta3UmcRZp1Zg',
           authDomain: 'yoyogift-e2fb7.firebaseapp.com',
@@ -36,6 +44,7 @@ describe('AppComponent', () => {
       ],
       providers: [
         { provide: Store, useClass: MockService },
+        { provide: TranslateService, useClass: MockService }
       ]
     }).compileComponents();
   }));
