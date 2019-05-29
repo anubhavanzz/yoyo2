@@ -14,6 +14,9 @@ import { ToastrService } from 'ngx-toastr';
 import { GiftDetailDispatcher } from '../store/gift-details-store/gift-details.dispatcher';
 import { Store } from '@ngrx/store';
 import { Observable, from as observableFrom  } from 'rxjs';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+
 class MockService {
   public select(mapFn: any, ...paths: string[]): Observable<any> {
     const val = {
@@ -25,6 +28,12 @@ class MockService {
     return observableFrom([val]);
   }
   public dispatch(): any {}
+  public getDefaultLang(): string {
+    return 'en';
+  }
+  public setDefaultLang(lang: string): string {
+    return lang;
+  }
 }
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -55,7 +64,9 @@ describe('HomeComponent', () => {
         AngularFireDatabaseModule,
         AngularFireAuthModule
       ],
+      schemas: [NO_ERRORS_SCHEMA],
       providers: [ToastrService, GiftDetailDispatcher,
+        { provide: TranslateService, useClass: MockService },
         { provide: Store, useClass: MockService },
       ]
     })

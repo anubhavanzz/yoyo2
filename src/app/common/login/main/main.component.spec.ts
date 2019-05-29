@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { MainComponent } from './main.component';
 import { MatListModule, MatCardModule } from '@angular/material';
 import { GiftListComponent } from '../../gift-list/gift-list.component';
@@ -12,6 +12,7 @@ import { Observable, from as observableFrom } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { GiftDetailDispatcher } from '../../store/gift-details-store/gift-details.dispatcher';
 import { Store } from '@ngrx/store';
+import { TranslateService } from '@ngx-translate/core';
 class MockService {
   public select(mapFn: any, ...paths: string[]): Observable<any> {
     const val = {
@@ -23,6 +24,12 @@ class MockService {
     return observableFrom([val]);
   }
   public dispatch(): any {}
+  public getDefaultLang(): string {
+    return 'en';
+  }
+  public setDefaultLang(lang: string): string {
+    return lang;
+  }
 }
 describe('MainComponent', () => {
   let component: MainComponent;
@@ -36,6 +43,7 @@ describe('MainComponent', () => {
         CategoryListComponent,
         GiftCardComponent
       ],
+      schemas: [NO_ERRORS_SCHEMA],
       imports: [
         MatListModule,
         MatCardModule,
@@ -54,6 +62,7 @@ describe('MainComponent', () => {
       providers: [
         GiftDetailDispatcher,
         { provide: Store, useClass: MockService },
+        { provide: TranslateService, useClass: MockService }
       ]
     })
     .compileComponents();

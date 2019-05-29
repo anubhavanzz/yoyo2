@@ -6,7 +6,29 @@ import { MatMenuModule } from '@angular/material';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { Store } from '@ngrx/store';
+import { Observable, from as observableFrom } from 'rxjs';
 
+import { TranslateService } from '@ngx-translate/core';
+import { RouterModule } from '@angular/router';
+class MockService {
+  public select(mapFn: any, ...paths: string[]): Observable<any> {
+    const val = {
+      globalState: {
+        transactionInitState: '',
+        accountAmountState: ''
+      }
+    };
+    return observableFrom([val]);
+  }
+  public dispatch(): any {}
+  public getDefaultLang(): string {
+    return 'en';
+  }
+  public setDefaultLang(lang: string): string {
+    return lang;
+  }
+}
 describe('NavComponent', () => {
   let component: NavComponent;
   let fixture: ComponentFixture<NavComponent>;
@@ -16,6 +38,7 @@ describe('NavComponent', () => {
       declarations: [ NavComponent ],
       imports: [
         MatMenuModule,
+        RouterModule.forRoot([]),
         AngularFireModule.initializeApp({
           apiKey: 'AIzaSyC4O9LJigZttUlVbxpKJwrta3UmcRZp1Zg',
           authDomain: 'yoyogift-e2fb7.firebaseapp.com',
@@ -29,6 +52,10 @@ describe('NavComponent', () => {
         AngularFireAuthModule
       ],
       schemas: [NO_ERRORS_SCHEMA],
+      providers: [
+        { provide: Store, useClass: MockService },
+        { provide: TranslateService, useClass: MockService }
+      ]
     })
     .compileComponents();
   }));
