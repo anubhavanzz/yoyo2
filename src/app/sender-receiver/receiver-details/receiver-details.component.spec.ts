@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ReceiverDetailsComponent } from './receiver-details.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule, MatIconModule, MatDialogModule, MatDialogRef } from '@angular/material';
 
 describe('ReceiverDetailsComponent', () => {
   let component: ReceiverDetailsComponent;
@@ -8,7 +10,14 @@ describe('ReceiverDetailsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ReceiverDetailsComponent ]
+      declarations: [ ReceiverDetailsComponent ],
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatIconModule,
+        MatDialogModule,
+      ]
     })
     .compileComponents();
   }));

@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FeedbackFormComponent } from './feedback-form.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { MatDialogModule, MatDialogRef } from '@angular/material';
 
 describe('FeedbackFormComponent', () => {
   let component: FeedbackFormComponent;
@@ -8,7 +10,14 @@ describe('FeedbackFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FeedbackFormComponent ]
+      imports: [
+        MatDialogModule
+      ],
+      declarations: [ FeedbackFormComponent ],
+      schemas: [NO_ERRORS_SCHEMA],
+      providers: [
+        { provide: MatDialogRef, useValue: {} }
+      ]
     })
     .compileComponents();
   }));
